@@ -1,0 +1,15 @@
+---
+title: "pyodide-enabled Python code cells"
+format: html
+engine: knitr
+filters:
+- pyodide
+---
+
+## Demo
+
+pyodide-enabled code cell are established by using `{pyodide-python}` in a Quarto HTML document.
+
+```{pyodide-python}
+1 + 1
+```
