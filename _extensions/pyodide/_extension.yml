@@ -1,8 +1,0 @@
-title: pyodide
-author: James Joseph Balamuta
-version: 0.0.1-dev
-quarto-required: ">=1.4.300"
-contributes:
-  filters:
-    - pyodide.lua
-
