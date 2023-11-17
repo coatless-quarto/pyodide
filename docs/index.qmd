@@ -2,7 +2,6 @@
 title: Greetings from quarto-pyodide Wonderland!
 subtitle: Empowering Your Quarto Documents with Python through Pyodide
 format: html
-engine: knitr
 filters:
   - pyodide
 ---
