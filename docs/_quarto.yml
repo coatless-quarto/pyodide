@@ -7,7 +7,7 @@ website:
   repo-url: https://github.com/coatless-quarto/pyodide
   repo-actions: [edit, issue]
   repo-subdir: "docs"
-  google-analytics: "G-S8CXP9TZG0"
+  google-analytics: "G-ZV56KS59C3"
   sidebar:
     style: "floating"
     search: true
