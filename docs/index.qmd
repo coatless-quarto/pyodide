@@ -1,0 +1,24 @@
+---
+title: Greetings from quarto-pyodide Wonderland!
+subtitle: Empowering Your Quarto Documents with Python through Pyodide
+format: html
+engine: knitr
+filters:
+  - webr
+---
+
+Welcome to the documentation portal for the [`quarto-pyodide`](https://github.com/coatless-quarto/pyodide) extension – your key to unlocking the endless possibilities of [pyodide](https://pyodide.org/en/stable/) within various [Quarto](https://quarto.org/) formats, including [HTML](https://quarto.org/docs/output-formats/html-basics.html), [RevealJS](https://quarto.org/docs/presentations/revealjs/), [Websites](https://quarto.org/docs/websites/), [Blogs](https://quarto.org/docs/websites/website-blog.html), and [Books](https://quarto.org/docs/books). 
+
+Ready for an exciting journey into the world of Pyodide's interactive code cells? Click the "Run Code" button below to experience it firsthand:
+
+```{pyodide-python}
+# Welcome to Python!
+
+print("Hello, Quarto-Pyodide!")
+print("You've just entered the world of Python programming.")
+print("Let's start coding and exploring the amazing possibilities!")
+
+# Feel free to add your own code below and have fun with Python!
+```
+
+At its core, the [`quarto-pyodide` extension](https://github.com/coatless-quarto/pyodide) is designed to empower you to run _Python_ code directly in your web browser using familiar reporting tools, all without the need for an external Python server.  Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. However, it's worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using [Pyodide's JavaScript API](https://pyodide.org/en/stable/), granting you unparalleled freedom to harness the power of Python in innovative ways.

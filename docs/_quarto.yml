@@ -1,0 +1,37 @@
+project:
+  type: website
+
+website:
+  title: "quarto-pyodide"
+  reader-mode: true
+  repo-url: https://github.com/coatless-quarto/pyodide
+  repo-actions: [edit, issue]
+  repo-subdir: "docs"
+  google-analytics: "G-S8CXP9TZG0"
+  sidebar:
+    style: "floating"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/coatless-quarto/pyodide/
+    contents:
+      - section: "Getting Started"
+      - section: "Support"
+        contents:
+          - href: https://github.com/coatless-quarto/pyodide/issues/new
+            text: Submit an issue
+      - section: "Demos"
+        contents:
+          - href: https://quarto.thecoatlessprofessor.com/pyodide/examples/readme/
+            text: README Example
+      - section: "Extra Information"
+        contents:
+          - href: qpyodide-release-notes.qmd
+            text: Release Notes
+          - href: https://quarto.thecoatlessprofessor.com/pyodide/tests/
+            text: Test Suite
+
+format:
+  html:
+    theme: cosmo
+    toc: true
