@@ -1,5 +1,54 @@
 [
   {
+    "objectID": "qpyodide-code-cell-demo.html",
+    "href": "qpyodide-code-cell-demo.html",
+    "title": "Python Interactive Code Cells",
+    "section": "",
+    "text": "Welcome to the world of interactive code cells, unlocked by the quarto-pyodide extension. These cells allow you to run Python code directly within your Quarto HTML documents, enabling real-time computations and more. Let’s explore the impressive capabilities pyodide offers.\npyodide-enabled code cell are established by using {pyodide-python} in a Quarto HTML document."
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#sample-calculations",
+    "href": "qpyodide-code-cell-demo.html#sample-calculations",
+    "title": "Python Interactive Code Cells",
+    "section": "Sample Calculations",
+    "text": "Sample Calculations\nLet’s start off with a quick calculation\n1 + 1"
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#strings",
+    "href": "qpyodide-code-cell-demo.html#strings",
+    "title": "Python Interactive Code Cells",
+    "section": "Strings",
+    "text": "Strings\nViewing string data\ngreet = 'Hello'\ngreet"
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
+    "href": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
+    "title": "Python Interactive Code Cells",
+    "section": "Retrieving prior objects",
+    "text": "Retrieving prior objects\nChecking string length\nlen(greet)\nNotice, we’re able to track the run value of code."
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#define-and-call-functions",
+    "href": "qpyodide-code-cell-demo.html#define-and-call-functions",
+    "title": "Python Interactive Code Cells",
+    "section": "Define and Call Functions",
+    "text": "Define and Call Functions\nFunctions can be defined in one cell and called.\ndef square(x):\n    return x**2\n\nsquare(8)\nSimilarly, they persist to other cells.\nnum_list = [1, 2, 3]\n[square(num)for num in num_list]"
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#load-a-package",
+    "href": "qpyodide-code-cell-demo.html#load-a-package",
+    "title": "Python Interactive Code Cells",
+    "section": "Load a package",
+    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf\nimport pandas as pd \n\ndf.Age"
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#graphing",
+    "href": "qpyodide-code-cell-demo.html#graphing",
+    "title": "Python Interactive Code Cells",
+    "section": "Graphing",
+    "text": "Graphing\n\n\n\n\n\n\nImportant\n\n\n\nGraphing is not yet available."
+  },
+  {
     "objectID": "qpyodide-release-notes.html",
     "href": "qpyodide-release-notes.html",
     "title": "Release Notes",
@@ -20,6 +69,13 @@
       "Extra Information",
       "Release Notes"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Greetings from quarto-pyodide Wonderland!",
+    "section": "",
+    "text": "Welcome to the documentation portal for the quarto-pyodide extension – your key to unlocking the endless possibilities of pyodide within various Quarto formats, including HTML, RevealJS, Websites, Blogs, and Books.\nReady for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:\n# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!\nAt its core, the quarto-pyodide extension is designed to empower you to run Python code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. However, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using Pyodide’s JavaScript API, granting you unparalleled freedom to harness the power of Python in innovative ways."
   },
   {
     "objectID": "qpyodide-acknowledgements.html",
@@ -75,61 +131,5 @@
       "Extra Information",
       "Acknowledgements"
     ]
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html",
-    "href": "qpyodide-code-cell-demo.html",
-    "title": "Python Interactive Code Cells",
-    "section": "",
-    "text": "Welcome to the world of interactive code cells, unlocked by the quarto-pyodide extension. These cells allow you to run Python code directly within your Quarto HTML documents, enabling real-time computations and more. Let’s explore the impressive capabilities pyodide offers.\npyodide-enabled code cell are established by using {pyodide-python} in a Quarto HTML document."
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html#sample-calculations",
-    "href": "qpyodide-code-cell-demo.html#sample-calculations",
-    "title": "Python Interactive Code Cells",
-    "section": "Sample Calculations",
-    "text": "Sample Calculations\nLet’s start off with a quick calculation\n1 + 1"
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html#strings",
-    "href": "qpyodide-code-cell-demo.html#strings",
-    "title": "Python Interactive Code Cells",
-    "section": "Strings",
-    "text": "Strings\nViewing string data\ngreet = 'Hello'\ngreet"
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
-    "href": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
-    "title": "Python Interactive Code Cells",
-    "section": "Retrieving prior objects",
-    "text": "Retrieving prior objects\nChecking string length\nlen(greet)\nNotice, we’re able to track the run value of code."
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html#define-and-call-functions",
-    "href": "qpyodide-code-cell-demo.html#define-and-call-functions",
-    "title": "Python Interactive Code Cells",
-    "section": "Define and Call Functions",
-    "text": "Define and Call Functions\nFunctions can be defined in one cell and called.\ndef square(x):\n    return x**2\n\nsquare(8)\nSimilarly, they persist to other cells.\nnum_list = [1, 2, 3]\n[square(num)for num in num_list]"
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html#load-a-package",
-    "href": "qpyodide-code-cell-demo.html#load-a-package",
-    "title": "Python Interactive Code Cells",
-    "section": "Load a package",
-    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf\nimport pandas as pd \n\ndf.Age"
-  },
-  {
-    "objectID": "qpyodide-code-cell-demo.html#graphing",
-    "href": "qpyodide-code-cell-demo.html#graphing",
-    "title": "Python Interactive Code Cells",
-    "section": "Graphing",
-    "text": "Graphing\n\n\n\n\n\n\nImportant\n\n\n\nGraphing is not yet available."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Greetings from quarto-pyodide Wonderland!",
-    "section": "",
-    "text": "Welcome to the documentation portal for the quarto-pyodide extension – your key to unlocking the endless possibilities of pyodide within various Quarto formats, including HTML, RevealJS, Websites, Blogs, and Books.\nReady for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:\n# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!\nAt its core, the quarto-pyodide extension is designed to empower you to run Python code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. However, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using Pyodide’s JavaScript API, granting you unparalleled freedom to harness the power of Python in innovative ways."
   }
 ]
