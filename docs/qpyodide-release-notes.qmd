@@ -1,0 +1,15 @@
+---
+title: "Release Notes"
+date: "08-12-2023"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# 0.0.1: ???? (??-??-????) [DEV]
+
+## Features
+
+- Enable [pyodide](https://pyodide.org/en/stable/) code cells for Python inside of a Quarto document.

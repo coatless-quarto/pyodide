@@ -28,6 +28,8 @@ website:
         contents:
           - href: qpyodide-release-notes.qmd
             text: Release Notes
+          - href: qpyodide-acknowledgements.md
+            text: Acknowledgements
           - href: https://quarto.thecoatlessprofessor.com/pyodide/tests/
             text: Test Suite
 
