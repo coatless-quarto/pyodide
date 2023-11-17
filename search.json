@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "qpyodide-release-notes.html",
+    "href": "qpyodide-release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#features",
+    "href": "qpyodide-release-notes.html#features",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-acknowledgements.html",
+    "href": "qpyodide-acknowledgements.html",
+    "title": "Acknowledgments and Collaborations",
+    "section": "",
+    "text": "We would like to express our heartfelt gratitude to several individuals and teams who played a pivotal role in bringing quarto-pyodide to life as an extension for Quarto. Without their dedication and contributions, this project would not have been possible.",
+    "crumbs": [
+      "Extra Information",
+      "Acknowledgements"
+    ]
+  },
+  {
+    "objectID": "qpyodide-acknowledgements.html#quarto-pyodide-extension-developers",
+    "href": "qpyodide-acknowledgements.html#quarto-pyodide-extension-developers",
+    "title": "Acknowledgments and Collaborations",
+    "section": "quarto-pyodide Extension Developers",
+    "text": "quarto-pyodide Extension Developers\n\nJames Joseph Balamuta",
+    "crumbs": [
+      "Extra Information",
+      "Acknowledgements"
+    ]
+  },
+  {
+    "objectID": "qpyodide-acknowledgements.html#pyodide-developers",
+    "href": "qpyodide-acknowledgements.html#pyodide-developers",
+    "title": "Acknowledgments and Collaborations",
+    "section": "pyodide Developers",
+    "text": "pyodide Developers\n\nMichael Droettboom\nPyodide Contributors",
+    "crumbs": [
+      "Extra Information",
+      "Acknowledgements"
+    ]
+  },
+  {
+    "objectID": "qpyodide-acknowledgements.html#quarto-team-assistance",
+    "href": "qpyodide-acknowledgements.html#quarto-team-assistance",
+    "title": "Acknowledgments and Collaborations",
+    "section": "Quarto Team Assistance",
+    "text": "Quarto Team Assistance\nWe would like to acknowledge the Quarto team for their assistance.",
+    "crumbs": [
+      "Extra Information",
+      "Acknowledgements"
+    ]
+  },
+  {
+    "objectID": "qpyodide-acknowledgements.html#inspirations",
+    "href": "qpyodide-acknowledgements.html#inspirations",
+    "title": "Acknowledgments and Collaborations",
+    "section": "Inspirations",
+    "text": "Inspirations\nOur project built upon the initial proof of concept for a standalone Quarto HTML document, made possible by the work of the coatless-r-n-d/pyodide-quarto-demo repository.\nWe would also like to thank George Stagg and his work on webR, which greatly contributed to moving forward with the quarto-webr extension that allowed interactive R code inside of Quarto.",
+    "crumbs": [
+      "Extra Information",
+      "Acknowledgements"
+    ]
+  },
+  {
     "objectID": "qpyodide-code-cell-demo.html",
     "href": "qpyodide-code-cell-demo.html",
     "title": "Python Interactive Code Cells",

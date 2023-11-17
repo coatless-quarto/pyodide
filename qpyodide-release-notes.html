@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="James Balamuta">
-<meta name="dcterms.date" content="2023-08-08">
+<meta name="dcterms.date" content="2023-08-12">
 
-<title>quarto-pyodide - Python Interactive Code Cells</title>
+<title>quarto-pyodide - Release Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -123,9 +88,7 @@ gtag('config', 'G-S8CXP9TZG0', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      quarto-pyodide
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-release-notes.html">Extra Information</a></li><li class="breadcrumb-item"><a href="./qpyodide-release-notes.html">Release Notes</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -207,7 +170,7 @@ gtag('config', 'G-S8CXP9TZG0', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-release-notes.html" class="sidebar-item-text sidebar-link">
+  <a href="./qpyodide-release-notes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Release Notes</span></a>
   </div>
 </li>
@@ -235,46 +198,39 @@ gtag('config', 'G-S8CXP9TZG0', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#creating-pyodide-enabled-code-cells" id="toc-creating-pyodide-enabled-code-cells" class="nav-link active" data-scroll-target="#creating-pyodide-enabled-code-cells">Creating pyodide-Enabled Code Cells</a></li>
-  <li><a href="#sample-use-cases" id="toc-sample-use-cases" class="nav-link" data-scroll-target="#sample-use-cases">Sample Use Cases</a>
+  <li><a href="#dev" id="toc-dev" class="nav-link active" data-scroll-target="#dev">0.0.1: ???? (??-??-????) [DEV]</a>
   <ul class="collapse">
-  <li><a href="#sample-calculations" id="toc-sample-calculations" class="nav-link" data-scroll-target="#sample-calculations">Sample Calculations</a></li>
-  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings">Strings</a></li>
-  <li><a href="#retrieving-prior-objects" id="toc-retrieving-prior-objects" class="nav-link" data-scroll-target="#retrieving-prior-objects">Retrieving prior objects</a></li>
-  <li><a href="#define-and-call-functions" id="toc-define-and-call-functions" class="nav-link" data-scroll-target="#define-and-call-functions">Define and Call Functions</a></li>
-  <li><a href="#load-a-package" id="toc-load-a-package" class="nav-link" data-scroll-target="#load-a-package">Load a package</a></li>
-  <li><a href="#graphing" id="toc-graphing" class="nav-link" data-scroll-target="#graphing">Graphing</a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-code-cell-demo.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-release-notes.html">Extra Information</a></li><li class="breadcrumb-item"><a href="./qpyodide-release-notes.html">Release Notes</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Python Interactive Code Cells</h1>
-<p class="subtitle lead">Demos showing interactive use cases of Python in Your Quarto Documents</p>
+<h1 class="title">Release Notes</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>James Balamuta </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 8, 2023</p>
+      <p class="date">August 12, 2023</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 17, 2023</p>
+    </div>
+  </div>
     
   </div>
   
@@ -283,91 +239,13 @@ gtag('config', 'G-S8CXP9TZG0', { 'anonymize_ip': true});
 </header>
 
 
-<p>Welcome to the world of interactive code cells, unlocked by the <code>quarto-pyodide</code> extension. These cells allow you to run Python code directly within your Quarto HTML documents, enabling real-time computations and more. Let’s explore the impressive capabilities <code>pyodide</code> offers.</p>
-<p>pyodide-enabled code cell are established by using <code>{pyodide-python}</code> in a Quarto HTML document.</p>
-<section id="creating-pyodide-enabled-code-cells" class="level1">
-<h1>Creating pyodide-Enabled Code Cells</h1>
-<p>To create a pyodide-enabled code cell, simply use the <code>{pyodide-python}</code> tag in your Quarto HTML document, like this:</p>
-<pre class="{pyodide-python}"><code>1 + 1</code></pre>
-<p>For example, the code cell above, powered by <code>pyodide</code>, was generated by entering the following into the Quarto document:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{pyodide-python}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">1 + 1</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="sample-use-cases" class="level1">
-<h1>Sample Use Cases</h1>
-<p>Now, let’s delve into some practical scenarios where interactive code cells shine.</p>
-<section id="sample-calculations" class="level2">
-<h2 class="anchored" data-anchor-id="sample-calculations">Sample Calculations</h2>
-<p>Let’s start off with a quick calculation</p>
-<pre class="{pyodide-python}"><code>1 + 1</code></pre>
-</section>
-<section id="strings" class="level2">
-<h2 class="anchored" data-anchor-id="strings">Strings</h2>
-<p>Viewing string data</p>
-<pre class="{pyodide-python}"><code>greet = 'Hello'
-greet</code></pre>
-</section>
-<section id="retrieving-prior-objects" class="level2">
-<h2 class="anchored" data-anchor-id="retrieving-prior-objects">Retrieving prior objects</h2>
-<p>Checking string length</p>
-<pre class="{pyodide-python}"><code>len(greet)</code></pre>
-<p>Notice, we’re able to track the run value of code.</p>
-</section>
-<section id="define-and-call-functions" class="level2">
-<h2 class="anchored" data-anchor-id="define-and-call-functions">Define and Call Functions</h2>
-<p>Functions can be defined in one cell and called.</p>
-<pre class="{pyodide-python}"><code>def square(x):
-    return x**2
-
-square(8)</code></pre>
-<p>Similarly, they persist to other cells.</p>
-<pre class="{pyodide-python}"><code>num_list = [1, 2, 3]
-[square(num)for num in num_list]</code></pre>
-</section>
-<section id="load-a-package" class="level2">
-<h2 class="anchored" data-anchor-id="load-a-package">Load a package</h2>
-<p>We’ve enabled <em>dynamic</em> package detection to handle importing packages into the environment. The <em>dynamic</em> part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Importing a package for the first time will require more time. Subsequent import statements will be resolve quicker.</p>
-</div>
-</div>
-<pre class="{pyodide-python}"><code>import pandas as pd
-
-df = pd.DataFrame({
-  'Name': ['JJB', 'H', 'Alex', 'Steve'],
-  'Age': [18, 25, 33, 42]
-})
-
-df</code></pre>
-<pre class="{pyodide-python}"><code>import pandas as pd 
-
-df.Age</code></pre>
-</section>
-<section id="graphing" class="level2">
-<h2 class="anchored" data-anchor-id="graphing">Graphing</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Graphing is not yet available.</p>
-</div>
-</div>
+<section id="dev" class="level1">
+<h1>0.0.1: ???? (??-??-????) [DEV]</h1>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li>Enable <a href="https://pyodide.org/en/stable/">pyodide</a> code cells for Python inside of a Quarto document.</li>
+</ul>
 
 
 </section>
