@@ -1,0 +1,56 @@
+on:
+  push:
+    branches: [main, master]
+  release:
+      types: [published]
+  workflow_dispatch:
+    
+name: demo-website
+
+jobs:
+  demo-website:
+    runs-on: ubuntu-latest
+    # Only restrict concurrency for non-PR jobs
+    concurrency:
+      group: quarto-build-${{ github.event_name != 'pull_request' || github.run_id }}
+    permissions:
+      contents: write
+    steps:
+      - name: "Check out repository"
+        uses: actions/checkout@v4
+
+      - name: "Set up Quarto"
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "pre-release"
+
+      # Generate the documentation website
+      - name: Render Documentation website
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "docs"
+
+      # Attempt to render the nested deployment template Quarto projects
+      - name: Render README demo 
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "examples/readme/index.qmd"
+
+
+      # Collect the output into the staging/ directory
+      - name: Copy documentation portal & examples into the staging directory
+        run: |        
+          mkdir -p staging/{examples,tests} && \
+          cp -rp docs/_site/* staging/ && \
+          cp -rp examples/readme/ staging/examples/readme
+
+      # Remove symlinks
+      - name: Delete symlinks
+        run: |
+          rm -rf staging/examples/*/_extensions
+
+      # Publish the docs directory onto gh-pages
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: staging # The folder the action should deploy.
