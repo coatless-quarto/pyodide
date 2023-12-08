@@ -1,21 +1,20 @@
 # Pyodide Code Extension for Quarto HTML Documents
 
+**We're working on finalizing the Quarto extension. We expect this to be completed before the end of December 2023.**
+
 This extension enables an interactive Python code cell powered by [pyodide](https://pyodide.org/en/stable/) in a Quarto HTML document.
 
 > Pyodide is a Python distribution for the browser and Node.js based on WebAssembly.
 
+You can explore what is possible by checking out the proof of concept document here: 
 
-## Developer Notes
+<https://rd.thecoatlessprofessor.com/pyodide-quarto-demo/>
 
-We created the quarto extension for a filter by using: 
+Have an idea or feedback? Please let us know over in the project's issue tracker:
 
-```sh
-quarto create extension filter
-```
-
+<https://github.com/coatless-quarto/pyodide/issues>
 
 ## Acknowledgements
-
 
 For the extension, we greatly appreciated insights from: 
 
