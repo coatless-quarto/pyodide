@@ -1,5 +1,34 @@
 [
   {
+    "objectID": "qpyodide-release-notes.html",
+    "href": "qpyodide-release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#features",
+    "href": "qpyodide-release-notes.html#features",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Greetings from quarto-pyodide Wonderland!",
+    "section": "",
+    "text": "Welcome to the documentation portal for the quarto-pyodide extension – your key to unlocking the endless possibilities of pyodide within various Quarto formats, including HTML, RevealJS, Websites, Blogs, and Books.\nReady for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:\n# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!\nAt its core, the quarto-pyodide extension is designed to empower you to run Python code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. However, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using Pyodide’s JavaScript API, granting you unparalleled freedom to harness the power of Python in innovative ways."
+  },
+  {
     "objectID": "qpyodide-code-cell-demo.html",
     "href": "qpyodide-code-cell-demo.html",
     "title": "Python Interactive Code Cells",
@@ -47,35 +76,6 @@
     "title": "Python Interactive Code Cells",
     "section": "Graphing",
     "text": "Graphing\n\n\n\n\n\n\nImportant\n\n\n\nGraphing is not yet available."
-  },
-  {
-    "objectID": "qpyodide-release-notes.html",
-    "href": "qpyodide-release-notes.html",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
-    "crumbs": [
-      "Extra Information",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qpyodide-release-notes.html#features",
-    "href": "qpyodide-release-notes.html#features",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
-    "crumbs": [
-      "Extra Information",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Greetings from quarto-pyodide Wonderland!",
-    "section": "",
-    "text": "Welcome to the documentation portal for the quarto-pyodide extension – your key to unlocking the endless possibilities of pyodide within various Quarto formats, including HTML, RevealJS, Websites, Blogs, and Books.\nReady for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:\n# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!\nAt its core, the quarto-pyodide extension is designed to empower you to run Python code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. However, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using Pyodide’s JavaScript API, granting you unparalleled freedom to harness the power of Python in innovative ways."
   },
   {
     "objectID": "qpyodide-acknowledgements.html",
