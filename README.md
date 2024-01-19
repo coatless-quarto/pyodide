@@ -1,6 +1,6 @@
 # Pyodide Code Extension for Quarto HTML Documents
 
-**We're working on finalizing the Quarto extension. We expect this to be completed before the end of December 2023.**
+**We're working on finalizing the Quarto extension. We expect this to be completed shortly.**
 
 This extension enables an interactive Python code cell powered by [pyodide](https://pyodide.org/en/stable/) in a Quarto HTML document.
 
