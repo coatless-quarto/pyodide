@@ -9,11 +9,11 @@ local hasDonePyodideSetup = false
 -- https://pyodide.org/en/stable/usage/api/js-api.html#globalThis.loadPyodide
 
 -- Define a base compatibile version
-local baseVersionPyodide = "0.24.1"
+local baseVersionPyodide = "0.25.0"
 
 -- Define where Pyodide can be found. Default:
--- https://cdn.jsdelivr.net/pyodide/v0.24.1/full/
--- https://cdn.jsdelivr.net/pyodide/v0.24.1/debug/
+-- https://cdn.jsdelivr.net/pyodide/v0.25.0/full/
+-- https://cdn.jsdelivr.net/pyodide/v0.25.0/debug/
 local baseUrl = "https://cdn.jsdelivr.net/pyodide/v".. baseVersionPyodide .."/"
 local buildVariant = "full/"
 local cdnURL = baseUrl .. buildVariant
