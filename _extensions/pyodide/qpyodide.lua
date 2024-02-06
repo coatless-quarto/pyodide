@@ -1,6 +1,9 @@
 ----
 --- Setup variables for default initialization
 
+-- Define a variable to check if pyodide is present.
+local missingPyodideCell = true
+
 -- Define a variable to only include the initialization once
 local hasDonePyodideSetup = false
 
@@ -31,18 +34,80 @@ local installPythonPackagesList = "''"
 --- Setup variables for tracking number of code cells
 
 -- Define a counter variable
-local counter = 0
+local qPyodideCounter = 0
+
+-- Initialize a table to store the CodeBlock elements
+local qPyodideCapturedCodeBlocks = {}
+
+-- Initialize a table that contains the default cell-level options
+local qPyodideDefaultCellOptions = {
+  ["context"] = "interactive",
+  ["warning"] = "true",
+  ["message"] = "true",
+  ["results"] = "markup",
+  ["output"] = "true",
+  ["comment"] = "",
+  ["label"] = "",
+  ["autorun"] = "",
+  ["classes"] = "",
+  ["dpi"] = 72,
+  ["fig-cap"] = "",
+  ["fig-width"] = 7,
+  ["fig-height"] = 5,
+  ["out-width"] = "700px",
+  ["out-height"] = ""
+}
 
 ----
 --- Process initialization
 
--- Check if variable is present and not just the empty string
+-- Check if variable missing or an empty string
 local function isVariableEmpty(s)
   return s == nil or s == ''
 end
 
+-- Check if variable is present
 local function isVariablePopulated(s)
   return not isVariableEmpty(s)
+end
+
+-- Copy the top level value and its direct children
+-- Details: http://lua-users.org/wiki/CopyTable
+local function shallowcopy(original)
+  -- Determine if its a table
+  if type(original) == 'table' then
+    -- Copy the top level to remove references
+    local copy = {}
+    for key, value in pairs(original) do
+        copy[key] = value
+    end
+    -- Return the copy
+    return copy
+  else
+    -- If original is not a table, return it directly since it's already a copy
+    return original
+  end
+end
+
+-- Custom method for cloning a table with a shallow copy.
+function table.clone(original)
+  return shallowcopy(original)
+end
+
+local function mergeCellOptions(localOptions)
+  -- Copy default options to the mergedOptions table
+  local mergedOptions = table.clone(qPyodideDefaultCellOptions)
+
+  -- Override default options with local options
+  for key, value in pairs(localOptions) do
+    if type(value) == "string" then
+      value = value:gsub("[\"']", "")
+    end
+    mergedOptions[key] = value
+  end
+
+  -- Return the customized options
+  return mergedOptions
 end
 
 -- Parse the different Pyodide options set in the YAML frontmatter, e.g.
@@ -201,7 +266,6 @@ function ensurePyodideSetup()
   hasDonePyodideSetup = true
 
   local initializedConfigurationPyodide = initializationPyodide()
-  
 
   -- Insert different partial files to create a monolithic document.
   -- https://quarto.org/docs/extensions/lua-api.html#includes
@@ -228,6 +292,50 @@ function substitute_in_file(contents, substitutions)
   return contents
 end
 
+local function qPyodideJSCellInsertionCode(counter)
+  local insertionLocation = '<div id="qpyodide-insertion-location-' .. counter ..'"></div>\n'
+  local noscriptWarning = '<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>'
+  return insertionLocation .. noscriptWarning
+end
+
+-- Extract Quarto code cell options from the block's text
+local function extractCodeBlockOptions(block)
+  
+  -- Access the text aspect of the code block
+  local code = block.text
+
+  -- Define two local tables:
+  --  the block's attributes
+  --  the block's code lines
+  local cellOptions = {}
+  local newCodeLines = {}
+
+  -- Iterate over each line in the code block 
+  for line in code:gmatch("([^\r\n]*)[\r\n]?") do
+    -- Check if the line starts with "#|" and extract the key-value pairing
+    -- e.g. #| key: value goes to cellOptions[key] -> value
+    local key, value = line:match("^#|%s*(.-):%s*(.-)%s*$")
+
+    -- If a special comment is found, then add the key-value pairing to the cellOptions table
+    if key and value then
+      cellOptions[key] = value
+    else
+      -- Otherwise, it's not a special comment, keep the code line
+      table.insert(newCodeLines, line)
+    end
+  end
+
+  -- Merge cell options with default options
+  cellOptions = mergeCellOptions(cellOptions)
+
+  -- Set the codeblock text to exclude the special comments.
+  cellCode = table.concat(newCodeLines, '\n')
+
+  -- Return the code alongside options
+  return cellCode, cellOptions
+end
+
+
 
 -- Replace the code cell with a Pyodide interactive editor
 function enablePyodideCodeCell(el)
@@ -240,42 +348,57 @@ function enablePyodideCodeCell(el)
   
   -- Verify the element has attributes and the document type is HTML
   -- not sure if this will work with an epub (may need html:js)
-  if el.attr and quarto.doc.is_format("html") then
-
-    -- Check for the new engine syntax that allows for the cell to be 
-    -- evaluated in VS Code or RStudio editor views, c.f.
-    -- https://github.com/quarto-dev/quarto-cli/discussions/4761#discussioncomment-5336636    
-    if el.attr.classes:includes("{pyodide-python}") then
-      
-      -- Make sure we've initialized the code block
-      ensurePyodideSetup()
-
-      -- Modify the counter variable each time this is run to create
-      -- unique code cells
-      counter = counter + 1
-      
-      -- 7 is the default height and width for knitr. But, that doesn't translate to pixels.
-      -- So, we have 504 and 360 respectively.
-      -- Should we check the attributes for this value? Seems odd.
-      -- https://yihui.org/knitr/options/
-      local substitutions = {
-        ["PYODIDECOUNTER"] = counter, 
-        ["WIDTH"] = 504,
-        ["HEIGHT"] = 360,
-        ["PYODIDECODE"] = escapeControlSequences(el.text)
-      }
-
-      -- Make the necessary substitutions into the template
-      local pyodide_enabled_code_cell = substitute_in_file(interactive_template, substitutions)
-
-      -- Return the modified HTML template as a raw cell
-      return pandoc.RawInline('html', pyodide_enabled_code_cell)
-
-    end
+  if not (el.attr and (quarto.doc.is_format("html") or quarto.doc.is_format("markdown"))) then
+    return el
   end
 
-  -- Allow for a pass through in other languages
-  return el
+  -- Check for the new engine syntax that allows for the cell to be 
+  -- evaluated in VS Code or RStudio editor views, c.f.
+  -- https://github.com/quarto-dev/quarto-cli/discussions/4761#discussioncomment-5338631
+  if not el.attr.classes:includes("{pyodide-python}") then
+    return el
+  end
+
+  -- We detected a webR cell
+  missingPyodideCell = false
+
+  -- Local code cell storage
+  local cellOptions = {}
+  local cellCode = ''
+
+  -- Convert webr-specific option commands into attributes
+  cellCode, cellOptions = extractCodeBlockOptions(el)
+
+  -- Modify the counter variable each time this is run to create
+  -- unique code cells
+  qPyodideCounter = qPyodideCounter + 1
+  
+  -- Create a new table for the CodeBlock
+  local codeBlockData = {
+    id = qPyodideCounter,
+    code = cellCode,
+    options = cellOptions
+  }
+
+  -- Store the CodeDiv in the global table
+  table.insert(qPyodideCapturedCodeBlocks, codeBlockData)
+
+  -- Return an insertion point inside the document
+  return pandoc.RawInline('html', qPyodideJSCellInsertionCode(qPyodideCounter))
+end
+
+local function stitchDocument(doc)
+
+  -- Do not attach webR as the page lacks any active webR cells
+  if missingPyodideCell then 
+    return doc
+  end
+
+  -- Release injections into the HTML document after each cell
+  -- is visited and we have collected all the content.
+  ensurePyodideSetup()
+
+  return doc
 end
 
 return {
@@ -284,5 +407,8 @@ return {
   }, 
   {
     CodeBlock = enablePyodideCodeCell
+  }, 
+  {
+    Pandoc = stitchDocument
   }
 }
