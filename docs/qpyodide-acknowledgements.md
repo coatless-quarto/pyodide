@@ -3,6 +3,9 @@ title: "Acknowledgments and Collaborations"
 subtitle: "Bringing Pyodide to Quarto"
 date: "08-12-2023"
 date-modified: last-modified
+format: 
+  html:
+    toc: true
 ---
 
 We would like to express our heartfelt gratitude to several individuals and teams who played a pivotal role in bringing [`quarto-pyodide`](https://github.com/coatless-quarto/pyodide) to life as an extension for Quarto. Without their dedication and contributions, this project would not have been possible.

@@ -3,9 +3,9 @@ title: "Python Interactive Code Cells"
 subtitle: "Demos showing interactive use cases of Python in Your Quarto Documents"
 author: "James Balamuta"
 date: "08-08-2023"
-format: html
-filters:
-- pyodide
+format: 
+  html:
+    toc: true
 ---
 
 Welcome to the world of interactive code cells, unlocked by the `quarto-pyodide` extension. 

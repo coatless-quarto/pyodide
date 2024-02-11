@@ -33,7 +33,5 @@ website:
           - href: https://quarto.thecoatlessprofessor.com/pyodide/tests/
             text: Test Suite
 
-format:
-  html:
-    theme: cosmo
-    toc: true
+filters:
+  - pyodide
