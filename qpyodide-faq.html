@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-08-12">
+<meta name="dcterms.date" content="2024-02-09">
 
-<title>quarto-pyodide – Acknowledgments and Collaborations</title>
+<title>quarto-pyodide – Frequently Asked Questions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,9 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-release-notes.html">Extra Information</a></li><li class="breadcrumb-item"><a href="./qpyodide-acknowledgements.html">Acknowledgements</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      quarto-pyodide
+      </li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -177,7 +179,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-acknowledgements.html" class="sidebar-item-text sidebar-link active">
+  <a href="./qpyodide-acknowledgements.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgements</span></a>
   </div>
 </li>
@@ -199,21 +201,46 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarto-pyodide-extension-developers" id="toc-quarto-pyodide-extension-developers" class="nav-link active" data-scroll-target="#quarto-pyodide-extension-developers">quarto-pyodide Extension Developers</a></li>
-  <li><a href="#pyodide-developers" id="toc-pyodide-developers" class="nav-link" data-scroll-target="#pyodide-developers">pyodide Developers</a></li>
-  <li><a href="#quarto-team-assistance" id="toc-quarto-team-assistance" class="nav-link" data-scroll-target="#quarto-team-assistance">Quarto Team Assistance</a></li>
-  <li><a href="#inspirations" id="toc-inspirations" class="nav-link" data-scroll-target="#inspirations">Inspirations</a></li>
-  <li><a href="#fin" id="toc-fin" class="nav-link" data-scroll-target="#fin">Fin</a></li>
+  <li><a href="#general-information" id="toc-general-information" class="nav-link active" data-scroll-target="#general-information">General Information</a>
+  <ul class="collapse">
+  <li><a href="#what-is-quarto" id="toc-what-is-quarto" class="nav-link" data-scroll-target="#what-is-quarto">What is Quarto?</a></li>
+  <li><a href="#what-is-the-quarto-pyodide-extension-for-quarto" id="toc-what-is-the-quarto-pyodide-extension-for-quarto" class="nav-link" data-scroll-target="#what-is-the-quarto-pyodide-extension-for-quarto">What is the <code>quarto-pyodide</code> extension for Quarto?</a></li>
+  <li><a href="#how-quarto-extension-works" id="toc-how-quarto-extension-works" class="nav-link" data-scroll-target="#how-quarto-extension-works">How Quarto Extension Works</a>
+  <ul class="collapse">
+  <li><a href="#how-does-the-quarto-extension-work" id="toc-how-does-the-quarto-extension-work" class="nav-link" data-scroll-target="#how-does-the-quarto-extension-work">How does the Quarto extension work?</a></li>
+  <li><a href="#what-are-the-key-features-of-the-quarto-extension" id="toc-what-are-the-key-features-of-the-quarto-extension" class="nav-link" data-scroll-target="#what-are-the-key-features-of-the-quarto-extension">What are the key features of the Quarto extension?</a></li>
+  </ul></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
+  <ul class="collapse">
+  <li><a href="#how-do-i-install-the-quarto-extension" id="toc-how-do-i-install-the-quarto-extension" class="nav-link" data-scroll-target="#how-do-i-install-the-quarto-extension">How do I install the Quarto extension?</a></li>
+  </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a>
+  <ul class="collapse">
+  <li><a href="#can-i-use-external-libraries-and-packages-in-my-python-cells" id="toc-can-i-use-external-libraries-and-packages-in-my-python-cells" class="nav-link" data-scroll-target="#can-i-use-external-libraries-and-packages-in-my-python-cells">Can I use external libraries and packages in my Python cells?</a></li>
+  </ul></li>
+  <li><a href="#sharing-documents" id="toc-sharing-documents" class="nav-link" data-scroll-target="#sharing-documents">Sharing Documents</a>
+  <ul class="collapse">
+  <li><a href="#can-i-share-my-quarto-document-with-others-who-may-not-have-python-installed" id="toc-can-i-share-my-quarto-document-with-others-who-may-not-have-python-installed" class="nav-link" data-scroll-target="#can-i-share-my-quarto-document-with-others-who-may-not-have-python-installed">Can I share my Quarto document with others who may not have Python installed?</a></li>
+  </ul></li>
+  <li><a href="#documentation-and-resources" id="toc-documentation-and-resources" class="nav-link" data-scroll-target="#documentation-and-resources">Documentation and Resources</a>
+  <ul class="collapse">
+  <li><a href="#where-can-i-find-more-documentation-and-examples-for-the-quarto-extension" id="toc-where-can-i-find-more-documentation-and-examples-for-the-quarto-extension" class="nav-link" data-scroll-target="#where-can-i-find-more-documentation-and-examples-for-the-quarto-extension">Where can I find more documentation and examples for the Quarto extension?</a></li>
+  </ul></li>
+  <li><a href="#limitations-and-considerations" id="toc-limitations-and-considerations" class="nav-link" data-scroll-target="#limitations-and-considerations">Limitations and Considerations</a>
+  <ul class="collapse">
+  <li><a href="#are-there-any-limitations-to-using-pyodide-with-the-quarto-extension" id="toc-are-there-any-limitations-to-using-pyodide-with-the-quarto-extension" class="nav-link" data-scroll-target="#are-there-any-limitations-to-using-pyodide-with-the-quarto-extension">Are there any limitations to using Pyodide with the Quarto extension?</a></li>
+  <li><a href="#how-does-the-quarto-extension-differ-from-other-similar-libraries-like-pyscript-and-thebe" id="toc-how-does-the-quarto-extension-differ-from-other-similar-libraries-like-pyscript-and-thebe" class="nav-link" data-scroll-target="#how-does-the-quarto-extension-differ-from-other-similar-libraries-like-pyscript-and-thebe">How does the Quarto extension differ from other similar libraries like pyscript and Thebe?</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-acknowledgements.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-faq.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-release-notes.html">Extra Information</a></li><li class="breadcrumb-item"><a href="./qpyodide-acknowledgements.html">Acknowledgements</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Acknowledgments and Collaborations</h1>
-<p class="subtitle lead">Bringing Pyodide to Quarto</p>
+<h1 class="title">Frequently Asked Questions</h1>
 </div>
 
 
@@ -224,7 +251,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 12, 2023</p>
+      <p class="date">February 9, 2024</p>
     </div>
   </div>
   
@@ -242,34 +269,77 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 </header>
 
 
-<p>We would like to express our heartfelt gratitude to several individuals and teams who played a pivotal role in bringing <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code></a> to life as an extension for Quarto. Without their dedication and contributions, this project would not have been possible.</p>
-<section id="quarto-pyodide-extension-developers" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-pyodide-extension-developers">quarto-pyodide Extension Developers</h2>
+<p>Welcome to our Frequently Asked Questions (FAQ) page, your go-to resource for finding answers to common queries about the <code>quarto-pyodide</code> extension. If you can’t find the answer you’re looking for, don’t hesitate to reach out to our community for additional support by opening a <a href="https://github.com/coatless-quarto/pyodide/issues/new?assignees=&amp;labels=q%26a&amp;projects=&amp;template=question.yml&amp;title=%5BQ%26A%5D%3A+">question</a> or a <a href="https://github.com/coatless-quarto/pyodide/issues/new?assignees=&amp;labels=bug%2Ctriage-needed&amp;projects=&amp;template=bug-report.yml&amp;title=%5BBug%5D%3A+">bug report</a> on the <a href="https://github.com/coatless-quarto/pyodide/issues">issue tracker</a>.</p>
+<section id="general-information" class="level1">
+<h1>General Information</h1>
+<section id="what-is-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-quarto">What is Quarto?</h2>
+<p><a href="https://quarto.org/">Quarto</a> is a versatile, open-source scientific and technical publishing system. Documents can be authored that contain prose alongside of dynamic content generated by running Python, R, Julia, and Observable code.</p>
+</section>
+<section id="what-is-the-quarto-pyodide-extension-for-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-quarto-pyodide-extension-for-quarto">What is the <code>quarto-pyodide</code> extension for Quarto?</h2>
+<p>The <code>quarto-pyodide</code> extension is a tool designed to embed interactive <a href="https://www.python.org/">Python cells</a> within an HTML document using <a href="https://pyodide.org/en/stable/">Pyodide</a>. This is possible because Pyodide is a Python runtime that runs entirely in the browser.</p>
+<hr>
+</section>
+<section id="how-quarto-extension-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-quarto-extension-works">How Quarto Extension Works</h2>
+<section id="how-does-the-quarto-extension-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-the-quarto-extension-work">How does the Quarto extension work?</h3>
+<p>The Quarto extension works by providing a convenient syntax to embed Python code cells directly within a Quarto document. These Python cells are then executed using Pyodide, and the results are displayed directly in the HTML document. This allows for interactive and dynamic content creation.</p>
+</section>
+<section id="what-are-the-key-features-of-the-quarto-extension" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-key-features-of-the-quarto-extension">What are the key features of the Quarto extension?</h3>
+<p>The key features of the Quarto extension include:</p>
 <ul>
-<li><a href="https://github.com/coatless">James Joseph Balamuta</a></li>
+<li>Seamless integration of Python code within an HTML document.</li>
+<li>Interactive execution of Python cells using Pyodide.</li>
+<li>Real-time display of Python code outputs, including plots and visualizations.</li>
+<li>Support for data analysis, scientific computing, and interactive storytelling.</li>
 </ul>
 </section>
-<section id="pyodide-developers" class="level2">
-<h2 class="anchored" data-anchor-id="pyodide-developers">pyodide Developers</h2>
-<ul>
-<li><a href="https://github.com/mdboom">Michael Droettboom</a></li>
-<li><a href="https://zenodo.org/records/5156931">Pyodide Contributors</a></li>
-</ul>
 </section>
-<section id="quarto-team-assistance" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-team-assistance">Quarto Team Assistance</h2>
-<p>We would like to acknowledge the Quarto team for their assistance.</p>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<section id="how-do-i-install-the-quarto-extension" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-install-the-quarto-extension">How do I install the Quarto extension?</h3>
+<p>To install the Quarto extension, please see our installation page.</p>
 </section>
-<section id="inspirations" class="level2">
-<h2 class="anchored" data-anchor-id="inspirations">Inspirations</h2>
-<p>Our project built upon the initial proof of concept for a standalone Quarto HTML document, made possible by the work of the <a href="https://github.com/coatless-r-n-d/pyodide-quarto-demo">coatless-r-n-d/pyodide-quarto-demo</a> repository.</p>
-<p>We would also like to thank <a href="https://github.com/georgestagg">George Stagg</a> and his work on <a href="https://webr.r-wasm.org/">webR</a>, which greatly contributed to moving forward with the <a href="https://github.com/coatless/quarto-webr"><code>quarto-webr</code></a> extension that allowed interactive R code inside of Quarto.</p>
 </section>
-<section id="fin" class="level1">
-<h1>Fin</h1>
-<p>Once again, thank you to everyone who contributed, collaborated, and provided support throughout this project. Your dedication and expertise have made this achievement possible.</p>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<section id="can-i-use-external-libraries-and-packages-in-my-python-cells" class="level3">
+<h3 class="anchored" data-anchor-id="can-i-use-external-libraries-and-packages-in-my-python-cells">Can I use external libraries and packages in my Python cells?</h3>
+<p>Yes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of pre-installed libraries, and you can also install additional packages by (TODO).</p>
+<!-- using the standard `pip` syntax within your Python cells. -->
+</section>
+</section>
+<section id="sharing-documents" class="level2">
+<h2 class="anchored" data-anchor-id="sharing-documents">Sharing Documents</h2>
+<section id="can-i-share-my-quarto-document-with-others-who-may-not-have-python-installed" class="level3">
+<h3 class="anchored" data-anchor-id="can-i-share-my-quarto-document-with-others-who-may-not-have-python-installed">Can I share my Quarto document with others who may not have Python installed?</h3>
+<p>Yes, one of the advantages of using Pyodide is that it runs entirely in the browser, eliminating the need for users to have Python installed locally. You can easily share your Quarto document with others, and they can interact with the embedded Python cells directly in their web browser.</p>
+</section>
+</section>
+<section id="documentation-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-and-resources">Documentation and Resources</h2>
+<section id="where-can-i-find-more-documentation-and-examples-for-the-quarto-extension" class="level3">
+<h3 class="anchored" data-anchor-id="where-can-i-find-more-documentation-and-examples-for-the-quarto-extension">Where can I find more documentation and examples for the Quarto extension?</h3>
+<p>You can find additional documentation and examples on this website. Moreover, you can learn more about Quarto by visiting their documentation website at <a href="https://quarto.org/">Quarto</a>. Additionally, you can explore the <a href="https://pyodide.org/en/stable/">Pyodide</a> documentation for more information on Python in the browser.</p>
+</section>
+</section>
+<section id="limitations-and-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-and-considerations">Limitations and Considerations</h2>
+<section id="are-there-any-limitations-to-using-pyodide-with-the-quarto-extension" class="level3">
+<h3 class="anchored" data-anchor-id="are-there-any-limitations-to-using-pyodide-with-the-quarto-extension">Are there any limitations to using Pyodide with the Quarto extension?</h3>
+<p>While Pyodide is a powerful tool, there are some limitations. Not all Python packages are available in Pyodide, and performance may vary for computationally intensive tasks. However, for a wide range of data analysis and visualization tasks, Pyodide and the Quarto extension provide a robust solution.</p>
+</section>
+<section id="how-does-the-quarto-extension-differ-from-other-similar-libraries-like-pyscript-and-thebe" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-the-quarto-extension-differ-from-other-similar-libraries-like-pyscript-and-thebe">How does the Quarto extension differ from other similar libraries like pyscript and Thebe?</h3>
+<p>While <a href="https://pyscript.net/">Pyscript</a> and <a href="https://thebe.readthedocs.io/en/stable/">Thebe</a> also provide solutions for embedding interactive code in HTML documents, the Quarto extension distinguishes itself by leveraging <a href="https://pyodide.org/en/stable/">Pyodide</a> directly. When compared to Thebe, the Pyodide approach places the computation on the users computer through additional data needing to be downloaded. With respect to Pyscript, the pyodide approach simplifies the feature set present to allow for greater customization. The choice between these tools may depend on specific use cases and preferences.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -665,4 +735,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-acknowledgements.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-faq.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
