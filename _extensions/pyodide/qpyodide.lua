@@ -222,7 +222,7 @@ function interactiveTemplateFile()
 end
 
 -- Cache a copy of each public-facing templates to avoid multiple read/writes.
-interactive_template = interactiveTemplateFile()
+-- interactive_template = interactiveTemplateFile()
 
 -- Define a function that escape control sequence
 function escapeControlSequences(str)
@@ -246,12 +246,13 @@ function initializationPyodide()
   }
   
   -- Make sure we perform a copy
-  local initializationTemplate = initializationTemplateFile()
+  --local initializationTemplate = initializationTemplateFile()
 
   -- Make the necessary substitutions
-  local initializedPyodideConfiguration = substitute_in_file(initializationTemplate, substitutions)
+  --local initializedPyodideConfiguration = substitute_in_file(initializationTemplate, substitutions)
 
-  return initializedPyodideConfiguration
+  --return initializedPyodideConfiguration
+  return "Placeholder"
 end
 
 -- Setup Pyodide's pre-requisites once per document.
@@ -271,13 +272,13 @@ function ensurePyodideSetup()
   -- https://quarto.org/docs/extensions/lua-api.html#includes
 
   -- Insert CSS styling and external style sheets
-  quarto.doc.include_file("in-header", "pyodide-styling.html")
+  --quarto.doc.include_file("in-header", "pyodide-styling.html")
 
   -- Insert the Pyodide initialization routine
-  quarto.doc.include_text("in-header", initializedConfigurationPyodide)
+  --quarto.doc.include_text("in-header", initializedConfigurationPyodide)
 
   -- Insert the Monaco Editor initialization
-  quarto.doc.include_file("before-body", "monaco-editor-init.html")
+  --quarto.doc.include_file("before-body", "monaco-editor-init.html")
 
 end
 
