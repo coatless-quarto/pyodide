@@ -36,17 +36,24 @@ jobs:
         with:
           path: "demos/readme/index.qmd"
 
+      - name: Render test suite
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "tests"
+
       # Collect the output into the staging/ directory
       - name: Copy documentation portal & demos into the staging directory
         run: |        
           mkdir -p staging/{demos,tests} && \
           cp -rp docs/_site/* staging/ && \
+          cp -rp tests/_site/* staging/tests/ && \
           cp -rp demos/readme/ staging/demos/readme
 
       # Remove symlinks
       - name: Delete symlinks
         run: |
-          rm -rf staging/demos/*/_extensions
+          rm -rf staging/demos/*/_extensions && \
+          rm -rf staging/tests/_extensions
 
       # Publish the docs directory onto gh-pages
       - name: Deploy 🚀

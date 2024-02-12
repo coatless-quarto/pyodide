@@ -1,0 +1,49 @@
+---
+title: "Test: Cell Context Options"
+format: html
+filters:
+  - pyodide
+---
+
+Test page for verifying cell context options set explicitly with `context`. 
+
+## Interactive
+
+### Static
+```{pyodide-python}
+#| context: interactive
+1 + 1
+```
+
+### Autorun
+
+```{pyodide-python}
+#| context: interactive
+#| autorun: true
+1 + 1
+```
+
+## Setup
+
+Hidden cell that sets `x` and `y` vector values.
+
+```{pyodide-python}
+#| context: setup
+x = c(1, 5, 3, -2)
+y = c(-5, 8, 9, 4)
+```
+
+## Output
+
+Hidden cell that retrieves previously set `x` and `y` vector values and displays the data.
+
+```{pyodide-python}
+#| context: output
+cat("x: ")
+print(x)
+
+cat("y: ")
+print(y)
+
+plot(x, y)
+```

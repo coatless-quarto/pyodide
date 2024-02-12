@@ -18,6 +18,8 @@ website:
       - section: "Getting Started"
       - section: "Support"
         contents:
+          - href: qpyodide-faq.qmd
+            text: "Frequently Asked Questions"
           - href: https://github.com/coatless-quarto/pyodide/issues/new
             text: Submit an issue
       - section: "Demos"
