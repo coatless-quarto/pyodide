@@ -1,0 +1,40 @@
+[
+  {
+    "objectID": "qpyodide-internal-cell.html",
+    "href": "qpyodide-internal-cell.html",
+    "title": "Test: Cell Context Options",
+    "section": "",
+    "text": "Test page for verifying cell context options set explicitly with context."
+  },
+  {
+    "objectID": "qpyodide-internal-cell.html#interactive",
+    "href": "qpyodide-internal-cell.html#interactive",
+    "title": "Test: Cell Context Options",
+    "section": "Interactive",
+    "text": "Interactive\n\nStatic\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nAutorun\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "qpyodide-internal-cell.html#setup",
+    "href": "qpyodide-internal-cell.html#setup",
+    "title": "Test: Cell Context Options",
+    "section": "Setup",
+    "text": "Setup\nHidden cell that sets x and y vector values.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "qpyodide-internal-cell.html#output",
+    "href": "qpyodide-internal-cell.html#output",
+    "title": "Test: Cell Context Options",
+    "section": "Output",
+    "text": "Output\nHidden cell that retrieves previously set x and y vector values and displays the data.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-pyodide Test Website",
+    "section": "",
+    "text": "Welcome\nWelcome to the test suite website for the quarto-pyodide. This website is meant to examine how different features of the extension are working or not working across different browsers.\nprint(\"Welcome to behind the scenes of quarto-pyodide!\")",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
