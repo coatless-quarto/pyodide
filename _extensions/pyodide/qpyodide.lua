@@ -19,13 +19,13 @@ local baseVersionPyodide = "0.25.0"
 -- https://cdn.jsdelivr.net/pyodide/v0.25.0/debug/
 local baseUrl = "https://cdn.jsdelivr.net/pyodide/v".. baseVersionPyodide .."/"
 local buildVariant = "full/"
-local cdnURL = baseUrl .. buildVariant
+local indexURL = baseUrl .. buildVariant
 
 -- Define user directory
 local homeDir = "/home/pyodide"
 
 -- Define whether a startup status message should be displayed
-local showStartUpStatus = "true"
+local showStartUpMessage = "true"
 
 -- Define an empty string if no packages need to be installed.
 local installPythonPackagesList = "''"
@@ -145,8 +145,8 @@ function setPyodideInitializationOptions(meta)
     buildVariant = pandoc.utils.stringify(pyodide["build-variant"])
   end
 
-  if isVariablePopulated(pyodide["build-variant"]) and isVariablePopulated(pyodide["base-url"]) then
-    cdnURL = baseUrl .. buildVariant
+  if isVariablePopulated(pyodide["build-variant"]) or isVariablePopulated(pyodide["base-url"]) then
+    indexURL = baseUrl .. buildVariant
   end
 
   -- The WebAssembly user's home directory and initial working directory. Default: '/home/pyodide'
@@ -225,7 +225,7 @@ function initializationPyodide()
 
   -- Setup different Pyodide specific initialization variables
   local substitutions = {
-    ["BASEURL"] = baseUrl, 
+    ["INDEXURL"] = indexURL, 
     ["HOMEDIR"] = homeDir,
     ["SHOWSTARTUPMESSAGE"] = showStartUpMessage, 
     ["INSTALLPYTHONPACKAGESLIST"] = installPythonPackagesList,
@@ -238,8 +238,54 @@ function initializationPyodide()
   -- Make the necessary substitutions
   local initializedPyodideConfiguration = substitute_in_file(initializationTemplate, substitutions)
 
-  return "<script type='text/javascript'>" .. initializedPyodideConfiguration .. "</script>"
+  return initializedPyodideConfiguration 
 end
+
+local function generateHTMLElement(tag)
+  -- Store a map containing opening and closing tabs
+  local tagMappings = {
+      module = { opening = "<script type=\"module\">\n", closing = "\n</script>" },
+      js = { opening = "<script type=\"text/javascript\">\n", closing = "\n</script>" },
+      css = { opening = "<style type=\"text/css\">\n", closing = "\n</style>" }
+  }
+
+  -- Find the tag
+  local tagMapping = tagMappings[tag]
+
+  -- If present, extract tag and return
+  if tagMapping then
+      return tagMapping.opening, tagMapping.closing
+  else
+      quarto.log.error("Invalid tag specified")
+  end
+end
+
+-- Custom functions to include values into Quarto
+-- https://quarto.org/docs/extensions/lua-api.html#includes
+
+local function includeTextInHTMLTag(location, text, tag)
+
+  -- Obtain the HTML element opening and closing tag
+  local openingTag, closingTag = generateHTMLElement(tag)
+
+  -- Insert the file into the document using the correct opening and closing tags
+  quarto.doc.include_text(location, openingTag .. text .. closingTag)
+
+end
+
+local function includeFileInHTMLTag(location, file, tag)
+
+  -- Obtain the HTML element opening and closing tag
+  local openingTag, closingTag = generateHTMLElement(tag)
+
+  -- Retrieve the file contents
+  local fileContents = readTemplateFile(file)
+
+  -- Insert the file into the document using the correct opening and closing tags
+  quarto.doc.include_text(location, openingTag .. fileContents .. closingTag)
+
+end
+
 
 -- Setup Pyodide's pre-requisites once per document.
 function ensurePyodideSetup()
@@ -257,11 +303,30 @@ function ensurePyodideSetup()
   -- Insert different partial files to create a monolithic document.
   -- https://quarto.org/docs/extensions/lua-api.html#includes
 
+  -- Embed Support Files to Avoid Resource Registration Issues
+  -- Note: We're not able to use embed-resources due to the web assembly binary and the potential for additional service worker files.
+  quarto.doc.include_text("in-header", [[
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  ]])
+
   -- Insert CSS styling and external style sheets
-  --quarto.doc.include_file("in-header", "pyodide-styling.html")
+  includeTextInHTMLTag("in-header", "qpyodide-styling.css", "css")
 
   -- Insert the Pyodide initialization routine
-  quarto.doc.include_text("in-header", initializedConfigurationPyodide)
+  includeTextInHTMLTag("in-header", initializedConfigurationPyodide, "module")
+
+  -- Insert JS routine to add document status header
+  includeFileInHTMLTag("in-header", "qpyodide-document-status.js", "module")
+
+  -- Insert JS routine to bring Pyodide online
+  includeFileInHTMLTag("in-header", "qpyodide-document-engine-initialization.js", "module")
+
+  -- Insert the cell data at the end of the document
+  -- includeFileInHTMLTag("after-body", "qpyodide-cell-initialization.js", "js")
+  
 
   -- Insert the Monaco Editor initialization
   quarto.doc.include_file("before-body", "qpyodide-monaco-editor-init.html")

@@ -11,8 +11,10 @@ globalThis.qpyodideShowStartupMessage = {{SHOWSTARTUPMESSAGE}};
 
 // Describe the webR settings that should be used
 globalThis.qpyodideCustomizedPyodideOptions = {
-  "baseURL": "{{BASEURL}}",
-  "homedir": "{{HOMEDIR}}", 
+  "indexURL": "{{INDEXURL}}",
+  "env": {
+    "HOME": "{{HOMEDIR}}",
+  }, 
 };
 
 // Store cell data
