@@ -66,11 +66,32 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+</head><body class="nav-sidebar floating fullcontent">// Document level settings ----
+
+// Determine if we need to install R packages
+globalThis.qpyodideInstallPythonPackagesList = [''];
+
+// Check to see if we have an empty array, if we do set to skip the installation.
+globalThis.qpyodideSetupPythonPackages = !(qpyodideInstallPythonPackagesList.indexOf("") !== -1);
+
+// Display a startup message?
+globalThis.qpyodideShowStartupMessage = {{SHOWSTARTUPMESSAGE}};
+
+// Describe the webR settings that should be used
+globalThis.qpyodideCustomizedPyodideOptions = {
+  "baseURL": "https://cdn.jsdelivr.net/pyodide/v0.25.0/",
+  "serviceWorkerUrl": "{{SERVICEWORKERURL}}",
+  "homedir": "/home/pyodide", 
+  "channelType": "{{CHANNELTYPE}}"
+};
+
+// Store cell data
+globalThis.qpyodideCellDetails = [{"options":{"context":"interactive","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"","warning":"true"},"id":1,"code":"1 + 1"},{"options":{"context":"interactive","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"true","warning":"true"},"id":2,"code":"1 + 1"},{"options":{"context":"setup","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"","warning":"true"},"id":3,"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"options":{"context":"output","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"","warning":"true"},"id":4,"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
 
 
-</head>
 
-<body class="nav-sidebar floating fullcontent">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -137,6 +158,16 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script id="qpyodide-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+    }
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">

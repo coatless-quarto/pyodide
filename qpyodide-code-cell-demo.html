@@ -111,11 +111,32 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 </script>
+</head><body class="nav-sidebar floating">// Document level settings ----
+
+// Determine if we need to install R packages
+globalThis.qpyodideInstallPythonPackagesList = [''];
+
+// Check to see if we have an empty array, if we do set to skip the installation.
+globalThis.qpyodideSetupPythonPackages = !(qpyodideInstallPythonPackagesList.indexOf("") !== -1);
+
+// Display a startup message?
+globalThis.qpyodideShowStartupMessage = {{SHOWSTARTUPMESSAGE}};
+
+// Describe the webR settings that should be used
+globalThis.qpyodideCustomizedPyodideOptions = {
+  "baseURL": "https://cdn.jsdelivr.net/pyodide/v0.25.0/",
+  "serviceWorkerUrl": "{{SERVICEWORKERURL}}",
+  "homedir": "/home/pyodide", 
+  "channelType": "{{CHANNELTYPE}}"
+};
+
+// Store cell data
+globalThis.qpyodideCellDetails = [{"code":"1 + 1","id":1,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"1 + 1","id":2,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"greet = 'Hello'\ngreet","id":3,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"len(greet)","id":4,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"def square(x):\n    return x**2\n\nsquare(8)","id":5,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]","id":6,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf","id":7,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}},{"code":"import pandas as pd \n\ndf.Age","id":8,"options":{"fig-cap":"","out-height":"","out-width":"700px","comment":"","message":"true","context":"interactive","fig-width":7,"warning":"true","fig-height":5,"results":"markup","output":"true","autorun":"","classes":"","label":"","dpi":72}}];
 
 
-</head>
 
-<body class="nav-sidebar floating">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -257,6 +278,16 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script id="qpyodide-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+    }
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">

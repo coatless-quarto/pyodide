@@ -75,11 +75,32 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 </script>
+</head><body class="nav-sidebar floating fullcontent">// Document level settings ----
+
+// Determine if we need to install R packages
+globalThis.qpyodideInstallPythonPackagesList = [''];
+
+// Check to see if we have an empty array, if we do set to skip the installation.
+globalThis.qpyodideSetupPythonPackages = !(qpyodideInstallPythonPackagesList.indexOf("") !== -1);
+
+// Display a startup message?
+globalThis.qpyodideShowStartupMessage = {{SHOWSTARTUPMESSAGE}};
+
+// Describe the webR settings that should be used
+globalThis.qpyodideCustomizedPyodideOptions = {
+  "baseURL": "https://cdn.jsdelivr.net/pyodide/v0.25.0/",
+  "serviceWorkerUrl": "{{SERVICEWORKERURL}}",
+  "homedir": "/home/pyodide", 
+  "channelType": "{{CHANNELTYPE}}"
+};
+
+// Store cell data
+globalThis.qpyodideCellDetails = [{"options":{"output":"true","context":"interactive","fig-cap":"","fig-width":7,"results":"markup","autorun":"","warning":"true","message":"true","label":"","classes":"","fig-height":5,"out-width":"700px","comment":"","out-height":"","dpi":72},"id":1,"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!"}];
 
 
-</head>
 
-<body class="nav-sidebar floating fullcontent">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -204,6 +225,16 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script id="qpyodide-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+    }
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
