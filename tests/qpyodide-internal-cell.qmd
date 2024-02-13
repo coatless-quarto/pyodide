@@ -29,8 +29,8 @@ Hidden cell that sets `x` and `y` vector values.
 
 ```{pyodide-python}
 #| context: setup
-x = c(1, 5, 3, -2)
-y = c(-5, 8, 9, 4)
+x = [1, 5, 3, -2]
+y = [-5, 8, 9, 4]
 ```
 
 ## Output
@@ -39,11 +39,11 @@ Hidden cell that retrieves previously set `x` and `y` vector values and displays
 
 ```{pyodide-python}
 #| context: output
-cat("x: ")
-print(x)
+import matplotlib.pyplot as plt
 
-cat("y: ")
-print(y)
+print(f"x: {x}")
 
-plot(x, y)
+print(f"y: {y}")
+
+plt.plot(x, y)
 ```
