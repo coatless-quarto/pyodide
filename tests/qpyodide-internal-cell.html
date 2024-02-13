@@ -66,9 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-</head><body class="nav-sidebar floating fullcontent">// Document level settings ----
+<script type="text/javascript">// Document level settings ----
 
-// Determine if we need to install R packages
+// Determine if we need to install python packages
 globalThis.qpyodideInstallPythonPackagesList = [''];
 
 // Check to see if we have an empty array, if we do set to skip the installation.
@@ -80,18 +80,16 @@ globalThis.qpyodideShowStartupMessage = {{SHOWSTARTUPMESSAGE}};
 // Describe the webR settings that should be used
 globalThis.qpyodideCustomizedPyodideOptions = {
   "baseURL": "https://cdn.jsdelivr.net/pyodide/v0.25.0/",
-  "serviceWorkerUrl": "{{SERVICEWORKERURL}}",
   "homedir": "/home/pyodide", 
-  "channelType": "{{CHANNELTYPE}}"
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"context":"interactive","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"","warning":"true"},"id":1,"code":"1 + 1"},{"options":{"context":"interactive","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"true","warning":"true"},"id":2,"code":"1 + 1"},{"options":{"context":"setup","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"","warning":"true"},"id":3,"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"options":{"context":"output","output":"true","out-height":"","out-width":"700px","fig-height":5,"label":"","message":"true","results":"markup","comment":"","classes":"","dpi":72,"fig-cap":"","fig-width":7,"autorun":"","warning":"true"},"id":4,"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"1 + 1","options":{"message":"true","dpi":72,"fig-height":5,"fig-width":7,"out-height":"","classes":"","autorun":"","label":"","context":"interactive","warning":"true","results":"markup","comment":"","fig-cap":"","out-width":"700px","output":"true"}},{"id":2,"code":"1 + 1","options":{"message":"true","dpi":72,"fig-height":5,"fig-width":7,"out-height":"","classes":"","autorun":"true","label":"","context":"interactive","warning":"true","results":"markup","comment":"","fig-cap":"","out-width":"700px","output":"true"}},{"id":3,"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]","options":{"message":"true","dpi":72,"fig-height":5,"fig-width":7,"out-height":"","classes":"","autorun":"","label":"","context":"setup","warning":"true","results":"markup","comment":"","fig-cap":"","out-width":"700px","output":"true"}},{"id":4,"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)","options":{"message":"true","dpi":72,"fig-height":5,"fig-width":7,"out-height":"","classes":"","autorun":"","label":"","context":"output","warning":"true","results":"markup","comment":"","fig-cap":"","out-width":"700px","output":"true"}}];</script>
 
 
+</head>
 
-
-
+<body class="nav-sidebar floating fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
