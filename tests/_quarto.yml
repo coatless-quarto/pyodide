@@ -18,7 +18,7 @@ website:
       
 
   page-footer: 
-    left: "Test suite for quarto-webr."
+    left: "Test suite for quarto-pyodide."
     right: 
       - icon: github
         href: https://github.com/coatless-quarto/pyodide
