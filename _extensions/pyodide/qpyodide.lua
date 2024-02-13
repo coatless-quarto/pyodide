@@ -210,20 +210,6 @@ function readTemplateFile(template)
   return content
 end
 
--- Obtain the initialization template file at pyodide-init.html
-function initializationTemplateFile()
-  return readTemplateFile("pyodide-init.html")
-end
-
-
--- Obtain the editor template file at pyodide-context-interactive.html
-function interactiveTemplateFile()
-  return readTemplateFile("pyodide-context-interactive.html")
-end
-
--- Cache a copy of each public-facing templates to avoid multiple read/writes.
--- interactive_template = interactiveTemplateFile()
-
 -- Define a function that escape control sequence
 function escapeControlSequences(str)
   -- Perform a global replacement on the control sequence character
@@ -239,20 +225,20 @@ function initializationPyodide()
 
   -- Setup different Pyodide specific initialization variables
   local substitutions = {
-    ["SHOWSTARTUPMESSAGE"] = showStartUpMessage, 
     ["BASEURL"] = baseUrl, 
     ["HOMEDIR"] = homeDir,
+    ["SHOWSTARTUPMESSAGE"] = showStartUpMessage, 
     ["INSTALLPYTHONPACKAGESLIST"] = installPythonPackagesList,
+    ["QPYODIDECELLDETAILS"] = quarto.json.encode(qPyodideCapturedCodeBlocks),
   }
   
   -- Make sure we perform a copy
-  --local initializationTemplate = initializationTemplateFile()
+  local initializationTemplate = readTemplateFile("qpyodide-document-settings.js")
 
   -- Make the necessary substitutions
-  --local initializedPyodideConfiguration = substitute_in_file(initializationTemplate, substitutions)
+  local initializedPyodideConfiguration = substitute_in_file(initializationTemplate, substitutions)
 
-  --return initializedPyodideConfiguration
-  return "Placeholder"
+  return "<script type='text/javascript'>" .. initializedPyodideConfiguration .. "</script>"
 end
 
 -- Setup Pyodide's pre-requisites once per document.
@@ -275,10 +261,10 @@ function ensurePyodideSetup()
   --quarto.doc.include_file("in-header", "pyodide-styling.html")
 
   -- Insert the Pyodide initialization routine
-  --quarto.doc.include_text("in-header", initializedConfigurationPyodide)
+  quarto.doc.include_text("in-header", initializedConfigurationPyodide)
 
   -- Insert the Monaco Editor initialization
-  --quarto.doc.include_file("before-body", "monaco-editor-init.html")
+  quarto.doc.include_file("before-body", "qpyodide-monaco-editor-init.html")
 
 end
 
