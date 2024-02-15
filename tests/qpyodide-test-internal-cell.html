@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.12">
+<meta name="generator" content="quarto-1.5.14">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,8 +66,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   
@@ -95,7 +93,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"1 + 1","options":{"output":"true","results":"markup","label":"","autorun":"","classes":"","message":"true","context":"interactive","fig-cap":"","warning":"true","dpi":72,"fig-height":5,"comment":"","out-width":"700px","fig-width":7,"out-height":""}},{"id":2,"code":"1 + 1","options":{"output":"true","results":"markup","label":"","autorun":"true","classes":"","message":"true","context":"interactive","fig-cap":"","warning":"true","dpi":72,"fig-height":5,"comment":"","out-width":"700px","fig-width":7,"out-height":""}},{"id":3,"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]","options":{"output":"true","results":"markup","label":"","autorun":"","classes":"","message":"true","context":"setup","fig-cap":"","warning":"true","dpi":72,"fig-height":5,"comment":"","out-width":"700px","fig-width":7,"out-height":""}},{"id":4,"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)","options":{"output":"true","results":"markup","label":"","autorun":"","classes":"","message":"true","context":"output","fig-cap":"","warning":"true","dpi":72,"fig-height":5,"comment":"","out-width":"700px","fig-width":7,"out-height":""}}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","label":"","autorun":"","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"interactive","classes":""},"code":"1 + 1"},{"id":2,"options":{"comment":"","label":"","autorun":"true","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"interactive","classes":""},"code":"1 + 1"},{"id":3,"options":{"comment":"","label":"","autorun":"","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"setup","classes":""},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":4,"options":{"comment":"","label":"","autorun":"","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"output","classes":""},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
 </script>
 <script type="module">
 // Declare startupMessageqpyodide globally
@@ -229,9 +227,7 @@ globalThis._qpyodideGetInstance = function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Test Suite for quarto-pyodide
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-internal-cell.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-internal-cell.html">Test: Cell Context Options</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -276,8 +272,21 @@ globalThis._qpyodideGetInstance = function() {
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Tests</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Tests</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qpyodide-test-internal-cell.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Test: Cell Context Options</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -298,7 +307,7 @@ globalThis._qpyodideGetInstance = function() {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-internal-cell.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-internal-cell.html">Test: Cell Context Options</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Test: Cell Context Options</h1>
 </div>
