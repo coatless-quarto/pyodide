@@ -41,7 +41,7 @@
 
         // init Pyodide
         async function main() {
-          const dpyodide = import("https://cdn.jsdelivr.net/npm/pyodide@0.25.0/pyodide.mjs").then(
+          const dpyodide = await import("https://cdn.jsdelivr.net/npm/pyodide@0.25.0/pyodide.mjs").then(
               async ({loadPyodide}) => {
                   const pyodideProcess = await loadPyodide(
                       {indexURL: "https://cdn.jsdelivr.net/npm/pyodide@0.25.0/"}
