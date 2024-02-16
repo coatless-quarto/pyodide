@@ -306,12 +306,12 @@ function ensurePyodideSetup()
   -- Embed Support Files to Avoid Resource Registration Issues
   -- Note: We're not able to use embed-resources due to the web assembly binary and the potential for additional service worker files.
   quarto.doc.include_text("in-header", [[
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/editor/editor.main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   ]])
 
   -- Insert CSS styling and external style sheets
-  includeTextInHTMLTag("in-header", "qpyodide-styling.css", "css")
+  includeFileInHTMLTag("in-header", "qpyodide-styling.css", "css")
 
   -- Insert the Pyodide initialization routine
   includeTextInHTMLTag("in-header", initializedConfigurationPyodide, "module")
@@ -322,12 +322,13 @@ function ensurePyodideSetup()
   -- Insert JS routine to bring Pyodide online
   includeFileInHTMLTag("in-header", "qpyodide-document-engine-initialization.js", "module")
 
-  -- Insert the cell data at the end of the document
-  -- includeFileInHTMLTag("after-body", "qpyodide-cell-initialization.js", "js")
-  
-
   -- Insert the Monaco Editor initialization
   quarto.doc.include_file("before-body", "qpyodide-monaco-editor-init.html")
+
+  -- Insert the cell data at the end of the document
+  includeFileInHTMLTag("after-body", "qpyodide-cell-classes.js", "module")
+
+  includeFileInHTMLTag("after-body", "qpyodide-cell-initialization.js", "module")
 
 end
 
