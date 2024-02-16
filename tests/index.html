@@ -93,7 +93,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"autorun":"","output":"true","dpi":72,"fig-height":5,"context":"interactive","label":"","fig-width":7,"classes":"","out-width":"700px","out-height":"","comment":"","results":"markup","fig-cap":"","message":"true","warning":"true"},"code":"print(\"Welcome to behind the scenes of quarto-pyodide!\")","id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"results":"markup","output":"true","out-height":"","fig-width":7,"context":"interactive","dpi":72,"comment":"","message":"true","fig-cap":"","out-width":"700px","autorun":"","label":"","fig-height":5,"warning":"true","classes":""},"code":"print(\"Welcome to behind the scenes of quarto-pyodide!\")"}];
 </script>
 <script type="module">
 // Declare startupMessageqpyodide globally
@@ -296,13 +296,13 @@ globalThis._qpyodideGetInstance = function() {
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
 <script type="module" id="qpyodide-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
     paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs'
     }
   });
 </script>

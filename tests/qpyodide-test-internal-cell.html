@@ -93,7 +93,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","label":"","autorun":"","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"interactive","classes":""},"code":"1 + 1"},{"id":2,"options":{"comment":"","label":"","autorun":"true","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"interactive","classes":""},"code":"1 + 1"},{"id":3,"options":{"comment":"","label":"","autorun":"","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"setup","classes":""},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":4,"options":{"comment":"","label":"","autorun":"","message":"true","results":"markup","output":"true","out-width":"700px","warning":"true","dpi":72,"fig-width":7,"fig-height":5,"out-height":"","fig-cap":"","context":"output","classes":""},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"message":"true","dpi":72,"comment":"","results":"markup","output":"true","context":"interactive","out-width":"700px","fig-cap":"","out-height":"","label":"","fig-width":7,"fig-height":5,"classes":"","autorun":"","warning":"true"},"code":"1 + 1"},{"id":2,"options":{"message":"true","dpi":72,"comment":"","results":"markup","output":"true","context":"interactive","out-width":"700px","fig-cap":"","out-height":"","label":"","fig-width":7,"fig-height":5,"classes":"","autorun":"true","warning":"true"},"code":"1 + 1"},{"id":3,"options":{"message":"true","dpi":72,"comment":"","results":"markup","output":"true","context":"setup","out-width":"700px","fig-cap":"","out-height":"","label":"","fig-width":7,"fig-height":5,"classes":"","autorun":"","warning":"true"},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":4,"options":{"message":"true","dpi":72,"comment":"","results":"markup","output":"true","context":"output","out-width":"700px","fig-cap":"","out-height":"","label":"","fig-width":7,"fig-height":5,"classes":"","autorun":"","warning":"true"},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
 </script>
 <script type="module">
 // Declare startupMessageqpyodide globally
@@ -296,13 +296,13 @@ globalThis._qpyodideGetInstance = function() {
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
 <script type="module" id="qpyodide-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
     paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs'
     }
   });
 </script>
