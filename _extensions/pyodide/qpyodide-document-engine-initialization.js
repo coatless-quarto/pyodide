@@ -12,14 +12,15 @@ globalThis.qpyodideInstance = await import(
     let loadedPyodide = await loadPyodide(
       qpyodideCustomizedPyodideOptions
     );
+    
+    loadedPyodide.runPython("globalScope = {}");
 
     globalThis.mainPyodide = loadedPyodide;
     
-    mainPyodide.runPython("globalScope = {}");
     console.log("Completed loading Pyodide");
-    return mainPyodide;
-
-  });
+    return loadedPyodide;
+  }
+);
 
 // Stop timer
 const initializeWebRTimerEnd = performance.now();
