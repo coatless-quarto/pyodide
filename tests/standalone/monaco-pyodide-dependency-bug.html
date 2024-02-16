@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/loader.js"></script>
+    <script type="module" id="monaco-editor-init">
+        // Configure the Monaco Editor's loader
+        require.config({
+            paths: {
+            'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs'
+            }
+        });
+    </script>
+
+    <!-- 
+    Example pyodide load code from: 
+    https://pyodide.org/en/stable/usage/quickstart.html#alternative-example 
+    --> 
+    <p>
+      You can execute any Python code. Just enter something in the box below and
+      click the button.
+    </p>
+    <input id="code" value="sum([1, 2, 3, 4, 5])" />
+    <button onclick="evaluatePython()">Run</button>
+    <br />
+    <br />
+    <div>Output:</div>
+    <textarea id="output" style="width: 100%;" rows="6" disabled></textarea>
+
+
+    <script type="module">
+        const output = document.getElementById("output");
+        const code = document.getElementById("code");
+  
+        function addToOutput(s) {
+          output.value += ">>>" + code.value + "\n" + s + "\n";
+        }
+  
+        output.value = "Initializing...\n";
+
+        // init Pyodide
+        async function main() {
+          const dpyodide = import("https://cdn.jsdelivr.net/npm/pyodide@0.25.0/pyodide.mjs").then(
+              async ({loadPyodide}) => {
+                  const pyodideProcess = await loadPyodide(
+                      {indexURL: "https://cdn.jsdelivr.net/npm/pyodide@0.25.0/"}
+                  );
+                  return pyodideProcess;
+              }
+          );
+          output.value += "Ready!\n";
+          return dpyodide;
+        }
+
+        let pyodideReadyPromise = main();
+  
+        globalThis.evaluatePython = async function() {
+          let dpyodide = await pyodideReadyPromise;
+          try {
+            let output = dpyodide.runPython(code.value);
+            addToOutput(output);
+          } catch (err) {
+            addToOutput(err);
+          }
+        }
+      </script>
+
+          <!--
+         Attempt to place a monaco editor
+        --> 
+        <div id="m-container" style="height:500px">
+        
+        </div>
+    
+        <script type="module">  
+            // Load the Monaco Editor and create an instance
+            let editor;  
+            require(['vs/editor/editor.main'], function() {
+                editor = monaco.editor.create(document.getElementById('m-container'), {
+                    value: [
+                        'def x():',
+                        '\t print("Hello world!")',
+                    ].join('\n'),
+                    language: 'python'
+                });
+            });
+        </script>
+        
+
+  </body>
+</html>
