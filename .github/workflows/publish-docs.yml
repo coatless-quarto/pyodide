@@ -24,10 +24,11 @@ jobs:
         with:
           version: "pre-release"
 
-      - name: Add countdown shortcode
+      - name: Add extensions for RevealJS shortcode
         working-directory: ./examples/revealjs
         run: |        
           quarto add --no-prompt gadenbuie/countdown/quarto
+          quarto add --no-prompt coatless-quarto/pyodide
 
       # Generate the documentation website
       - name: Render Documentation website
