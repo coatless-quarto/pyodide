@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-pyodide – Hello from quarto-pyodide!</title>
+<title>Demo Quarto Pyodide Website – Example page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,11 +40,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -66,15 +66,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZV56KS59C3"></script>
-
-<script type="text/javascript">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
-</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.46.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   
@@ -237,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"comment":"","fig-height":5,"warning":"true","output":"true","classes":"","fig-cap":"","autorun":"","out-width":"700px","label":"","context":"interactive","dpi":72,"out-height":"","message":"true","results":"markup","fig-width":7},"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","id":1}];
+globalThis.qpyodideCellDetails = [{"code":"import pandas as pd \nimport numpy as np \n\ndf = pd.DataFrame(\n    {\n        \"A\": 1.0,\n        \"B\": pd.Timestamp(\"20130102\"),\n        \"C\": pd.Series(1, index=list(range(4)), dtype=\"float32\"),\n        \"D\": np.array([3] * 4, dtype=\"int32\"),\n        \"E\": pd.Categorical([\"test\", \"train\", \"test\", \"train\"]),\n        \"F\": \"foo\",\n    }\n)\n\n\ndf","id":1,"options":{"results":"markup","warning":"true","fig-cap":"","context":"interactive","dpi":72,"comment":"","autorun":"","fig-width":7,"output":"true","out-height":"","message":"true","classes":"","label":"","fig-height":5,"out-width":"700px"}}];
 
 
 </script>
@@ -403,142 +394,98 @@ globalThis._qpyodideGetInstance = function() {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      quarto-pyodide
-      </li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">quarto-pyodide</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/coatless-quarto/pyodide/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Demo Quarto Pyodide Website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./example-page.html"> 
+<span class="menu-text">Example page</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./slide-embed.html"> 
+<span class="menu-text">Embed Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./../../"> 
+<span class="menu-text">Documentation Portal</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Content</a></li><li class="breadcrumb-item"><a href="./example-page.html">Example page</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Getting Started</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Support</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Content</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-faq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Frequently Asked Questions</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto pyodide Demo Website</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://github.com/coatless-quarto/pyodide/issues/new" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Submit an issue</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Demos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/readme/" class="sidebar-item-text sidebar-link">
- <span class="menu-text">README Example</span></a>
+  <a href="./example-page.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Example page</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-code-cell-demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pyodide Interactive Cell Demo</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Deployment</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qpyodide-deployment-templates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Templates</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Extra Information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qpyodide-release-notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Release Notes</span></a>
+  <a href="./slide-embed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Embed Slides</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-acknowledgements.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Acknowledgements</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://quarto.thecoatlessprofessor.com/pyodide/tests/" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Test Suite</span></a>
+  <a href="./../../" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documentation Portal</span></a>
   </div>
 </li>
       </ul>
@@ -562,10 +509,9 @@ globalThis._qpyodideGetInstance = function() {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Content</a></li><li class="breadcrumb-item"><a href="./example-page.html">Example page</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Hello from quarto-pyodide!</h1>
-<p class="subtitle lead">Unleash Interactive Python in Your Quarto Documents</p>
+<h1 class="title">Example page</h1>
 </div>
 
 
@@ -582,11 +528,9 @@ globalThis._qpyodideGetInstance = function() {
 </header>
 
 
-<p>Welcome to the documentation site for the <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code></a> extension – your key to unlocking the endless possibilities of <a href="https://pyodide.org/en/stable/">Pyodide</a> within various <a href="https://quarto.org/">Quarto</a> formats, including <a href="https://quarto.org/docs/output-formats/html-basics.html">HTML</a>, <a href="https://quarto.org/docs/presentations/revealjs/">RevealJS</a>, <a href="https://quarto.org/docs/websites/">Websites</a>, <a href="https://quarto.org/docs/websites/website-blog.html">Blogs</a>, and <a href="https://quarto.org/docs/books">Books</a>.</p>
-<p>Ready for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:</p>
+<p>On this page, we set two options directly in the Quarto document. The rest of the options are coming from the <code>_quarto.yml</code> project file. These options are considered “global”.</p>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>At its core, the <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code> extension</a> is designed to empower you to run <em>Python</em> code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. Just write Python code like you usually would! Though, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using <a href="https://pyodide.org/en/stable/">Pyodide’s JavaScript API</a>, granting you unparalleled freedom to harness the power of Python in innovative ways.</p>
 
 
 
@@ -979,7 +923,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script type="module">
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>An example website with quarto-pyodide.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/coatless-quarto/pyodide">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script type="module">
 /**
  * Factory function to create different types of cells based on options.
  * @param {Object} cellData - JSON object containing code, id, and options.
