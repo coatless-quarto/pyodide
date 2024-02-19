@@ -1,5 +1,8 @@
 !_extensions/*/*/*
 *.pdf
 *_files/
+*_site/
+*_book/
 /.luarc.json
 /*.html
+*.DS_Store

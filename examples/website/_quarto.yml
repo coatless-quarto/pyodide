@@ -1,0 +1,45 @@
+project:
+  type: website
+
+website:
+  title: "Demo Quarto Pyodide Website"
+  search: true
+  reader-mode: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: example-page.qmd
+        text: Example page
+      - href: slide-embed.qmd
+        text: Embed Slides
+      - href: ../../
+        text: Documentation Portal
+  sidebar:
+    style: "floating"
+    contents:
+      - section: "Content"
+        contents:
+          - index.qmd
+          - example-page.qmd
+          - slide-embed.qmd
+          - href: ../../
+            text: Documentation Portal
+
+  page-footer: 
+    left: "An example website with quarto-pyodide."
+    right: 
+      - icon: github
+        href: https://github.com/coatless-quarto/pyodide
+
+# Set the language that should be used for Quarto websites
+# https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/language
+# lang: en
+
+# Set default options for every webpage that may or may not include Pyodide.
+pyodide: 
+  show-startup-message: false    # Display status of Pyodide initialization
+
+# Attach Pyodide to every page
+filters:
+  - pyodide

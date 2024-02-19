@@ -1,8 +1,12 @@
 # Pyodide Extension for Quarto HTML Documents
 
-**We're working on finalizing the Quarto extension. We expect this to be completed shortly.**
+**We have an initial version of the extension now available.**
 
 This extension enables the [Pyodide](https://pyodide.org/en/stable/) code cell within various [Quarto](https://quarto.org/) formats, including [HTML](https://quarto.org/docs/output-formats/html-basics.html), [RevealJS](https://quarto.org/docs/presentations/revealjs/), [Websites](https://quarto.org/docs/websites/), [Blogs](https://quarto.org/docs/websites/website-blog.html), and [Books](https://quarto.org/docs/books). 
+
+![`quarto-pyodide` Filter in Action](https://i.imgur.com/gzAyV8H.gif)
+
+Check out the above example of the extension in action [here](https://quarto.thecoatlessprofessor.com/pyodide/examples/readme)!
 
 ## Installation 
 
@@ -46,6 +50,8 @@ print('Blastoff!')
 ````
 
 The rendered document can be viewed online [here](https://quarto.thecoatlessprofessor.com/pyodide/examples/readme).
+
+For help setting up other use cases, please see our [Templates](https://quarto.thecoatlessprofessor.com/pyodide/qpyodide-deployment-templates.html) collection.
 
 ## Help
 

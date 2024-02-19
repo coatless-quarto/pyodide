@@ -28,6 +28,10 @@ website:
             text: README Example
           - href: qpyodide-code-cell-demo.qmd
             text: Pyodide Interactive Cell Demo
+      - section: "Deployment"
+        contents:
+          - href: qpyodide-deployment-templates.qmd
+            text: Templates
       - section: "Extra Information"
         contents:
           - href: qpyodide-release-notes.qmd

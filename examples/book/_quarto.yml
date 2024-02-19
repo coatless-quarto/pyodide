@@ -1,0 +1,39 @@
+project:
+  type: book
+
+book:
+  title: "Sample quarto-pyodide Book Project"
+  author: "JJB"
+  date: today
+  url: https://quarto.thecoatlessprofessor.com/pyodide/examples/book
+  repo-url: https://github.com/coatless-quarto/pyodide/tree/main/examples/book
+  repo-actions: edit
+  search: true
+  reader-mode: true
+  sidebar:
+    style: "docked"
+  chapters:
+    - index.qmd
+    - part: "Exploring Python"
+      chapters:
+        - example-page.qmd
+        - slide-embed.qmd
+    - href: ../../
+      text: Documentation Portal
+  page-footer: 
+    left: "An example book with quarto-pyodide."
+    right: 
+      - icon: github
+        href: https://github.com/coatless-quarto/pyodide
+
+# Set the language that should be used for Quarto book
+# https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/language
+# lang: en
+
+# Set default options for every webpage that may or may not include Pyodide.
+pyodide: 
+  show-startup-message: false     # Display status of Pyodide initialization
+
+# Attach pyodide to every page
+filters:
+  - pyodide

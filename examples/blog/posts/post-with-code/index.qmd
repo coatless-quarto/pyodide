@@ -1,0 +1,13 @@
+---
+title: "Post With Interactive Code"
+author: "James Balamuta"
+date: "2024-03-12"
+categories: [news, code, analysis]
+image: "image.jpg"
+---
+
+This is a post with interactive code on a [Quarto Blog](https://quarto.org/docs/websites/website-blog.html) through the [`quarto-pyodide`](https://github.com/coatless-quarto/pyodide) extension. The configuration setup for the `quarto-pyodide` extension is taken care of in the `_quarto.yml` file to avoid needing to re-specify options multiple times.
+
+```{pyodide-python}
+print("Hello {quarto-pyodide} blog world!")
+```
