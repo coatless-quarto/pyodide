@@ -24,6 +24,11 @@ jobs:
         with:
           version: "pre-release"
 
+      - name: Add countdown shortcode
+        working-directory: ./examples/revealjs
+        run: |        
+          quarto add --no-prompt gadenbuie/countdown/quarto
+
       # Generate the documentation website
       - name: Render Documentation website
         uses: quarto-dev/quarto-actions/render@v2
@@ -36,6 +41,11 @@ jobs:
         with:
           path: "examples/readme/index.qmd"
 
+      - name: Render sample deployment RevealJS presentation template 
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "examples/revealjs/index.qmd"
+
       - name: Render test suite
         uses: quarto-dev/quarto-actions/render@v2
         with:
@@ -47,7 +57,8 @@ jobs:
           mkdir -p staging/{examples,tests} && \
           cp -rp docs/_site/* staging/ && \
           cp -rp tests/_site/* staging/tests/ && \
-          cp -rp examples/readme/ staging/examples/readme
+          cp -rp examples/readme/ staging/examples/readme && \
+          cp -rp examples/revealjs/ staging/examples/revealjs
 
       # Remove symlinks
       - name: Delete symlinks
