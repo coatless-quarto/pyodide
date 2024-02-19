@@ -229,6 +229,6 @@
     "href": "qpyodide-code-cell-demo.html#graphing",
     "title": "Python Interactive Code Cells",
     "section": "Graphing",
-    "text": "Graphing\n\n\n\n\n\n\nImportant\n\n\n\nGraphing is not yet available."
+    "text": "Graphing\nWe provide support for generating graphs through the interactive HTML5 backend, e.g. [module://matplotlib_pyodide.html5_canvas_backend](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include aplt.show()` call for the graph to render.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   }
 ]

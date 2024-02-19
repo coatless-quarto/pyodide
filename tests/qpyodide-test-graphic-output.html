@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Test Suite for quarto-pyodide – Test: Cell Context Options</title>
+<title>Test Suite for quarto-pyodide – Test: Graphics Output</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"results":"markup","out-height":"","fig-cap":"","warning":"true","comment":"","out-width":"700px","message":"true","label":"","output":"true","classes":"","context":"interactive","autorun":"","dpi":72,"fig-height":5,"fig-width":7},"code":"1 + 1"},{"id":2,"options":{"results":"markup","out-height":"","fig-cap":"","warning":"true","comment":"","out-width":"700px","message":"true","label":"","output":"true","classes":"","context":"setup","autorun":"","dpi":72,"fig-height":5,"fig-width":7},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":3,"options":{"results":"markup","out-height":"","fig-cap":"","warning":"true","comment":"","out-width":"700px","message":"true","label":"","output":"true","classes":"","context":"output","autorun":"","dpi":72,"fig-height":5,"fig-width":7},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","options":{"context":"interactive","warning":"true","out-height":"","label":"","out-width":"700px","autorun":"","message":"true","results":"markup","classes":"","dpi":72,"comment":"","fig-height":5,"fig-width":7,"fig-cap":"","output":"true"},"id":1}];
 
 
 </script>
@@ -403,7 +403,7 @@ globalThis._qpyodideGetInstance = function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-internal-cell.html">Test: Cell Context Options</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Test: Graphics Output</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -458,13 +458,13 @@ globalThis._qpyodideGetInstance = function() {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-test-graphic-output.html" class="sidebar-item-text sidebar-link">
+  <a href="./qpyodide-test-graphic-output.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Test: Graphics Output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-test-internal-cell.html" class="sidebar-item-text sidebar-link active">
+  <a href="./qpyodide-test-internal-cell.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test: Cell Context Options</span></a>
   </div>
 </li>
@@ -489,9 +489,9 @@ globalThis._qpyodideGetInstance = function() {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-internal-cell.html">Test: Cell Context Options</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Test: Graphics Output</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Test: Cell Context Options</h1>
+<h1 class="title">Test: Graphics Output</h1>
 </div>
 
 
@@ -508,22 +508,23 @@ globalThis._qpyodideGetInstance = function() {
 </header>
 
 
-<p>Test page for verifying cell context options set explicitly with <code>context</code>.</p>
+<p>This webpage tests the interactive and output contexts for showing a graph.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A call to <code>matplotlib.pyplot.show()</code> is required for displaying the graphic.</p>
+</div>
+</div>
 <section id="interactive" class="level2">
 <h2 class="anchored" data-anchor-id="interactive">Interactive</h2>
 <div id="qpyodide-insertion-location-1"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<p>Hidden cell that sets <code>x</code> and <code>y</code> vector values.</p>
-<div id="qpyodide-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="output" class="level2">
-<h2 class="anchored" data-anchor-id="output">Output</h2>
-<p>Hidden cell that retrieves previously set <code>x</code> and <code>y</code> vector values and displays the data.</p>
-<div id="qpyodide-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
