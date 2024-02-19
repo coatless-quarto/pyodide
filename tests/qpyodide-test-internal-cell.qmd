@@ -9,17 +9,8 @@ Test page for verifying cell context options set explicitly with `context`.
 
 ## Interactive
 
-### Static
 ```{pyodide-python}
 #| context: interactive
-1 + 1
-```
-
-### Autorun
-
-```{pyodide-python}
-#| context: interactive
-#| autorun: true
 1 + 1
 ```
 

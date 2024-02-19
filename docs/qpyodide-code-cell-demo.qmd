@@ -103,6 +103,14 @@ df.Age
 
 ## Graphing
 
-:::{.callout-important}
-Graphing is not yet available.
-:::
+We provide support for generating graphs through the interactive HTML5 backend, e.g. [`module://matplotlib_pyodide.html5_canvas_backend](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include a `plt.show()` call for the graph to render.
+
+```{pyodide-python}
+import matplotlib.pyplot as plt
+
+x = [1, 5, 3, -2]
+y = [-5, 8, 9, 4]
+
+plt.plot(x, y)
+plt.show()
+```
