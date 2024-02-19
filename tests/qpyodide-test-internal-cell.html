@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"results":"markup","out-height":"","fig-cap":"","warning":"true","comment":"","out-width":"700px","message":"true","label":"","output":"true","classes":"","context":"interactive","autorun":"","dpi":72,"fig-height":5,"fig-width":7},"code":"1 + 1"},{"id":2,"options":{"results":"markup","out-height":"","fig-cap":"","warning":"true","comment":"","out-width":"700px","message":"true","label":"","output":"true","classes":"","context":"setup","autorun":"","dpi":72,"fig-height":5,"fig-width":7},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":3,"options":{"results":"markup","out-height":"","fig-cap":"","warning":"true","comment":"","out-width":"700px","message":"true","label":"","output":"true","classes":"","context":"output","autorun":"","dpi":72,"fig-height":5,"fig-width":7},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"context":"interactive","warning":"true","results":"markup","dpi":72,"out-width":"700px","label":"","classes":"","comment":"","output":"true","autorun":"","fig-width":7,"message":"true","out-height":"","fig-height":5,"fig-cap":""},"code":"1 + 1"},{"id":2,"options":{"context":"setup","warning":"true","results":"markup","dpi":72,"out-width":"700px","label":"","classes":"","comment":"","output":"true","autorun":"","fig-width":7,"message":"true","out-height":"","fig-height":5,"fig-cap":""},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":3,"options":{"context":"output","warning":"true","results":"markup","dpi":72,"out-width":"700px","label":"","classes":"","comment":"","output":"true","autorun":"","fig-width":7,"message":"true","out-height":"","fig-height":5,"fig-cap":""},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
 
 
 </script>
@@ -1342,8 +1342,6 @@ class InteractiveCell extends BaseCell {
      * Execute the Python code inside the editor.
      */
     async runCode(code) {
-
-        console.log("Hit! Log");
         
         // Check if we have an execution lock
         if (this.executeLock) return; 
@@ -1378,7 +1376,6 @@ class InteractiveCell extends BaseCell {
         }
 
         const result = qpyodideRetrieveOutput();
-        console.log("Output of stdout: " + result);
 
         // Nullify the output area of content
         this.outputCodeDiv.innerHTML = "";
@@ -1402,10 +1399,10 @@ class InteractiveCell extends BaseCell {
         // Place the graphics onto the page
         if (graphFigure) {
 
-            if (options['fig-cap']) {
+            if (this.options['fig-cap']) {
                 // Create figcaption element
                 const figcaptionElement = document.createElement('figcaption');
-                figcaptionElement.innerText = options['fig-cap'];
+                figcaptionElement.innerText = this.options['fig-cap'];
                 // Append figcaption to figure
                 graphFigure.appendChild(figcaptionElement);    
             }

@@ -273,7 +273,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"1 + 1","id":1},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"1 + 1","id":2},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"greet = 'Hello'\ngreet","id":3},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"len(greet)","id":4},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"def square(x):\n    return x**2\n\nsquare(8)","id":5},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]","id":6},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf","id":7},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"import pandas as pd \n\ndf.Age","id":8},{"options":{"fig-cap":"","autorun":"","context":"interactive","fig-width":7,"comment":"","message":"true","fig-height":5,"label":"","out-width":"700px","output":"true","warning":"true","results":"markup","classes":"","dpi":72,"out-height":""},"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","id":9}];
+globalThis.qpyodideCellDetails = [{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"1 + 1","id":1},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"1 + 1","id":2},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"greet = 'Hello'\ngreet","id":3},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"len(greet)","id":4},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"def square(x):\n    return x**2\n\nsquare(8)","id":5},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]","id":6},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf","id":7},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"import pandas as pd \n\ndf.Age","id":8},{"options":{"fig-height":5,"comment":"","out-height":"","context":"interactive","results":"markup","message":"true","out-width":"700px","output":"true","warning":"true","classes":"","label":"","autorun":"","dpi":72,"fig-cap":"","fig-width":7},"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","id":9}];
 
 
 </script>
@@ -1491,8 +1491,6 @@ class InteractiveCell extends BaseCell {
      * Execute the Python code inside the editor.
      */
     async runCode(code) {
-
-        console.log("Hit! Log");
         
         // Check if we have an execution lock
         if (this.executeLock) return; 
@@ -1527,7 +1525,6 @@ class InteractiveCell extends BaseCell {
         }
 
         const result = qpyodideRetrieveOutput();
-        console.log("Output of stdout: " + result);
 
         // Nullify the output area of content
         this.outputCodeDiv.innerHTML = "";
@@ -1551,10 +1548,10 @@ class InteractiveCell extends BaseCell {
         // Place the graphics onto the page
         if (graphFigure) {
 
-            if (options['fig-cap']) {
+            if (this.options['fig-cap']) {
                 // Create figcaption element
                 const figcaptionElement = document.createElement('figcaption');
-                figcaptionElement.innerText = options['fig-cap'];
+                figcaptionElement.innerText = this.options['fig-cap'];
                 // Append figcaption to figure
                 graphFigure.appendChild(figcaptionElement);    
             }

@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","options":{"context":"interactive","warning":"true","out-height":"","label":"","out-width":"700px","autorun":"","message":"true","results":"markup","classes":"","dpi":72,"comment":"","fig-height":5,"fig-width":7,"fig-cap":"","output":"true"},"id":1}];
+globalThis.qpyodideCellDetails = [{"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","options":{"message":"true","fig-cap":"","out-height":"","results":"markup","context":"interactive","output":"true","comment":"","dpi":72,"label":"","autorun":"","out-width":"700px","warning":"true","classes":"","fig-width":7,"fig-height":5},"id":1}];
 
 
 </script>
@@ -1343,8 +1343,6 @@ class InteractiveCell extends BaseCell {
      * Execute the Python code inside the editor.
      */
     async runCode(code) {
-
-        console.log("Hit! Log");
         
         // Check if we have an execution lock
         if (this.executeLock) return; 
@@ -1379,7 +1377,6 @@ class InteractiveCell extends BaseCell {
         }
 
         const result = qpyodideRetrieveOutput();
-        console.log("Output of stdout: " + result);
 
         // Nullify the output area of content
         this.outputCodeDiv.innerHTML = "";
@@ -1403,10 +1400,10 @@ class InteractiveCell extends BaseCell {
         // Place the graphics onto the page
         if (graphFigure) {
 
-            if (options['fig-cap']) {
+            if (this.options['fig-cap']) {
                 // Create figcaption element
                 const figcaptionElement = document.createElement('figcaption');
-                figcaptionElement.innerText = options['fig-cap'];
+                figcaptionElement.innerText = this.options['fig-cap'];
                 // Append figcaption to figure
                 graphFigure.appendChild(figcaptionElement);    
             }

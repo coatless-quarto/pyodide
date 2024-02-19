@@ -195,7 +195,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"print(\"Hello Quarto-Pyodide World!\")","options":{"output":"true","warning":"true","results":"markup","autorun":"","context":"interactive","message":"true","label":"","fig-cap":"","dpi":72,"classes":"","out-width":"700px","comment":"","fig-height":5,"fig-width":7,"out-height":""},"id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"print(\"Hello Quarto-Pyodide World!\")","options":{"results":"markup","label":"","message":"true","dpi":72,"output":"true","comment":"","fig-cap":"","fig-width":7,"warning":"true","fig-height":5,"classes":"","out-width":"700px","context":"interactive","out-height":"","autorun":""}}];
 
 
 </script>
@@ -1195,8 +1195,6 @@ class InteractiveCell extends BaseCell {
      * Execute the Python code inside the editor.
      */
     async runCode(code) {
-
-        console.log("Hit! Log");
         
         // Check if we have an execution lock
         if (this.executeLock) return; 
@@ -1231,7 +1229,6 @@ class InteractiveCell extends BaseCell {
         }
 
         const result = qpyodideRetrieveOutput();
-        console.log("Output of stdout: " + result);
 
         // Nullify the output area of content
         this.outputCodeDiv.innerHTML = "";
@@ -1255,10 +1252,10 @@ class InteractiveCell extends BaseCell {
         // Place the graphics onto the page
         if (graphFigure) {
 
-            if (options['fig-cap']) {
+            if (this.options['fig-cap']) {
                 // Create figcaption element
                 const figcaptionElement = document.createElement('figcaption');
-                figcaptionElement.innerText = options['fig-cap'];
+                figcaptionElement.innerText = this.options['fig-cap'];
                 // Append figcaption to figure
                 graphFigure.appendChild(figcaptionElement);    
             }
