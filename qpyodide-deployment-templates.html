@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-19">
 
-<title>quarto-pyodide – qpyodide-dev-notes</title>
+<title>quarto-pyodide – Deployment Templates</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,9 +89,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      quarto-pyodide
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-deployment-templates.html">Deployment</a></li><li class="breadcrumb-item"><a href="./qpyodide-deployment-templates.html">Templates</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -184,7 +183,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qpyodide-deployment-templates.html" class="sidebar-item-text sidebar-link">
+  <a href="./qpyodide-deployment-templates.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Templates</span></a>
   </div>
 </li>
@@ -228,39 +227,80 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-deployment-templates.html">Deployment</a></li><li class="breadcrumb-item"><a href="./qpyodide-deployment-templates.html">Templates</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Deployment Templates</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 19, 2024</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 19, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Discover a range of sample deployment templates for the <code>quarto-pyodide</code> extension at our GitHub repository <a href="https://github.com/coatless-quarto/pyodide/tree/main/examples">here</a>. These templates serve as convenient starting points for various web-based projects that harness the power of the <code>quarto-pyodide</code> extension, enabling interactive Python code cells inside of a web browser. Whether you’re embarking on an individual report, creating an interactive website, or compiling a digital book, these templates simplify the process, making it effortless to kickstart your own projects.</p>
+<section id="html-document-template" class="level1">
+<h1>HTML Document Template</h1>
+<p>This template is designed for creating standalone HTML documents with interactive Pyodide functionality. It’s suitable for individual reports or interactive documents.</p>
 <ul>
-<li>Pyodide
+<li><strong>Example</strong>: You can find an example of an HTML document template <a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/html-document/">here</a>.</li>
+<li><strong>Source Code</strong>: Access the source code for this template <a href="https://github.com/coatless-quarto/pyodide/tree/main/examples/html-document">here</a>.</li>
+</ul>
+</section>
+<section id="revealjs-presentation-template" class="level1">
+<h1>RevealJS Presentation Template</h1>
+<p>This template is designed for creating standalone RevealJS presentations with interactive Pyodide functionality. It’s suitable for creating lecture slides.</p>
 <ul>
-<li><a href="https://pyodide.org/en/stable/usage/index.html">Using Pyodide</a></li>
-</ul></li>
-<li>Quarto Extensions
+<li><strong>Example</strong>: You can find an example of a RevealJS presentation template <a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/revealjs/">here</a>.</li>
+<li><strong>Source Code</strong>: Access the source code for this template <a href="https://github.com/coatless-quarto/pyodide/tree/main/examples/revealjs">here</a>.</li>
+</ul>
+</section>
+<section id="website-template" class="level1">
+<h1>Website Template</h1>
+<p>This template is meant for building interactive websites with multiple Pyodide-powered pages. It’s ideal for websites that have multiple piece of web content that requires interactive data analysis at the “top-level”.</p>
 <ul>
-<li><a href="https://github.com/quarto-ext/shinylive"><code>quarto-ext/shinylive</code></a></li>
-<li><a href="https://github.com/mcanouil/quarto-elevator"><code>mcanouil/quarto-elevator</code></a></li>
-<li><a href="https://github.com/shafayetShafee/downloadthis/tree/main"><code>shafayetShafee/downloadthis</code></a></li>
-</ul></li>
-<li>Quarto Documentation
+<li><strong>Example</strong>: Explore an example of a website template <a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/website/">here</a>.</li>
+<li><strong>Source Code</strong>: Access the source code for this template <a href="https://github.com/coatless-quarto/pyodide/tree/main/examples/website">here</a>.</li>
+</ul>
+</section>
+<section id="blog-template" class="level1">
+<h1>Blog Template</h1>
+<p>For users who want to periodically use Pyodide on their Quarto blog, please use the following template.</p>
 <ul>
-<li><a href="https://quarto.org/docs/extensions/filters.html">Filters Documentation</a></li>
-<li><a href="https://quarto.org/docs/extensions/lua.html">Lua Development Tips</a></li>
-<li><a href="https://quarto.org/docs/extensions/lua-api.html">Lua API</a></li>
-</ul></li>
-<li>Pandoc Documentation
+<li><strong>Example</strong>: Explore an example of a blog website template <a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/blog/">here</a>.</li>
+<li><strong>Source Code</strong>: Access the source code for this template <a href="https://github.com/coatless-quarto/pyodide/tree/main/examples/blog">here</a>.</li>
+</ul>
+</section>
+<section id="book-template" class="level1">
+<h1>Book Template</h1>
+<p>The book template is designed for creating interactive web-based books or documentation. It allows you to compile a collection of chapters, sections, and interactive content into a cohesive digital book.</p>
 <ul>
-<li><a href="https://pandoc.org/lua-filters.html#examples">Example Filters</a></li>
-<li><a href="https://pandoc.org/lua-filters.html#type-codeblock">CodeBlock</a></li>
-</ul></li>
-<li>matplotlib patches
-<ul>
-<li><a href="https://github.com/gzuidhof/starboard-notebook/blob/4127a5991399532f496da225ecc4ffcc27aa5529/packages/starboard-python/src/pyodide/matplotlib.ts"><code>gzuidhof/starboard-notebook</code> graphics patch</a></li>
-<li><a href="https://github.com/jupyterlite/pyodide-kernel/blob/395525f14b827968cb89a0e507123ae2932d399a/packages/pyodide-kernel/py/pyodide-kernel/pyodide_kernel/patches.py"><code>jupyterlite/pyodide-kernel</code> graphics patch</a></li>
-</ul></li>
+<li><strong>Example</strong>: You can view an example of a book template <a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/book">here</a>.</li>
+<li><strong>Source Code</strong>: Access the source code for this template <a href="https://github.com/coatless-quarto/pyodide/tree/main/examples/book">here</a>.</li>
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -655,4 +695,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-dev-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-deployment-templates.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
