@@ -26,6 +26,8 @@ website:
         contents:
           - href: https://quarto.thecoatlessprofessor.com/pyodide/examples/readme/
             text: README Example
+          - href: qpyodide-code-cell-demo.qmd
+            text: Pyodide Interactive Cell Demo
       - section: "Extra Information"
         contents:
           - href: qpyodide-release-notes.qmd
