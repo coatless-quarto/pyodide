@@ -4,7 +4,7 @@
  * @returns {BaseCell} Instance of the appropriate cell class.
  */
 globalThis.qpyodideCreateCell = function(cellData) {
-    switch (cellData.options.cellType) {
+    switch (cellData.options.context) {
         case 'interactive':
             return new InteractiveCell(cellData);
         case 'output':
