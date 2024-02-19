@@ -92,7 +92,7 @@
     "href": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
     "title": "Python Interactive Code Cells",
     "section": "Retrieving prior objects",
-    "text": "Retrieving prior objects\nChecking string length\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice, we’re able to track the run value of code.",
+    "text": "Retrieving prior objects\nChecking string length\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Demos",
       "Pyodide Interactive Cell Demo"
@@ -125,7 +125,7 @@
     "href": "qpyodide-code-cell-demo.html#graphing",
     "title": "Python Interactive Code Cells",
     "section": "Graphing",
-    "text": "Graphing\nWe provide support for generating graphs through the interactive HTML5 backend, e.g. [module://matplotlib_pyodide.html5_canvas_backend](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include aplt.show()` call for the graph to render.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Graphing\nWe provide support for generating graphs through the interactive HTML5 backend, e.g. module://matplotlib_pyodide.html5_canvas_backend. At the end of each graph call, you must include a plt.show() call for the graph to render.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Demos",
       "Pyodide Interactive Cell Demo"
