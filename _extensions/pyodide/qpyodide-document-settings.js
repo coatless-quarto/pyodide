@@ -15,7 +15,10 @@ globalThis.qpyodideCustomizedPyodideOptions = {
   "env": {
     "HOME": "{{HOMEDIR}}",
   }, 
-};
+  stdout: (text) => {qpyodideAddToOutputArray(text, "out");},
+  stderr: (text) => {qpyodideAddToOutputArray(text, "error");}
+}
 
 // Store cell data
 globalThis.qpyodideCellDetails = {{QPYODIDECELLDETAILS}};
+

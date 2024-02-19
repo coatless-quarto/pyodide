@@ -1,7 +1,6 @@
 // Declare startupMessageqpyodide globally
 globalThis.qpyodideStartupMessage = document.createElement("p");
 
-
 // Function to set the button text
 globalThis.qpyodideSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
   document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {

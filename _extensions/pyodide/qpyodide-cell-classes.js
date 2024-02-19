@@ -10,7 +10,7 @@ globalThis.qpyodideCreateCell = function(cellData) {
         case 'output':
             return new OutputCell(cellData);
         case 'setup':
-            return new SetupContextCell(cellData);
+            return new SetupCell(cellData);
         default:
             return new InteractiveCell(cellData);
             // throw new Error('Invalid cell type specified in options.');
@@ -74,6 +74,7 @@ class BaseCell {
         this.id = cellData.id;
         this.options = cellData.options;
         this.insertionLocation = document.getElementById(`qpyodide-insertion-location-${this.id}`);
+        this.executionLock = false;
     }
 
     cellOptions() {
@@ -226,6 +227,8 @@ class InteractiveCell extends BaseCell {
         this.resetButton = document.getElementById(`qpyodide-button-reset-${this.id}`);
         this.copyButton = document.getElementById(`qpyodide-button-copy-${this.id}`);
         this.editorDiv = document.getElementById(`qpyodide-editor-${this.id}`);
+        this.outputCodeDiv = document.getElementById(`qpyodide-output-code-area-${this.id}`);
+        this.outputGraphDiv = document.getElementById(`qpyodide-output-graph-area-${this.id}`);
         
         // Store reference to the object
         var thiz = this;
@@ -297,13 +300,13 @@ class InteractiveCell extends BaseCell {
             // Add a keydown event listener for Shift+Enter to run all code in cell
             thiz.editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
                 // Retrieve all text inside the editor
-                thiz.executeCode(thiz.editor.getValue(), thiz.editor.__qpyodideCounter, thiz.editor.__qpyodideOptions);
+                thiz.runCode(thiz.editor.getValue());
             });
         
             // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
             thiz.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
                     // Get the selected text from the editor
-                    const selectedText = editor.getModel().getValueInRange(editor.getSelection());
+                    const selectedText = thiz.editor.getModel().getValueInRange(thiz.editor.getSelection());
                     // Check if no code is selected
                     if (isEmptyCodeText(selectedText)) {
                         // Obtain the current cursor position
@@ -325,13 +328,13 @@ class InteractiveCell extends BaseCell {
                         }
                         
                         // Run the entire line of code.
-                        thiz.executeCode(currentLine, thiz.editor.__qpyodideCounter, thiz.editor.__qpyodideOptions);
+                        thiz.runCode(currentLine);
                 
                         // Move cursor to new position
                         thiz.editor.setPosition(newPosition);
                     } else {
                         // Code to run when Ctrl+Enter is pressed with selected code
-                        thiz.executeCode(selectedText, thiz.editor.__qpyodideCounter, thiz.editor.__qpyodideOptions);
+                        thiz.runCode(selectedText);
                     }
                 });
             }
@@ -353,11 +356,9 @@ class InteractiveCell extends BaseCell {
 
         
         // Add a click event listener to the run button
-        this.runButton.onclick = function () {
-            this.executeCode(
-                this.editor.getValue(),
-                this.editor.__qpyodideCounter,
-                this.editor.__qpyodideOptions
+        thiz.runButton.onclick = function () {
+            thiz.runCode(
+                thiz.editor.getValue()
             );
         };
         
@@ -376,14 +377,103 @@ class InteractiveCell extends BaseCell {
         };
     }
 
+    disableInteractiveCells() {
+        // Enable locking of execution for the cell
+        this.executionLock = true;
+
+        // Disallowing execution of other code cells
+        document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+            btn.disabled = true;
+        });
+    }
+
+    enableInteractiveCells() {
+        // Remove locking of execution for the cell
+        this.executionLock = false;
+
+        // All execution of other code cells
+        document.querySelectorAll(".qpyodide-button-run").forEach((btn) => {
+            btn.disabled = false;
+        });
+    }
+
     /**
      * Execute the Python code inside the editor.
      */
-    async runCode() {
-        // Extract code
-        const code = this.editor.getValue();
+    async runCode(code) {
+
+        console.log("Hit! Log");
+        
+        // Check if we have an execution lock
+        if (this.executeLock) return; 
+        
+        this.disableInteractiveCells();
+
+        // Force wait procedure
+        await mainPyodide;
+
+        // Clear the output stock
+        qpyodideResetOutputArray();
+
+        // Generate a new canvas element, avoid attaching until the end
+        let graphFigure = document.createElement("figure");
+        document.pyodideMplTarget = graphFigure;
+
+        console.log("Running code!");
         // Obtain results from the base class
-        const result = this.executeCode(code);
+        try {
+            // Always check to see if the user adds new packages
+            await mainPyodide.loadPackagesFromImports(code);
+
+            // Process result
+            const output = await mainPyodide.runPythonAsync(code);
+
+            // Add output
+            qpyodideAddToOutputArray(output, "stdout");
+        } catch (err) {
+            // Add error message
+            qpyodideAddToOutputArray(err, "stderr");
+            // TODO: There has to be a way to remove the Pyodide portion of the errors... 
+        }
+
+        const result = qpyodideRetrieveOutput();
+        console.log("Output of stdout: " + result);
+
+        // Nullify the output area of content
+        this.outputCodeDiv.innerHTML = "";
+        this.outputGraphDiv.innerHTML = "";        
+
+        // Design an output object for messages
+        const pre = document.createElement("pre");
+        if (/\S/.test(result)) {
+            // Display results as HTML elements to retain output styling
+            const div = document.createElement("div");
+            div.innerHTML = result;
+            pre.appendChild(div);
+        } else {
+            // If nothing is present, hide the element.
+            pre.style.visibility = "hidden";
+        }
+
+        // Add output under interactive div
+        this.outputCodeDiv.appendChild(pre);
+
+        // Place the graphics onto the page
+        if (graphFigure) {
+
+            if (options['fig-cap']) {
+                // Create figcaption element
+                const figcaptionElement = document.createElement('figcaption');
+                figcaptionElement.innerText = options['fig-cap'];
+                // Append figcaption to figure
+                graphFigure.appendChild(figcaptionElement);    
+            }
+
+            this.outputGraphDiv.appendChild(graphFigure);
+        }
+
+        // Re-enable execution
+        this.enableInteractiveCells();
     }
 };
 
