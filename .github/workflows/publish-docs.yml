@@ -31,10 +31,10 @@ jobs:
           path: "docs"
 
       # Attempt to render the nested deployment template Quarto projects
-      - name: Render README demo 
+      - name: Render README example 
         uses: quarto-dev/quarto-actions/render@v2
         with:
-          path: "demos/readme/index.qmd"
+          path: "examples/readme/index.qmd"
 
       - name: Render test suite
         uses: quarto-dev/quarto-actions/render@v2
@@ -42,17 +42,17 @@ jobs:
           path: "tests"
 
       # Collect the output into the staging/ directory
-      - name: Copy documentation portal & demos into the staging directory
+      - name: Copy documentation portal & examples into the staging directory
         run: |        
-          mkdir -p staging/{demos,tests} && \
+          mkdir -p staging/{examples,tests} && \
           cp -rp docs/_site/* staging/ && \
           cp -rp tests/_site/* staging/tests/ && \
-          cp -rp demos/readme/ staging/demos/readme
+          cp -rp examples/readme/ staging/examples/readme
 
       # Remove symlinks
       - name: Delete symlinks
         run: |
-          rm -rf staging/demos/*/_extensions && \
+          rm -rf staging/examples/*/_extensions && \
           rm -rf staging/tests/_extensions
 
       # Publish the docs directory onto gh-pages

@@ -1,5 +1,5 @@
 ---
-title: pyodide in Quarto HTML Documents
+title: Pyodide in Quarto HTML Documents
 format: html
 filters:
   - pyodide
@@ -8,8 +8,12 @@ filters:
 This is a pyodide-enabled code cell in a Quarto HTML document.
 
 ```{pyodide-python}
-print("Hello Quarto-Pyodide World!")
-```
+n = 5
+while n > 0:
+  print(n)
+  n = n + 1
 
+print('Blastoff!')
+```
 
 Return to the [documentation website](https://quarto.thecoatlessprofessor.com/pyodide) or [GitHub Repository](https://github.com/coatless-quarto/pyodide).
