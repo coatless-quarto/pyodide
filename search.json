@@ -59,49 +59,77 @@
     "href": "qpyodide-code-cell-demo.html",
     "title": "Python Interactive Code Cells",
     "section": "",
-    "text": "Welcome to the world of interactive code cells, unlocked by the quarto-pyodide extension. These cells allow you to run Python code directly within your Quarto HTML documents, enabling real-time computations and more. Let’s explore the impressive capabilities pyodide offers.\npyodide-enabled code cell are established by using {pyodide-python} in a Quarto HTML document."
+    "text": "Welcome to the world of interactive code cells, unlocked by the quarto-pyodide extension. These cells allow you to run Python code directly within your Quarto HTML documents, enabling real-time computations and more. Let’s explore the impressive capabilities pyodide offers.\npyodide-enabled code cell are established by using {pyodide-python} in a Quarto HTML document.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "qpyodide-code-cell-demo.html#sample-calculations",
     "href": "qpyodide-code-cell-demo.html#sample-calculations",
     "title": "Python Interactive Code Cells",
     "section": "Sample Calculations",
-    "text": "Sample Calculations\nLet’s start off with a quick calculation\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Sample Calculations\nLet’s start off with a quick calculation\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "qpyodide-code-cell-demo.html#strings",
     "href": "qpyodide-code-cell-demo.html#strings",
     "title": "Python Interactive Code Cells",
     "section": "Strings",
-    "text": "Strings\nViewing string data\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Strings\nViewing string data\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
     "href": "qpyodide-code-cell-demo.html#retrieving-prior-objects",
     "title": "Python Interactive Code Cells",
     "section": "Retrieving prior objects",
-    "text": "Retrieving prior objects\nChecking string length\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice, we’re able to track the run value of code."
+    "text": "Retrieving prior objects\nChecking string length\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotice, we’re able to track the run value of code.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "qpyodide-code-cell-demo.html#define-and-call-functions",
     "href": "qpyodide-code-cell-demo.html#define-and-call-functions",
     "title": "Python Interactive Code Cells",
     "section": "Define and Call Functions",
-    "text": "Define and Call Functions\nFunctions can be defined in one cell and called.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSimilarly, they persist to other cells.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Define and Call Functions\nFunctions can be defined in one cell and called.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSimilarly, they persist to other cells.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "qpyodide-code-cell-demo.html#load-a-package",
     "href": "qpyodide-code-cell-demo.html#load-a-package",
     "title": "Python Interactive Code Cells",
     "section": "Load a package",
-    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "qpyodide-code-cell-demo.html#graphing",
     "href": "qpyodide-code-cell-demo.html#graphing",
     "title": "Python Interactive Code Cells",
     "section": "Graphing",
-    "text": "Graphing\nWe provide support for generating graphs through the interactive HTML5 backend, e.g. [module://matplotlib_pyodide.html5_canvas_backend](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include aplt.show()` call for the graph to render.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Graphing\nWe provide support for generating graphs through the interactive HTML5 backend, e.g. [module://matplotlib_pyodide.html5_canvas_backend](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include aplt.show()` call for the graph to render.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
   },
   {
     "objectID": "index.html",

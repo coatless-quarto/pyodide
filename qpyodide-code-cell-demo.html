@@ -273,7 +273,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"1 + 1","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":2,"code":"1 + 1","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":3,"code":"greet = 'Hello'\ngreet","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":4,"code":"len(greet)","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":5,"code":"def square(x):\n    return x**2\n\nsquare(8)","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":6,"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":7,"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":8,"code":"import pandas as pd \n\ndf.Age","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}},{"id":9,"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","options":{"out-height":"","dpi":72,"label":"","context":"interactive","out-width":"700px","autorun":"","classes":"","results":"markup","warning":"true","message":"true","comment":"","output":"true","fig-cap":"","fig-height":5,"fig-width":7}}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"1 + 1"},{"id":2,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"1 + 1"},{"id":3,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"greet = 'Hello'\ngreet"},{"id":4,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"len(greet)"},{"id":5,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"def square(x):\n    return x**2\n\nsquare(8)"},{"id":6,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]"},{"id":7,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf"},{"id":8,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"import pandas as pd \n\ndf.Age"},{"id":9,"options":{"classes":"","context":"interactive","label":"","autorun":"","warning":"true","fig-width":7,"out-height":"","comment":"","output":"true","message":"true","results":"markup","dpi":72,"fig-cap":"","out-width":"700px","fig-height":5},"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()"}];
 
 
 </script>
@@ -448,9 +448,7 @@ globalThis._qpyodideGetInstance = function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      quarto-pyodide
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/readme/">Demos</a></li><li class="breadcrumb-item"><a href="./qpyodide-code-cell-demo.html">Pyodide Interactive Cell Demo</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -525,6 +523,12 @@ globalThis._qpyodideGetInstance = function() {
  <span class="menu-text">README Example</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qpyodide-code-cell-demo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pyodide Interactive Cell Demo</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -592,7 +596,7 @@ globalThis._qpyodideGetInstance = function() {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/readme/">Demos</a></li><li class="breadcrumb-item"><a href="./qpyodide-code-cell-demo.html">Pyodide Interactive Cell Demo</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Python Interactive Code Cells</h1>
 <p class="subtitle lead">Demos showing interactive use cases of Python in Your Quarto Documents</p>
