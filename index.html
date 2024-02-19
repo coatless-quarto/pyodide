@@ -235,7 +235,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"output":"true","out-height":"","fig-width":7,"context":"interactive","message":"true","warning":"true","autorun":"","fig-height":5,"classes":"","dpi":72,"label":"","out-width":"700px","comment":"","fig-cap":"","results":"markup"},"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!"}];
+globalThis.qpyodideCellDetails = [{"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\nprint(\"Let's start coding and exploring the amazing possibilities!\")\n\n# Feel free to add your own code below and have fun with Python!","id":1,"options":{"label":"","fig-cap":"","message":"true","out-width":"700px","results":"markup","autorun":"","output":"true","comment":"","classes":"","dpi":72,"out-height":"","warning":"true","fig-width":7,"context":"interactive","fig-height":5}}];
 </script>
 <script type="module">
 // Declare startupMessageqpyodide globally
@@ -921,7 +921,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  * @returns {BaseCell} Instance of the appropriate cell class.
  */
 globalThis.qpyodideCreateCell = function(cellData) {
-    switch (cellData.options.cellType) {
+    switch (cellData.options.context) {
         case 'interactive':
             return new InteractiveCell(cellData);
         case 'output':

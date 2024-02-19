@@ -226,7 +226,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"fig-cap":"","results":"markup","out-width":"700px","fig-height":5,"context":"interactive","message":"true","out-height":"","comment":"","label":"","autorun":"","classes":"","output":"true","warning":"true","dpi":72,"fig-width":7},"code":"1 + 1"},{"id":2,"options":{"fig-cap":"","results":"markup","out-width":"700px","fig-height":5,"context":"interactive","message":"true","out-height":"","comment":"","label":"","autorun":"true","classes":"","output":"true","warning":"true","dpi":72,"fig-width":7},"code":"1 + 1"},{"id":3,"options":{"fig-cap":"","results":"markup","out-width":"700px","fig-height":5,"context":"setup","message":"true","out-height":"","comment":"","label":"","autorun":"","classes":"","output":"true","warning":"true","dpi":72,"fig-width":7},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":4,"options":{"fig-cap":"","results":"markup","out-width":"700px","fig-height":5,"context":"output","message":"true","out-height":"","comment":"","label":"","autorun":"","classes":"","output":"true","warning":"true","dpi":72,"fig-width":7},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"1 + 1","options":{"fig-width":7,"out-height":"","context":"interactive","warning":"true","fig-cap":"","autorun":"","results":"markup","dpi":72,"classes":"","out-width":"700px","fig-height":5,"output":"true","message":"true","comment":"","label":""}},{"id":2,"code":"1 + 1","options":{"fig-width":7,"out-height":"","context":"interactive","warning":"true","fig-cap":"","autorun":"true","results":"markup","dpi":72,"classes":"","out-width":"700px","fig-height":5,"output":"true","message":"true","comment":"","label":""}},{"id":3,"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]","options":{"fig-width":7,"out-height":"","context":"setup","warning":"true","fig-cap":"","autorun":"","results":"markup","dpi":72,"classes":"","out-width":"700px","fig-height":5,"output":"true","message":"true","comment":"","label":""}},{"id":4,"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)","options":{"fig-width":7,"out-height":"","context":"output","warning":"true","fig-cap":"","autorun":"","results":"markup","dpi":72,"classes":"","out-width":"700px","fig-height":5,"output":"true","message":"true","comment":"","label":""}}];
 </script>
 <script type="module">
 // Declare startupMessageqpyodide globally
@@ -905,7 +905,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  * @returns {BaseCell} Instance of the appropriate cell class.
  */
 globalThis.qpyodideCreateCell = function(cellData) {
-    switch (cellData.options.cellType) {
+    switch (cellData.options.context) {
         case 'interactive':
             return new InteractiveCell(cellData);
         case 'output':

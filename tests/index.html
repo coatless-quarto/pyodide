@@ -226,7 +226,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 };
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"print(\"Welcome to behind the scenes of quarto-pyodide!\")","options":{"context":"interactive","results":"markup","warning":"true","label":"","classes":"","comment":"","autorun":"","out-width":"700px","output":"true","message":"true","fig-cap":"","fig-height":5,"out-height":"","fig-width":7,"dpi":72}}];
+globalThis.qpyodideCellDetails = [{"code":"print(\"Welcome to behind the scenes of quarto-pyodide!\")","id":1,"options":{"out-width":"700px","out-height":"","message":"true","dpi":72,"autorun":"","label":"","fig-width":7,"fig-cap":"","context":"interactive","results":"markup","output":"true","comment":"","classes":"","warning":"true","fig-height":5}}];
 </script>
 <script type="module">
 // Declare startupMessageqpyodide globally
@@ -886,7 +886,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  * @returns {BaseCell} Instance of the appropriate cell class.
  */
 globalThis.qpyodideCreateCell = function(cellData) {
-    switch (cellData.options.cellType) {
+    switch (cellData.options.context) {
         case 'interactive':
             return new InteractiveCell(cellData);
         case 'output':
