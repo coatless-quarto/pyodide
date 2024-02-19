@@ -56,8 +56,6 @@ Checking string length
 len(greet)
 ```
 
-Notice, we're able to track the run value of code.
-
 ## Define and Call Functions
 
 Functions can be defined in one cell and called. 
@@ -103,7 +101,7 @@ df.Age
 
 ## Graphing
 
-We provide support for generating graphs through the interactive HTML5 backend, e.g. [`module://matplotlib_pyodide.html5_canvas_backend](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include a `plt.show()` call for the graph to render.
+We provide support for generating graphs through the interactive HTML5 backend, e.g. [`module://matplotlib_pyodide.html5_canvas_backend`](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include a `plt.show()` call for the graph to render.
 
 ```{pyodide-python}
 import matplotlib.pyplot as plt
