@@ -39,7 +39,7 @@ This is a pyodide-enabled code cell in a Quarto HTML document.
 n = 5
 while n > 0:
   print(n)
-  n = n + 1
+  n = n - 1
 
 print('Blastoff!')
 ```
