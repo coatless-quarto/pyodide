@@ -47,6 +47,26 @@ jobs:
         with:
           path: "examples/revealjs/index.qmd"
 
+      - name: Render sample deployment HTML document template
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "examples/html-document/index.qmd"
+
+      - name: Render sample deployment website template
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "examples/website"
+
+      - name: Render sample deployment blog template
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "examples/blog"
+
+      - name: Render sample deployment book template
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: "examples/book"
+  
       - name: Render test suite
         uses: quarto-dev/quarto-actions/render@v2
         with:
@@ -57,9 +77,13 @@ jobs:
         run: |        
           mkdir -p staging/{examples,tests} && \
           cp -rp docs/_site/* staging/ && \
-          cp -rp tests/_site/* staging/tests/ && \
-          cp -rp examples/readme/ staging/examples/readme && \
-          cp -rp examples/revealjs/ staging/examples/revealjs
+          cp -rp tests/_site/* staging/tests/  && \
+          cp -rp examples/book/_book staging/examples/book && \
+          cp -rp examples/website/_site staging/examples/website && \
+          cp -rp examples/blog/_site staging/examples/blog && \
+          cp -rp examples/html-document/ staging/examples/html-document && \
+          cp -rp examples/revealjs/ staging/examples/revealjs && \
+          cp -rp examples/readme/ staging/examples/readme
 
       # Remove symlinks
       - name: Delete symlinks
