@@ -16,6 +16,9 @@ website:
         href: https://github.com/coatless-quarto/pyodide/
     contents:
       - section: "Getting Started"
+        contents:
+          - href: qpyodide-first-steps.qmd
+            text: "Your first Pyodide-powered Quarto document"
       - section: "Support"
         contents:
           - href: qpyodide-faq.qmd

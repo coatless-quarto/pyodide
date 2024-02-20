@@ -1,0 +1,79 @@
+---
+title: "Making your first Pyodide-powered Quarto document"
+author: "James Joseph Balamuta"
+date: "02-19-2024"
+date-modified: last-modified
+format: 
+  html:
+    toc: true
+filters:
+  - pyodide
+---
+
+## Installation 
+
+To use this extension in a [Quarto project](https://quarto.org/docs/projects/quarto-projects.html), install it from within the project's working directory by typing into **Terminal**:
+
+``` bash
+quarto add coatless-quarto/pyodide
+```
+
+:::callout-note
+Quarto extensions are project-specific installations and are not stored in a global library. This means that for every new Quarto project or directory where you create a Quarto Document, you'll need to install the extension again.
+:::
+
+## Usage
+
+Once the extension is successfully installed, you can begin utilizing it in your Quarto documents located within the same working directory as the `_extensions` folder. To activate the `Pyodide` functionality in those documents, follow these steps:
+
+1. **Add `pyodide` Filter**: In the header of your Quarto document, add the `pyodide` filter to the list of filters:
+
+```yaml
+filters:
+  - pyodide
+```
+
+2. **Use `{pyodide-python}` Code Blocks**: Write your Python code within code blocks marked with `{pyodide-python}`. Here's an example:
+
+````markdown
+---
+title: Pyodide in Quarto HTML Documents
+format: html
+filters:
+  - pyodide
+---
+
+This is a Pyodide-enabled code cell in a Quarto HTML document.
+
+```{pyodide-python}
+n = 5
+while n > 0:
+  print(n)
+  n = n - 1
+
+print('Blastoff!')
+```
+````
+
+3. **Render Your Document**: You can now render your Quarto document by clicking on the **Preview** (or use the keyboard shortcut <kbd>⇧⌘K</kbd> on macOS or <kbd>Ctrl+Shift+K</kbd> on Windows/Linux). The document will execute under `engine: jupyter` by default, but you can specify a different engine if needed. 
+
+:::callout-note
+If an engine is not specified, Quarto will attempt to use the `jupyter` compute engine by default. This may cause an error if `jupyter` is not installed on your computer.
+:::
+
+4. **Explore interactivity**: Try out the rendered code cell by pressing the "Run Code" button or using a keyboard shortcut of <kbd>Shift</kbd> + <kbd>↩</kbd>.
+
+```{pyodide-python}
+n = 5
+while n > 0:
+  print(n)
+  n = n - 1
+
+print('Blastoff!')
+```
+
+# Fin
+
+In summary, this guide has provided an overview of how to incorporate the `quarto-pyodide` extension into your Quarto HTML documents using VS Code. We explored key workflow changes necessary for incorporating interactive Python code into your Quarto HTML documents, from installation to document rendering.
+
+For your next steps consider looking at different use cases for [interactive options](qpyodide-code-cell-demos.qmd).
