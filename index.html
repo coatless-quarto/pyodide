@@ -237,7 +237,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","options":{"autorun":"","label":"","classes":"","out-width":"700px","results":"markup","comment":"","context":"interactive","output":"true","message":"true","fig-cap":"","dpi":72,"fig-width":7,"warning":"true","out-height":"","fig-height":5},"id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"label":"","warning":"true","results":"markup","autorun":"","out-height":"","output":"true","comment":"","classes":"","out-width":"700px","message":"true","fig-width":7,"fig-height":5,"fig-cap":"","context":"interactive","dpi":72},"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!"}];
 
 
 </script>
@@ -448,8 +448,21 @@ globalThis._qpyodideGetInstance = function() {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Getting Started</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qpyodide-first-steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your first Pyodide-powered Quarto document</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
