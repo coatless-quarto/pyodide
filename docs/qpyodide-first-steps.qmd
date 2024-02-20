@@ -55,7 +55,7 @@ print('Blastoff!')
 ```
 ````
 
-3. **Render Your Document**: You can now render your Quarto document by clicking on the **Preview** (or use the keyboard shortcut <kbd>⇧⌘K</kbd> on macOS or <kbd>Ctrl+Shift+K</kbd> on Windows/Linux). The document will execute under `engine: jupyter` by default, but you can specify a different engine if needed. 
+3. **Render Your Document**: You can now render your Quarto document by clicking on the **Preview** button in the upper right side of the markdown editor window (or use the keyboard shortcut <kbd>⇧⌘K</kbd> on macOS or <kbd>Ctrl+Shift+K</kbd> on Windows/Linux). The document will execute under `engine: jupyter` by default, but you can specify a different engine like `knitr` if needed. 
 
 :::callout-note
 If an engine is not specified, Quarto will attempt to use the `jupyter` compute engine by default. This may cause an error if `jupyter` is not installed on your computer.
@@ -76,4 +76,4 @@ print('Blastoff!')
 
 In summary, this guide has provided an overview of how to incorporate the `quarto-pyodide` extension into your Quarto HTML documents using VS Code. We explored key workflow changes necessary for incorporating interactive Python code into your Quarto HTML documents, from installation to document rendering.
 
-For your next steps consider looking at different use cases for [interactive options](qpyodide-code-cell-demos.qmd).
+For your next steps consider looking at different use cases for [interactive options](qpyodide-code-cell-demo.qmd).
