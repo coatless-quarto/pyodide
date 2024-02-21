@@ -8,8 +8,36 @@ format:
     toc: true
 ---
 
-# 0.0.1: ???? (??-??-????) [DEV]
+[pyodide]: https://pyodide.org/en/stable/
+[python]: https://www.python.org/
+[quarto]: https://quarto.org/
+
+# 0.0.1: What does the Python Say? (02-19-2024)
 
 ## Features
 
-- Enable [pyodide](https://pyodide.org/en/stable/) code cells for Python inside of a Quarto document.
+- Enable an interactive [Python][python] code cells using [Pyodide][pyodide] inside of a [Quarto][quarto] document.
+
+````md
+This is a pyodide code cell in a Quarto document. 
+
+```{pyodide-python}
+def say_hello(name):
+  print(f"Hello there {name}"!)
+```
+````
+
+- Execute code in the code cell using keyboard shortcuts:
+   - Run selected code using: `[Cmd + Enter]` on macOS or `[Ctrl+Enter]`  on Windows 
+   - Run the entire code area using: `[Shift+Enter]`
+
+## Documentation
+
+- Provided an extension documentation website at: <https://quarto.thecoatlessprofessor.com/pyodide>
+- Included several [deployment templates](https://quarto.thecoatlessprofessor.com/pyodide/qpyodide-deployment-templates.html).
+
+# 0.0.0-dev.0: One Python (08-12-2023)
+
+## Features
+
+- An initial proof of concept of the code cell.
