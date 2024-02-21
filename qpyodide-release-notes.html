@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -241,9 +275,14 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dev" id="toc-dev" class="nav-link active" data-scroll-target="#dev">0.0.1: ???? (??-??-????) [DEV]</a>
+  <li><a href="#what-does-the-python-say-02-19-2024" id="toc-what-does-the-python-say-02-19-2024" class="nav-link active" data-scroll-target="#what-does-the-python-say-02-19-2024">0.0.1: What does the Python Say? (02-19-2024)</a>
   <ul class="collapse">
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
+  </ul></li>
+  <li><a href="#dev.0-one-python-08-12-2023" id="toc-dev.0-one-python-08-12-2023" class="nav-link" data-scroll-target="#dev.0-one-python-08-12-2023">0.0.0-dev.0: One Python (08-12-2023)</a>
+  <ul class="collapse">
+  <li><a href="#features-1" id="toc-features-1" class="nav-link" data-scroll-target="#features-1">Features</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/pyodide/edit/main/docs/qpyodide-release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/pyodide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -271,7 +310,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 20, 2024</p>
+      <p class="date-modified">February 21, 2024</p>
     </div>
   </div>
     
@@ -282,12 +321,41 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 </header>
 
 
-<section id="dev" class="level1">
-<h1>0.0.1: ???? (??-??-????) [DEV]</h1>
+<section id="what-does-the-python-say-02-19-2024" class="level1">
+<h1>0.0.1: What does the Python Say? (02-19-2024)</h1>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li>Enable <a href="https://pyodide.org/en/stable/">pyodide</a> code cells for Python inside of a Quarto document.</li>
+<li>Enable an interactive <a href="https://www.python.org/">Python</a> code cells using <a href="https://pyodide.org/en/stable/">Pyodide</a> inside of a <a href="https://quarto.org/">Quarto</a> document.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>This is a pyodide code cell in a Quarto document. </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{pyodide-python}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">def say_hello(name):</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">  print(f"Hello there {name}"!)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Execute code in the code cell using keyboard shortcuts:
+<ul>
+<li>Run selected code using: <code>[Cmd + Enter]</code> on macOS or <code>[Ctrl+Enter]</code> on Windows</li>
+<li>Run the entire code area using: <code>[Shift+Enter]</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
+<ul>
+<li>Provided an extension documentation website at: <a href="https://quarto.thecoatlessprofessor.com/pyodide" class="uri">https://quarto.thecoatlessprofessor.com/pyodide</a></li>
+<li>Included several <a href="https://quarto.thecoatlessprofessor.com/pyodide/qpyodide-deployment-templates.html">deployment templates</a>.</li>
+</ul>
+</section>
+</section>
+<section id="dev.0-one-python-08-12-2023" class="level1">
+<h1>0.0.0-dev.0: One Python (08-12-2023)</h1>
+<section id="features-1" class="level2">
+<h2 class="anchored" data-anchor-id="features-1">Features</h2>
+<ul>
+<li>An initial proof of concept of the code cell.</li>
 </ul>
 
 

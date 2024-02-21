@@ -165,7 +165,7 @@
     "href": "qpyodide-release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
+    "text": "Enable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]\n\n\n\n\n\n\nProvided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
     "crumbs": [
       "Extra Information",
       "Release Notes"
@@ -176,7 +176,29 @@
     "href": "qpyodide-release-notes.html#features",
     "title": "Release Notes",
     "section": "",
-    "text": "Enable pyodide code cells for Python inside of a Quarto document.",
+    "text": "Enable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#documentation",
+    "href": "qpyodide-release-notes.html#documentation",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Provided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#features-1",
+    "href": "qpyodide-release-notes.html#features-1",
+    "title": "Release Notes",
+    "section": "Features",
+    "text": "Features\n\nAn initial proof of concept of the code cell.",
     "crumbs": [
       "Extra Information",
       "Release Notes"
