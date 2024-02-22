@@ -45,6 +45,7 @@ local qPyodideDefaultCellOptions = {
   ["warning"] = "true",
   ["message"] = "true",
   ["results"] = "markup",
+  ["read-only"] = "false",
   ["output"] = "true",
   ["comment"] = "",
   ["label"] = "",
