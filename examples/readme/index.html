@@ -195,7 +195,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"comment":"","results":"markup","output":"true","label":"","warning":"true","dpi":72,"classes":"","message":"true","out-width":"700px","fig-height":5,"context":"interactive","out-height":"","autorun":"","fig-cap":"","fig-width":7},"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"warning":"true","output":"true","out-width":"700px","results":"markup","comment":"","out-height":"","context":"interactive","fig-cap":"","message":"true","label":"","autorun":"","classes":"","dpi":72,"fig-width":7,"fig-height":5,"read-only":"false"},"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')"}];
 
 
 </script>
@@ -1041,7 +1041,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

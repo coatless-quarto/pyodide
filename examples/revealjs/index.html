@@ -483,7 +483,7 @@
   }
 
   // Store cell data
-  globalThis.qpyodideCellDetails = [{"options":{"comment":"","message":"true","output":"true","dpi":72,"classes":"","results":"markup","label":"","out-height":"","fig-width":7,"autorun":"","out-width":"700px","fig-cap":"","warning":"true","context":"interactive","fig-height":5},"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","id":1},{"options":{"comment":"","message":"true","output":"true","dpi":72,"classes":"","results":"markup","label":"","out-height":"","fig-width":7,"autorun":"","out-width":"700px","fig-cap":"","warning":"true","context":"interactive","fig-height":5},"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","id":2},{"options":{"comment":"","message":"true","output":"true","dpi":72,"classes":"","results":"markup","label":"","out-height":"","fig-width":7,"autorun":"","out-width":"700px","fig-cap":"","warning":"true","context":"interactive","fig-height":5},"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","id":3},{"options":{"comment":"","message":"true","output":"true","dpi":72,"classes":"","results":"markup","label":"","out-height":"","fig-width":7,"autorun":"","out-width":"700px","fig-cap":"","warning":"true","context":"interactive","fig-height":5},"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","id":4}];
+  globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","results":"markup","dpi":72,"label":"","fig-width":7,"message":"true","out-width":"700px","context":"interactive","output":"true","classes":"","autorun":"","fig-height":5,"warning":"true","read-only":"false","fig-cap":"","out-height":""},"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')"},{"id":2,"options":{"comment":"","results":"markup","dpi":72,"label":"","fig-width":7,"message":"true","out-width":"700px","context":"interactive","output":"true","classes":"","autorun":"","fig-height":5,"warning":"true","read-only":"false","fig-cap":"","out-height":""},"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()"},{"id":3,"options":{"comment":"","results":"markup","dpi":72,"label":"","fig-width":7,"message":"true","out-width":"700px","context":"interactive","output":"true","classes":"","autorun":"","fig-height":5,"warning":"true","read-only":"false","fig-cap":"","out-height":""},"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")"},{"id":4,"options":{"comment":"","results":"markup","dpi":72,"label":"","fig-width":7,"message":"true","out-width":"700px","context":"interactive","output":"true","classes":"","autorun":"","fig-height":5,"warning":"true","read-only":"false","fig-cap":"","out-height":""},"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5"}];
 
 
   </script>
@@ -686,7 +686,7 @@
 <section id="quarto-pyodide-countdown" class="slide level2">
 <h2>quarto-{pyodide + countdown}</h2>
 <p>Pair code cells with a <a href="https://github.com/gadenbuie/countdown/tree/main/quarto">countdown timer</a> to allow for practice</p>
-<div id="timer_6d1ca212b749c7f85200f9c2d56d3c26a91e335a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_975d835e321cac840aad621d9212482576725226" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1333,7 +1333,8 @@
                         },
                         fontSize: '17.5pt',              // Bootstrap is 1 rem
                         renderLineHighlight: "none",     // Disable current line highlighting
-                        hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                        hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                        readOnly: thiz.options['read-only'] ?? false
                     }
                 );
             

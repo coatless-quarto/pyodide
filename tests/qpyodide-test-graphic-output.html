@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","options":{"autorun":"","output":"true","out-width":"700px","label":"","results":"markup","message":"true","context":"interactive","comment":"","warning":"true","out-height":"","dpi":72,"classes":"","fig-width":7,"fig-cap":"","fig-height":5}}];
+globalThis.qpyodideCellDetails = [{"options":{"read-only":"false","comment":"","fig-height":5,"fig-width":7,"autorun":"","message":"true","warning":"true","results":"markup","out-width":"700px","output":"true","out-height":"","classes":"","dpi":72,"fig-cap":"","label":"","context":"interactive"},"id":1,"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()"}];
 
 
 </script>
@@ -1189,7 +1189,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

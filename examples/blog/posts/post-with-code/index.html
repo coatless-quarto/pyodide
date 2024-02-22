@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"print(\"Hello {quarto-pyodide} blog world!\")","id":1,"options":{"warning":"true","results":"markup","output":"true","label":"","out-height":"","out-width":"700px","comment":"","fig-width":7,"context":"interactive","message":"true","fig-height":5,"classes":"","fig-cap":"","dpi":72,"autorun":""}}];
+globalThis.qpyodideCellDetails = [{"options":{"output":"true","fig-cap":"","message":"true","warning":"true","label":"","comment":"","autorun":"","classes":"","read-only":"false","dpi":72,"out-height":"","fig-width":7,"results":"markup","context":"interactive","fig-height":5,"out-width":"700px"},"id":1,"code":"print(\"Hello {quarto-pyodide} blog world!\")"}];
 
 
 </script>
@@ -1135,7 +1135,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

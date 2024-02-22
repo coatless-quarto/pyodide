@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"output":"true","autorun":"","dpi":72,"context":"interactive","warning":"true","comment":"","out-height":"","classes":"","message":"true","label":"","fig-width":7,"results":"markup","fig-height":5,"out-width":"700px","fig-cap":""},"id":1,"code":"import pandas as pd \nimport numpy as np \n\ndf = pd.DataFrame(\n    {\n        \"A\": 1.0,\n        \"B\": pd.Timestamp(\"20130102\"),\n        \"C\": pd.Series(1, index=list(range(4)), dtype=\"float32\"),\n        \"D\": np.array([3] * 4, dtype=\"int32\"),\n        \"E\": pd.Categorical([\"test\", \"train\", \"test\", \"train\"]),\n        \"F\": \"foo\",\n    }\n)\n\n\ndf"}];
+globalThis.qpyodideCellDetails = [{"code":"import pandas as pd \nimport numpy as np \n\ndf = pd.DataFrame(\n    {\n        \"A\": 1.0,\n        \"B\": pd.Timestamp(\"20130102\"),\n        \"C\": pd.Series(1, index=list(range(4)), dtype=\"float32\"),\n        \"D\": np.array([3] * 4, dtype=\"int32\"),\n        \"E\": pd.Categorical([\"test\", \"train\", \"test\", \"train\"]),\n        \"F\": \"foo\",\n    }\n)\n\n\ndf","id":1,"options":{"context":"interactive","out-height":"","output":"true","fig-height":5,"warning":"true","classes":"","comment":"","message":"true","dpi":72,"fig-cap":"","read-only":"false","autorun":"","label":"","fig-width":7,"out-width":"700px","results":"markup"}}];
 
 
 </script>
@@ -1193,7 +1193,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

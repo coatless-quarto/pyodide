@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="JJB">
-<meta name="dcterms.date" content="2024-02-21">
+<meta name="dcterms.date" content="2024-02-22">
 
 <title>Sample quarto-pyodide Book Project</title>
 <style>
@@ -231,7 +231,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")","id":1,"options":{"autorun":"","fig-height":5,"message":"true","out-height":"","classes":"","dpi":72,"comment":"","output":"true","out-width":"700px","context":"interactive","warning":"true","label":"","fig-cap":"","results":"markup","fig-width":7}}];
+globalThis.qpyodideCellDetails = [{"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")","id":1,"options":{"read-only":"false","output":"true","comment":"","classes":"","warning":"true","fig-cap":"","dpi":72,"fig-width":7,"context":"interactive","results":"markup","out-height":"","message":"true","out-width":"700px","fig-height":5,"autorun":"","label":""}}];
 
 
 </script>
@@ -520,7 +520,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 21, 2024</p>
+      <p class="date">February 22, 2024</p>
     </div>
   </div>
   
@@ -1209,7 +1209,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

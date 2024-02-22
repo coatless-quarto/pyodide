@@ -165,7 +165,7 @@
     "href": "qpyodide-release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Enable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]\n\n\n\n\n\n\nProvided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
+    "text": "New code cell option that set the interactive cell to be read-only. (#4)",
     "crumbs": [
       "Extra Information",
       "Release Notes"
@@ -176,7 +176,18 @@
     "href": "qpyodide-release-notes.html#features",
     "title": "Release Notes",
     "section": "",
-    "text": "Enable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]",
+    "text": "New code cell option that set the interactive cell to be read-only. (#4)",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#features-1",
+    "href": "qpyodide-release-notes.html#features-1",
+    "title": "Release Notes",
+    "section": "Features",
+    "text": "Features\n\nEnable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]",
     "crumbs": [
       "Extra Information",
       "Release Notes"
@@ -186,16 +197,16 @@
     "objectID": "qpyodide-release-notes.html#documentation",
     "href": "qpyodide-release-notes.html#documentation",
     "title": "Release Notes",
-    "section": "",
-    "text": "Provided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
+    "section": "Documentation",
+    "text": "Documentation\n\nProvided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
     "crumbs": [
       "Extra Information",
       "Release Notes"
     ]
   },
   {
-    "objectID": "qpyodide-release-notes.html#features-1",
-    "href": "qpyodide-release-notes.html#features-1",
+    "objectID": "qpyodide-release-notes.html#features-2",
+    "href": "qpyodide-release-notes.html#features-2",
     "title": "Release Notes",
     "section": "Features",
     "text": "Features\n\nAn initial proof of concept of the code cell.",
@@ -272,6 +283,17 @@
     "title": "Python Interactive Code Cells",
     "section": "Line-by-line Execution",
     "text": "Line-by-line Execution\nIn this section, we’ll explore the built-in keyboard shortcuts for executing code within the interactive code cell. You can run either the selected code or specific lines or the entire cell with the following keyboard shortcuts:\n\nRun selected code:\n\nmacOS: ⌘ + ↩︎/Return\nWindows/Linux: Ctrl + ↩︎/Enter\n\nTo run the entire code cell, you can simply click the “Run code” button, or use the keyboard shortcut:\n\nShift + ↩︎\n\n\nFeel free to try it out in the following code cell:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nBy using these shortcuts, you can run code conveniently and efficiently. This practice can also help you become familiar with keyboard shortcuts when transitioning to integrated development environments (IDEs) like RStudio or Visual Studio Code with Python.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#preventing-modifications-to-code",
+    "href": "qpyodide-code-cell-demo.html#preventing-modifications-to-code",
+    "title": "Python Interactive Code Cells",
+    "section": "Preventing Modifications to Code",
+    "text": "Preventing Modifications to Code\nCode cells can be locked to their initial state by specifying #| read-only: true.\n\n{quarto-pyodide} OutputCell code\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n```{pyodide-python}\n#| read-only: true\n1 + 1\n```",
     "crumbs": [
       "Demos",
       "Pyodide Interactive Cell Demo"

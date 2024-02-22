@@ -273,7 +273,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","id":1,"options":{"results":"markup","output":"true","fig-cap":"","fig-height":5,"comment":"","out-height":"","context":"interactive","autorun":"","classes":"","dpi":72,"out-width":"700px","label":"","message":"true","warning":"true","fig-width":7}}];
+globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"warning":"true","out-height":"","fig-width":7,"message":"true","fig-height":5,"output":"true","label":"","classes":"","out-width":"700px","dpi":72,"autorun":"","context":"interactive","read-only":"false","results":"markup","comment":"","fig-cap":""},"id":1}];
 
 
 </script>
@@ -645,7 +645,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 21, 2024</p>
+      <p class="date-modified">February 22, 2024</p>
     </div>
   </div>
     
@@ -1371,7 +1371,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

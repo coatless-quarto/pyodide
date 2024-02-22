@@ -237,7 +237,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","context":"interactive","autorun":"","results":"markup","output":"true","fig-cap":"","fig-height":5,"message":"true","out-width":"700px","warning":"true","classes":"","dpi":72,"out-height":"","fig-width":7,"label":""},"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!"}];
+globalThis.qpyodideCellDetails = [{"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","options":{"fig-height":5,"warning":"true","label":"","fig-width":7,"output":"true","out-height":"","comment":"","out-width":"700px","read-only":"false","autorun":"","context":"interactive","classes":"","fig-cap":"","message":"true","dpi":72,"results":"markup"},"id":1}];
 
 
 </script>
@@ -1242,7 +1242,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

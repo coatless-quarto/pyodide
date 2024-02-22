@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"warning":"true","out-height":"","dpi":72,"results":"markup","fig-cap":"","classes":"","context":"interactive","message":"true","comment":"","label":"","autorun":"","output":"true","out-width":"700px","fig-height":5,"fig-width":7},"code":"1 + 1"},{"id":2,"options":{"warning":"true","out-height":"","dpi":72,"results":"markup","fig-cap":"","classes":"","context":"setup","message":"true","comment":"","label":"","autorun":"","output":"true","out-width":"700px","fig-height":5,"fig-width":7},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":3,"options":{"warning":"true","out-height":"","dpi":72,"results":"markup","fig-cap":"","classes":"","context":"output","message":"true","comment":"","label":"","autorun":"","output":"true","out-width":"700px","fig-height":5,"fig-width":7},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"options":{"autorun":"","read-only":"false","warning":"true","results":"markup","fig-cap":"","context":"interactive","out-height":"","classes":"","output":"true","message":"true","fig-width":7,"label":"","comment":"","fig-height":5,"out-width":"700px","dpi":72},"code":"1 + 1","id":1},{"options":{"autorun":"","read-only":"true","warning":"true","results":"markup","fig-cap":"","context":"interactive","out-height":"","classes":"","output":"true","message":"true","fig-width":7,"label":"","comment":"","fig-height":5,"out-width":"700px","dpi":72},"code":"1 + 1","id":2},{"options":{"autorun":"","read-only":"false","warning":"true","results":"markup","fig-cap":"","context":"setup","out-height":"","classes":"","output":"true","message":"true","fig-width":7,"label":"","comment":"","fig-height":5,"out-width":"700px","dpi":72},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]","id":3},{"options":{"autorun":"","read-only":"false","warning":"true","results":"markup","fig-cap":"","context":"output","out-height":"","classes":"","output":"true","message":"true","fig-width":7,"label":"","comment":"","fig-height":5,"out-width":"700px","dpi":72},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)","id":4}];
 
 
 </script>
@@ -511,19 +511,27 @@ globalThis._qpyodideGetInstance = function() {
 <p>Test page for verifying cell context options set explicitly with <code>context</code>.</p>
 <section id="interactive" class="level2">
 <h2 class="anchored" data-anchor-id="interactive">Interactive</h2>
+<section id="editable" class="level3">
+<h3 class="anchored" data-anchor-id="editable">Editable</h3>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="read-only" class="level3">
+<h3 class="anchored" data-anchor-id="read-only">Read-only</h3>
+<div id="qpyodide-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <p>Hidden cell that sets <code>x</code> and <code>y</code> vector values.</p>
-<div id="qpyodide-insertion-location-2"></div>
+<div id="qpyodide-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="output" class="level2">
 <h2 class="anchored" data-anchor-id="output">Output</h2>
 <p>Hidden cell that retrieves previously set <code>x</code> and <code>y</code> vector values and displays the data.</p>
-<div id="qpyodide-insertion-location-3"></div>
+<div id="qpyodide-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
@@ -1188,7 +1196,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         

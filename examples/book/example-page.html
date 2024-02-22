@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"message":"true","output":"true","autorun":"","fig-height":5,"dpi":72,"results":"markup","classes":"","warning":"true","context":"interactive","out-height":"","fig-cap":"","out-width":"700px","label":"","comment":"","fig-width":7},"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]"},{"id":2,"options":{"message":"true","output":"true","autorun":"","fig-height":5,"dpi":72,"results":"markup","classes":"","warning":"true","context":"interactive","out-height":"","fig-cap":"","out-width":"700px","label":"","comment":"","fig-width":7},"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()"}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","options":{"context":"interactive","autorun":"","classes":"","fig-width":7,"label":"","out-width":"700px","warning":"true","results":"markup","message":"true","output":"true","fig-height":5,"dpi":72,"comment":"","fig-cap":"","read-only":"false","out-height":""}},{"id":2,"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","options":{"context":"interactive","autorun":"","classes":"","fig-width":7,"label":"","out-width":"700px","warning":"true","results":"markup","message":"true","output":"true","fig-height":5,"dpi":72,"comment":"","fig-cap":"","read-only":"false","out-height":""}}];
 
 
 </script>
@@ -1208,7 +1208,8 @@ class InteractiveCell extends BaseCell {
                     },
                     fontSize: '17.5pt',              // Bootstrap is 1 rem
                     renderLineHighlight: "none",     // Disable current line highlighting
-                    hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+                    hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+                    readOnly: thiz.options['read-only'] ?? false
                 }
             );
         
