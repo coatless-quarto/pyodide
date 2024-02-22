@@ -9,8 +9,16 @@ Test page for verifying cell context options set explicitly with `context`.
 
 ## Interactive
 
+### Editable
 ```{pyodide-python}
 #| context: interactive
+1 + 1
+```
+
+### Read-only
+```{pyodide-python}
+#| context: interactive
+#| read-only: true
 1 + 1
 ```
 
