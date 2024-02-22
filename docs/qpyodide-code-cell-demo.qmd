@@ -82,6 +82,28 @@ print("Hello quarto-pyodide World!")
 
 By using these shortcuts, you can run code conveniently and efficiently. This practice can also help you become familiar with keyboard shortcuts when transitioning to integrated development environments (IDEs) like [RStudio](https://posit.co/products/open-source/rstudio/) or [Visual Studio Code with Python](https://code.visualstudio.com/docs/languages/python).
 
+
+## Preventing Modifications to Code
+
+Code cells can be locked to their initial state by specifying `#| read-only: true`. 
+
+::: {.panel-tabset}
+## `{quarto-pyodide}` Output
+
+```{pyodide-python}
+#| read-only: true
+1 + 1
+```
+
+## Cell code
+
+```{{pyodide-python}}
+#| read-only: true
+1 + 1
+```
+:::
+
+
 ## Define and Call Functions
 
 Functions can be defined in one cell and called. 
@@ -99,6 +121,7 @@ Similarly, they persist to other cells.
 num_list = [1, 2, 3]
 [square(num)for num in num_list]
 ```
+
 
 ## Load a package
 
