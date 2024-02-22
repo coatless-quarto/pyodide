@@ -12,6 +12,14 @@ format:
 [python]: https://www.python.org/
 [quarto]: https://quarto.org/
 
+
+# 0.0.1.dev-1: What does the Python Say? (??-??-????)
+
+## Features
+
+- New code cell option that set the interactive cell to be read-only. ([#4](https://github.com/coatless-quarto/pyodide/issues/4))
+
+
 # 0.0.1: What does the Python Say? (02-19-2024)
 
 ## Features
