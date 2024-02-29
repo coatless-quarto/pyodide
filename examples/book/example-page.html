@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.16">
+<meta name="generator" content="quarto-1.5.22">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","options":{"context":"interactive","autorun":"","classes":"","fig-width":7,"label":"","out-width":"700px","warning":"true","results":"markup","message":"true","output":"true","fig-height":5,"dpi":72,"comment":"","fig-cap":"","read-only":"false","out-height":""}},{"id":2,"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","options":{"context":"interactive","autorun":"","classes":"","fig-width":7,"label":"","out-width":"700px","warning":"true","results":"markup","message":"true","output":"true","fig-height":5,"dpi":72,"comment":"","fig-cap":"","read-only":"false","out-height":""}}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"out-height":"","context":"interactive","fig-cap":"","results":"markup","output":"true","dpi":72,"classes":"","autorun":"","comment":"","out-width":"700px","fig-height":5,"message":"true","label":"","read-only":"false","fig-width":7,"warning":"true"},"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]"},{"id":2,"options":{"out-height":"","context":"interactive","fig-cap":"","results":"markup","output":"true","dpi":72,"classes":"","autorun":"","comment":"","out-width":"700px","fig-height":5,"message":"true","label":"","read-only":"false","fig-width":7,"warning":"true"},"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()"}];
 
 
 </script>
@@ -617,6 +617,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -651,7 +669,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
