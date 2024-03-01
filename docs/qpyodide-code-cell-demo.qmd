@@ -148,6 +148,30 @@ import pandas as pd
 df.Age
 ```
 
+### Loading non-core Pyodide Python Packages
+
+In the above example, everything just worked as `pandas` in available as part of [Pyodide's built-in packages](https://pyodide.org/en/stable/usage/packages-in-pyodide.html). However, if we need a package that is not part of the built-in list, then there either needs to be a pure Python wheel (no compiled code present) or a specially compiled version of the Package for Python. 
+
+In this case, we can install the `seaborn` package from PyPI with: 
+
+```{pyodide-python}
+await micropip.install("seaborn")
+```
+
+Then, we have: 
+
+```{pyodide-python}
+import seaborn as sns
+
+import pandas as pd 
+
+data = np.random.multivariate_normal([0, 0], [[5, 2], [2, 2]], size=2000)
+data = pd.DataFrame(data, columns=['x', 'y'])
+
+sns.distplot(data['x'])
+sns.distplot(data['y']);
+```
+
 ## Graphing
 
 We provide support for generating graphs through the interactive HTML5 backend, e.g. [`module://matplotlib_pyodide.html5_canvas_backend`](https://github.com/pyodide/matplotlib-pyodide). At the end of each graph call, you must include a `plt.show()` call for the graph to render.

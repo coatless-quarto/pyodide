@@ -58,9 +58,22 @@ To install the Quarto extension, please see our installation page.
 
 ### Can I use external libraries and packages in my Python cells?
 
-Yes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of pre-installed libraries, and you can also install additional packages by (TODO).
+Yes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of [pre-installed libraries](https://pyodide.org/en/stable/usage/packages-in-pyodide.html). These libraries can be downloaded and used on the fly once they are detected in an `import` statement. 
 
-<!-- using the standard `pip` syntax within your Python cells. -->
+You can also install additional packages by using the `micropip` package loaded at the start of each Pyodide session. These packages can either be pure Python packages (denoted by `*py3-none-any.whl` on PyPI) or Python packages compiled for Pyodide (denoted by `*-cp310-cp310-emscripten_3_1_27_wasm32.whl` that require a specific Python and Emscripten versions). For instance, the following will download and install the [`seaborn`](https://seaborn.pydata.org/) visualization library.
+
+```python
+import micropip
+micropip.install("seaborn")
+```
+
+Once done, please make sure to import the package: 
+
+```python
+import seaborn as sns
+```
+
+More details can be found on Pyodide's [Loading package](https://pyodide.org/en/stable/usage/loading-packages.html#installing-wheels-from-arbitrary-urls) documentation.
 
 
 ## Sharing Documents
