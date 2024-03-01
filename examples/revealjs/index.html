@@ -483,7 +483,7 @@
   }
 
   // Store cell data
-  globalThis.qpyodideCellDetails = [{"id":1,"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"context":"interactive","fig-height":5,"read-only":"false","label":"","out-width":"700px","comment":"","message":"true","out-height":"","output":"true","warning":"true","classes":"","results":"markup","autorun":"","fig-width":7,"dpi":72,"fig-cap":""}},{"id":2,"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","options":{"context":"interactive","fig-height":5,"read-only":"false","label":"","out-width":"700px","comment":"","message":"true","out-height":"","output":"true","warning":"true","classes":"","results":"markup","autorun":"","fig-width":7,"dpi":72,"fig-cap":""}},{"id":3,"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","options":{"context":"interactive","fig-height":5,"read-only":"false","label":"","out-width":"700px","comment":"","message":"true","out-height":"","output":"true","warning":"true","classes":"","results":"markup","autorun":"","fig-width":7,"dpi":72,"fig-cap":""}},{"id":4,"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","options":{"context":"interactive","fig-height":5,"read-only":"false","label":"","out-width":"700px","comment":"","message":"true","out-height":"","output":"true","warning":"true","classes":"","results":"markup","autorun":"","fig-width":7,"dpi":72,"fig-cap":""}}];
+  globalThis.qpyodideCellDetails = [{"id":1,"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"label":"","fig-height":5,"message":"true","dpi":72,"out-height":"","fig-width":7,"comment":"","results":"markup","autorun":"","context":"interactive","fig-cap":"","output":"true","warning":"true","read-only":"false","classes":"","out-width":"700px"}},{"id":2,"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","options":{"label":"","fig-height":5,"message":"true","dpi":72,"out-height":"","fig-width":7,"comment":"","results":"markup","autorun":"","context":"interactive","fig-cap":"","output":"true","warning":"true","read-only":"false","classes":"","out-width":"700px"}},{"id":3,"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","options":{"label":"","fig-height":5,"message":"true","dpi":72,"out-height":"","fig-width":7,"comment":"","results":"markup","autorun":"","context":"interactive","fig-cap":"","output":"true","warning":"true","read-only":"false","classes":"","out-width":"700px"}},{"id":4,"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","options":{"label":"","fig-height":5,"message":"true","dpi":72,"out-height":"","fig-width":7,"comment":"","results":"markup","autorun":"","context":"interactive","fig-cap":"","output":"true","warning":"true","read-only":"false","classes":"","out-width":"700px"}}];
 
 
   </script>
@@ -608,7 +608,10 @@
       // Setup a namespace for global scoping
       // await loadedPyodide.runPythonAsync("globalScope = {}"); 
 
-      // Add matplotlib
+      // Load the `micropip` package to allow installation of packages.
+      await mainPyodide.loadPackage("micropip");
+
+      // Load the `matplotlib` package with necessary environment hook
       await mainPyodide.loadPackage("matplotlib");
 
       // Set the backend for matplotlib to be interactive.
@@ -686,7 +689,7 @@
 <section id="quarto-pyodide-countdown" class="slide level2">
 <h2>quarto-{pyodide + countdown}</h2>
 <p>Pair code cells with a <a href="https://github.com/gadenbuie/countdown/tree/main/quarto">countdown timer</a> to allow for practice</p>
-<div id="timer_d35d6e4956214b94288bb4cdddbe0b63350a7f22" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_ef1446c64f57996af5b7035c9a68494d2afc3c9b" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"out-height":"","context":"interactive","fig-cap":"","results":"markup","output":"true","dpi":72,"classes":"","autorun":"","comment":"","out-width":"700px","fig-height":5,"message":"true","label":"","read-only":"false","fig-width":7,"warning":"true"},"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]"},{"id":2,"options":{"out-height":"","context":"interactive","fig-cap":"","results":"markup","output":"true","dpi":72,"classes":"","autorun":"","comment":"","out-width":"700px","fig-height":5,"message":"true","label":"","read-only":"false","fig-width":7,"warning":"true"},"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()"}];
+globalThis.qpyodideCellDetails = [{"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","id":1,"options":{"fig-height":5,"dpi":72,"autorun":"","out-width":"700px","fig-width":7,"output":"true","results":"markup","read-only":"false","label":"","fig-cap":"","out-height":"","comment":"","classes":"","message":"true","context":"interactive","warning":"true"}},{"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","id":2,"options":{"fig-height":5,"dpi":72,"autorun":"","out-width":"700px","fig-width":7,"output":"true","results":"markup","read-only":"false","label":"","fig-cap":"","out-height":"","comment":"","classes":"","message":"true","context":"interactive","warning":"true"}}];
 
 
 </script>
@@ -355,7 +355,10 @@ globalThis.qpyodideInstance = await import(
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
 
-    // Add matplotlib
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+
+    // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");
 
     // Set the backend for matplotlib to be interactive.

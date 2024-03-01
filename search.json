@@ -121,7 +121,7 @@
     "href": "qpyodide-faq.html#packages",
     "title": "Frequently Asked Questions",
     "section": "Packages",
-    "text": "Packages\n\nCan I use external libraries and packages in my Python cells?\nYes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of pre-installed libraries, and you can also install additional packages by (TODO).",
+    "text": "Packages\n\nCan I use external libraries and packages in my Python cells?\nYes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of pre-installed libraries. These libraries can be downloaded and used on the fly once they are detected in an import statement.\nYou can also install additional packages by using the micropip package loaded at the start of each Pyodide session. These packages can either be pure Python packages (denoted by *py3-none-any.whl on PyPI) or Python packages compiled for Pyodide (denoted by *-cp310-cp310-emscripten_3_1_27_wasm32.whl that require a specific Python and Emscripten versions). For instance, the following will download and install the seaborn visualization library.\nimport micropip\nmicropip.install(\"seaborn\")\nOnce done, please make sure to import the package:\nimport seaborn as sns\nMore details can be found on Pyodide’s Loading package documentation.",
     "crumbs": [
       "Support",
       "Frequently Asked Questions"
@@ -315,7 +315,7 @@
     "href": "qpyodide-code-cell-demo.html#load-a-package",
     "title": "Python Interactive Code Cells",
     "section": "Load a package",
-    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nLoading non-core Pyodide Python Packages\nIn the above example, everything just worked as pandas in available as part of Pyodide’s built-in packages. However, if we need a package that is not part of the built-in list, then there either needs to be a pure Python wheel (no compiled code present) or a specially compiled version of the Package for Python.\nIn this case, we can install the seaborn package from PyPI with:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThen, we have:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Demos",
       "Pyodide Interactive Cell Demo"

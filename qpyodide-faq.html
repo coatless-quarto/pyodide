@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -298,7 +332,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 29, 2024</p>
+      <p class="date-modified">March 1, 2024</p>
     </div>
   </div>
     
@@ -349,8 +383,13 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <section id="can-i-use-external-libraries-and-packages-in-my-python-cells" class="level3">
 <h3 class="anchored" data-anchor-id="can-i-use-external-libraries-and-packages-in-my-python-cells">Can I use external libraries and packages in my Python cells?</h3>
-<p>Yes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of pre-installed libraries, and you can also install additional packages by (TODO).</p>
-<!-- using the standard `pip` syntax within your Python cells. -->
+<p>Yes, you can use external libraries and packages within your Python cells. Pyodide includes a wide range of <a href="https://pyodide.org/en/stable/usage/packages-in-pyodide.html">pre-installed libraries</a>. These libraries can be downloaded and used on the fly once they are detected in an <code>import</code> statement.</p>
+<p>You can also install additional packages by using the <code>micropip</code> package loaded at the start of each Pyodide session. These packages can either be pure Python packages (denoted by <code>*py3-none-any.whl</code> on PyPI) or Python packages compiled for Pyodide (denoted by <code>*-cp310-cp310-emscripten_3_1_27_wasm32.whl</code> that require a specific Python and Emscripten versions). For instance, the following will download and install the <a href="https://seaborn.pydata.org/"><code>seaborn</code></a> visualization library.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> micropip</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>micropip.install(<span class="st">"seaborn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once done, please make sure to import the package:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>More details can be found on Pyodide’s <a href="https://pyodide.org/en/stable/usage/loading-packages.html#installing-wheels-from-arbitrary-urls">Loading package</a> documentation.</p>
 </section>
 </section>
 <section id="sharing-documents" class="level2">

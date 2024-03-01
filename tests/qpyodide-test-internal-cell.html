@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"fig-height":5,"classes":"","autorun":"","comment":"","out-height":"","read-only":"false","out-width":"700px","output":"true","dpi":72,"results":"markup","fig-cap":"","context":"interactive","message":"true","fig-width":7,"warning":"true","label":""},"code":"1 + 1","id":1},{"options":{"fig-height":5,"classes":"","autorun":"","comment":"","out-height":"","read-only":"true","out-width":"700px","output":"true","dpi":72,"results":"markup","fig-cap":"","context":"interactive","message":"true","fig-width":7,"warning":"true","label":""},"code":"1 + 1","id":2},{"options":{"fig-height":5,"classes":"","autorun":"","comment":"","out-height":"","read-only":"false","out-width":"700px","output":"true","dpi":72,"results":"markup","fig-cap":"","context":"setup","message":"true","fig-width":7,"warning":"true","label":""},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]","id":3},{"options":{"fig-height":5,"classes":"","autorun":"","comment":"","out-height":"","read-only":"false","out-width":"700px","output":"true","dpi":72,"results":"markup","fig-cap":"","context":"output","message":"true","fig-width":7,"warning":"true","label":""},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)","id":4}];
+globalThis.qpyodideCellDetails = [{"options":{"output":"true","out-width":"700px","context":"interactive","results":"markup","read-only":"false","comment":"","fig-width":7,"dpi":72,"label":"","fig-cap":"","fig-height":5,"message":"true","autorun":"","classes":"","warning":"true","out-height":""},"code":"1 + 1","id":1},{"options":{"output":"true","out-width":"700px","context":"interactive","results":"markup","read-only":"true","comment":"","fig-width":7,"dpi":72,"label":"","fig-cap":"","fig-height":5,"message":"true","autorun":"","classes":"","warning":"true","out-height":""},"code":"1 + 1","id":2},{"options":{"output":"true","out-width":"700px","context":"setup","results":"markup","read-only":"false","comment":"","fig-width":7,"dpi":72,"label":"","fig-cap":"","fig-height":5,"message":"true","autorun":"","classes":"","warning":"true","out-height":""},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]","id":3},{"options":{"output":"true","out-width":"700px","context":"output","results":"markup","read-only":"false","comment":"","fig-width":7,"dpi":72,"label":"","fig-cap":"","fig-height":5,"message":"true","autorun":"","classes":"","warning":"true","out-height":""},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)","id":4}];
 
 
 </script>
@@ -353,7 +353,10 @@ globalThis.qpyodideInstance = await import(
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
 
-    // Add matplotlib
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+
+    // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");
 
     // Set the backend for matplotlib to be interactive.

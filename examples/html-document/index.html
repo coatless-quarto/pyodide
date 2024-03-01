@@ -195,7 +195,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"print(\"Hello there! Welcome to a quarto-pyodide powered HTML Document!\")","options":{"classes":"","dpi":72,"warning":"true","label":"","out-height":"","autorun":"","output":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","fig-height":5,"results":"markup","fig-cap":"","comment":"","out-width":"700px"},"id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"autorun":"","message":"true","warning":"true","context":"interactive","fig-width":7,"fig-cap":"","results":"markup","out-width":"700px","fig-height":5,"label":"","dpi":72,"read-only":"false","comment":"","out-height":"","classes":"","output":"true"},"code":"print(\"Hello there! Welcome to a quarto-pyodide powered HTML Document!\")"}];
 
 
 </script>
@@ -320,7 +320,10 @@ globalThis.qpyodideInstance = await import(
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
 
-    // Add matplotlib
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+
+    // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");
 
     // Set the backend for matplotlib to be interactive.

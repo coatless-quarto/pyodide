@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="JJB">
-<meta name="dcterms.date" content="2024-02-29">
+<meta name="dcterms.date" content="2024-03-01">
 
 <title>Sample quarto-pyodide Book Project</title>
 <style>
@@ -231,7 +231,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"dpi":72,"out-height":"","fig-cap":"","message":"true","classes":"","label":"","read-only":"false","results":"markup","fig-height":5,"fig-width":7,"warning":"true","output":"true","out-width":"700px","autorun":"","comment":"","context":"interactive"},"id":1,"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")"}];
+globalThis.qpyodideCellDetails = [{"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")","options":{"read-only":"false","label":"","classes":"","results":"markup","output":"true","fig-width":7,"context":"interactive","warning":"true","dpi":72,"out-height":"","comment":"","out-width":"700px","fig-cap":"","autorun":"","message":"true","fig-height":5},"id":1}];
 
 
 </script>
@@ -356,7 +356,10 @@ globalThis.qpyodideInstance = await import(
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
 
-    // Add matplotlib
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+
+    // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");
 
     // Set the backend for matplotlib to be interactive.
@@ -520,7 +523,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 29, 2024</p>
+      <p class="date">March 1, 2024</p>
     </div>
   </div>
   

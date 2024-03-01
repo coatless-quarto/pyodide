@@ -195,7 +195,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"classes":"","out-height":"","label":"","fig-cap":"","comment":"","autorun":"","dpi":72,"fig-height":5,"out-width":"700px","message":"true","read-only":"false","warning":"true","output":"true","context":"interactive","results":"markup","fig-width":7},"id":1}];
+globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"out-width":"700px","comment":"","label":"","classes":"","output":"true","autorun":"","message":"true","results":"markup","out-height":"","read-only":"false","warning":"true","fig-width":7,"dpi":72,"context":"interactive","fig-height":5,"fig-cap":""},"id":1}];
 
 
 </script>
@@ -320,7 +320,10 @@ globalThis.qpyodideInstance = await import(
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
 
-    // Add matplotlib
+    // Load the `micropip` package to allow installation of packages.
+    await mainPyodide.loadPackage("micropip");
+
+    // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");
 
     // Set the backend for matplotlib to be interactive.
