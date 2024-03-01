@@ -152,26 +152,29 @@ df.Age
 
 In the above example, everything just worked as `pandas` in available as part of [Pyodide's built-in packages](https://pyodide.org/en/stable/usage/packages-in-pyodide.html). However, if we need a package that is not part of the built-in list, then there either needs to be a pure Python wheel (no compiled code present) or a specially compiled version of the Package for Python. 
 
-In this case, we can install the `seaborn` package from PyPI with: 
+In this case, we can install the `palmerpenguins` package from PyPI with: 
 
 ```{pyodide-python}
-await micropip.install("seaborn")
+await micropip.install([
+  "palmerpenguins",
+  "setuptools" # dependency
+])
 ```
 
 Then, we have: 
 
 ```{pyodide-python}
+# Core pyodide Python package
+import pandas as pd
+
 # External Python package
-import seaborn as sns
+from palmerpenguins import load_penguins
 
-# Core Pyodide packages
-import numpy as np 
-import pandas as pd 
+# Load data in the package
+penguins = load_penguins()
 
-data = np.random.multivariate_normal([0, 0], [[5, 2], [2, 2]], size=2000)
-data = pd.DataFrame(data, columns=['x', 'y'])
-
-sns.displot(data['x']);
+# Display th e first 5 rows of the data using Pandas
+penguins.head()
 ```
 
 ## Graphing
