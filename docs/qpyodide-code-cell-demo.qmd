@@ -161,15 +161,17 @@ await micropip.install("seaborn")
 Then, we have: 
 
 ```{pyodide-python}
+# External Python package
 import seaborn as sns
 
+# Core Pyodide packages
+import numpy as np 
 import pandas as pd 
 
 data = np.random.multivariate_normal([0, 0], [[5, 2], [2, 2]], size=2000)
 data = pd.DataFrame(data, columns=['x', 'y'])
 
-sns.distplot(data['x'])
-sns.distplot(data['y']);
+sns.displot(data['x']);
 ```
 
 ## Graphing
