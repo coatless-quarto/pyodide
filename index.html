@@ -237,7 +237,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"options":{"autorun":"","out-width":"700px","read-only":"false","warning":"true","out-height":"","label":"","classes":"","fig-width":7,"context":"interactive","results":"markup","fig-cap":"","dpi":72,"output":"true","message":"true","comment":"","fig-height":5},"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!"}];
+globalThis.qpyodideCellDetails = [{"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","id":1,"options":{"out-width":"700px","output":"true","results":"markup","fig-width":7,"comment":"","classes":"","read-only":"false","dpi":72,"autorun":"","fig-cap":"","label":"","context":"interactive","message":"true","out-height":"","fig-height":5,"warning":"true"}}];
 
 
 </script>
@@ -364,6 +364,9 @@ globalThis.qpyodideInstance = await import(
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`
+    import micropip
+    `);
 
     // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");

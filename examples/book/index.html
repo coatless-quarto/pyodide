@@ -231,7 +231,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")","options":{"read-only":"false","label":"","classes":"","results":"markup","output":"true","fig-width":7,"context":"interactive","warning":"true","dpi":72,"out-height":"","comment":"","out-width":"700px","fig-cap":"","autorun":"","message":"true","fig-height":5},"id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"fig-height":5,"results":"markup","fig-width":7,"output":"true","autorun":"","label":"","classes":"","comment":"","out-width":"700px","context":"interactive","out-height":"","fig-cap":"","message":"true","read-only":"false","dpi":72,"warning":"true"},"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")"}];
 
 
 </script>
@@ -358,6 +358,9 @@ globalThis.qpyodideInstance = await import(
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`
+    import micropip
+    `);
 
     // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");

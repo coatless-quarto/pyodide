@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","id":1,"options":{"dpi":72,"context":"interactive","fig-width":7,"output":"true","label":"","out-height":"","message":"true","results":"markup","read-only":"false","out-width":"700px","fig-height":5,"comment":"","fig-cap":"","autorun":"","classes":"","warning":"true"}}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"warning":"true","label":"","fig-height":5,"fig-cap":"","read-only":"false","out-height":"","dpi":72,"context":"interactive","results":"markup","output":"true","message":"true","out-width":"700px","classes":"","autorun":"","fig-width":7,"comment":""},"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()"}];
 
 
 </script>
@@ -355,6 +355,9 @@ globalThis.qpyodideInstance = await import(
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`
+    import micropip
+    `);
 
     // Load the `matplotlib` package with necessary environment hook
     await mainPyodide.loadPackage("matplotlib");
