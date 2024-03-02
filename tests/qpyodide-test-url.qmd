@@ -1,0 +1,15 @@
+---
+title: "Test: Accessing Data via URL"
+format: html
+filters:
+  - pyodide
+---
+
+This test is designed to check if HTTP requests are shimmed so that the operation can be performed.
+
+```{pyodide-python}
+import pandas as pd
+
+df = pd.read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv")
+df.head()
+```

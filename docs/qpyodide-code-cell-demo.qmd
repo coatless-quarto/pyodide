@@ -125,7 +125,22 @@ num_list = [1, 2, 3]
 
 ## Load a package
 
-We've enabled _dynamic_ package detection to handle importing packages into the environment. The _dynamic_ part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.
+There are two types of Python packages that will work within an interactive cell. 
+
+- pure Python packages 
+  - denoted by `*py3-none-any.whl` on PyPI
+- Python packages compiled for Pyodide
+  - denoted by `*-cp310-cp310-emscripten_3_1_27_wasm32.whl` that require a specific Python and Emscripten versions
+
+The latter option makes up part of the Pyodide "core" or "base" set of Python packages. 
+
+:::{.callout-important}
+Not all functionality of a Python package may be available in the browser due to limitations or different versions being present.
+:::
+
+### Loading a Pyodide core package
+
+For packages that are part of [Pyodide core](https://pyodide.org/en/stable/usage/packages-in-pyodide.html), we've enabled _dynamic_ package detection to handle importing packages into the environment. The _dynamic_ part comes from detecting whether a Python package is being used through an import statement and automatically taking care of the installation process behind the scenes.
 
 :::{.callout-note}
 Importing a package for the first time will require more time. Subsequent import statements will be resolve quicker.
@@ -173,7 +188,7 @@ from palmerpenguins import load_penguins
 # Load data in the package
 penguins = load_penguins()
 
-# Display th e first 5 rows of the data using Pandas
+# Display the first 5 rows of the data using Pandas
 penguins.head()
 ```
 
@@ -189,4 +204,14 @@ y = [-5, 8, 9, 4]
 
 plt.plot(x, y)
 plt.show()
+```
+
+## External Data
+
+Interactive cells also allow for a limited subset of operations when working with external data. For example, we can use Pandas' `read_csv()` function to ingest data from a URL. 
+```{pyodide-python}
+import pandas as pd
+
+df = pd.read_csv("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv")
+df.head()
 ```
