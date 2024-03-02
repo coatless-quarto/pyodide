@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"context":"interactive","read-only":"false","results":"markup","warning":"true","autorun":"","message":"true","dpi":72,"label":"","output":"true","out-width":"700px","comment":"","fig-width":7,"classes":"","fig-height":5,"out-height":"","fig-cap":""},"id":1,"code":"1 + 1"},{"options":{"context":"interactive","read-only":"true","results":"markup","warning":"true","autorun":"","message":"true","dpi":72,"label":"","output":"true","out-width":"700px","comment":"","fig-width":7,"classes":"","fig-height":5,"out-height":"","fig-cap":""},"id":2,"code":"1 + 1"},{"options":{"context":"setup","read-only":"false","results":"markup","warning":"true","autorun":"","message":"true","dpi":72,"label":"","output":"true","out-width":"700px","comment":"","fig-width":7,"classes":"","fig-height":5,"out-height":"","fig-cap":""},"id":3,"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"options":{"context":"output","read-only":"false","results":"markup","warning":"true","autorun":"","message":"true","dpi":72,"label":"","output":"true","out-width":"700px","comment":"","fig-width":7,"classes":"","fig-height":5,"out-height":"","fig-cap":""},"id":4,"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"context":"interactive","message":"true","label":"","warning":"true","classes":"","results":"markup","fig-cap":"","fig-width":7,"output":"true","comment":"","autorun":"","dpi":72,"out-height":"","read-only":"false","fig-height":5,"out-width":"700px"},"code":"1 + 1"},{"id":2,"options":{"context":"interactive","message":"true","label":"","warning":"true","classes":"","results":"markup","fig-cap":"","fig-width":7,"output":"true","comment":"","autorun":"","dpi":72,"out-height":"","read-only":"true","fig-height":5,"out-width":"700px"},"code":"1 + 1"},{"id":3,"options":{"context":"setup","message":"true","label":"","warning":"true","classes":"","results":"markup","fig-cap":"","fig-width":7,"output":"true","comment":"","autorun":"","dpi":72,"out-height":"","read-only":"false","fig-height":5,"out-width":"700px"},"code":"x = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]"},{"id":4,"options":{"context":"output","message":"true","label":"","warning":"true","classes":"","results":"markup","fig-cap":"","fig-width":7,"output":"true","comment":"","autorun":"","dpi":72,"out-height":"","read-only":"false","fig-height":5,"out-width":"700px"},"code":"import matplotlib.pyplot as plt\n\nprint(f\"x: {x}\")\n\nprint(f\"y: {y}\")\n\nplt.plot(x, y)"}];
 
 
 </script>
@@ -253,10 +253,21 @@ globalThis.qpyodideUpdateStatusMessage = function(message) {
 
 // Function to update the status message
 globalThis.qpyodideUpdateStatusHeader = function(message) {
-  qpyodideStartupMessage.innerHTML = `
-    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
-    <span>${message}</span>`;
+
+  if (!qpyodideShowStartupMessage) return;
+
+  qpyodideStartupMessage.innerHTML = message;
 }
+
+// Status header update with customized spinner message
+globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+  qpyodideUpdateStatusHeader(`
+    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+    <span>${message}</span>
+  `);
+}
+
 
 // Function that attaches the document status message
 function qpyodideDisplayStartupMessage(showStartupMessage) {
@@ -352,11 +363,21 @@ globalThis.qpyodideInstance = await import(
     
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
     await mainPyodide.runPythonAsync(`
-    import micropip
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
     `);
 
     // Load the `matplotlib` package with necessary environment hook
@@ -373,11 +394,12 @@ globalThis.qpyodideInstance = await import(
     qpyodideSetInteractiveButtonState(
       `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
       true
-    ); 
+    );
 
-    if (qpyodideShowStartupMessage) {
-      qpyodideStartupMessage.innerText = "🟢 Ready!"
-    }
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
 
     // Assign Pyodide into the global environment
     globalThis.mainPyodide = mainPyodide;
@@ -472,6 +494,12 @@ globalThis._qpyodideGetInstance = function() {
   <div class="sidebar-item-container"> 
   <a href="./qpyodide-test-internal-cell.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Test: Cell Context Options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qpyodide-test-url.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test: Accessing Data via URL</span></a>
   </div>
 </li>
       </ul>

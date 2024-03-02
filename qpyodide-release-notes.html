@@ -278,6 +278,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
   <li><a href="#dev-1-what-does-the-python-say---" id="toc-dev-1-what-does-the-python-say---" class="nav-link active" data-scroll-target="#dev-1-what-does-the-python-say---">0.0.1.dev-1: What does the Python Say? (??-??-????)</a>
   <ul class="collapse">
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
+  <li><a href="#changes" id="toc-changes" class="nav-link" data-scroll-target="#changes">Changes</a></li>
   </ul></li>
   <li><a href="#what-does-the-python-say-02-19-2024" id="toc-what-does-the-python-say-02-19-2024" class="nav-link" data-scroll-target="#what-does-the-python-say-02-19-2024">0.0.1: What does the Python Say? (02-19-2024)</a>
   <ul class="collapse">
@@ -314,7 +315,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">March 1, 2024</p>
+      <p class="date-modified">March 2, 2024</p>
     </div>
   </div>
     
@@ -331,6 +332,16 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
 <li>New code cell option that set the interactive cell to be read-only. (<a href="https://github.com/coatless-quarto/pyodide/issues/4">#4</a>)</li>
+</ul>
+</section>
+<section id="changes" class="level2">
+<h2 class="anchored" data-anchor-id="changes">Changes</h2>
+<ul>
+<li>We now load the <code>micropip</code> and <code>pyodide_http</code> packages during document initialization.
+<ul>
+<li><code>micropip</code> package allows for installation of pure Python or Pyodide-compiled Python packages. (<a href="https://github.com/coatless-quarto/pyodide/issues/3">#3</a>)</li>
+<li><code>pyodide_http</code> provides the necessary shims to ensure uses of <code>requests</code> and <code>urllib3</code> are able to be processed instead of returning a URL error. (<a href="https://github.com/coatless-quarto/pyodide/issues/9">#9</a>)</li>
+</ul></li>
 </ul>
 </section>
 </section>

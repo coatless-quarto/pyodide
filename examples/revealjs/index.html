@@ -483,7 +483,7 @@
   }
 
   // Store cell data
-  globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"comment":"","results":"markup","fig-width":7,"read-only":"false","dpi":72,"output":"true","fig-cap":"","out-width":"700px","context":"interactive","message":"true","autorun":"","warning":"true","classes":"","fig-height":5,"label":"","out-height":""},"id":1},{"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","options":{"comment":"","results":"markup","fig-width":7,"read-only":"false","dpi":72,"output":"true","fig-cap":"","out-width":"700px","context":"interactive","message":"true","autorun":"","warning":"true","classes":"","fig-height":5,"label":"","out-height":""},"id":2},{"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","options":{"comment":"","results":"markup","fig-width":7,"read-only":"false","dpi":72,"output":"true","fig-cap":"","out-width":"700px","context":"interactive","message":"true","autorun":"","warning":"true","classes":"","fig-height":5,"label":"","out-height":""},"id":3},{"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","options":{"comment":"","results":"markup","fig-width":7,"read-only":"false","dpi":72,"output":"true","fig-cap":"","out-width":"700px","context":"interactive","message":"true","autorun":"","warning":"true","classes":"","fig-height":5,"label":"","out-height":""},"id":4}];
+  globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","id":1,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}},{"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","id":2,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}},{"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","id":3,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}},{"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","id":4,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}}];
 
 
   </script>
@@ -508,10 +508,21 @@
 
   // Function to update the status message
   globalThis.qpyodideUpdateStatusHeader = function(message) {
-    qpyodideStartupMessage.innerHTML = `
-      <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
-      <span>${message}</span>`;
+
+    if (!qpyodideShowStartupMessage) return;
+
+    qpyodideStartupMessage.innerHTML = message;
   }
+
+  // Status header update with customized spinner message
+  globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+    qpyodideUpdateStatusHeader(`
+      <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+      <span>${message}</span>
+    `);
+  }
+
 
   // Function that attaches the document status message
   function qpyodideDisplayStartupMessage(showStartupMessage) {
@@ -607,11 +618,21 @@
       
       // Setup a namespace for global scoping
       // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+      
+      // Update status to reflect the next stage of the procedure
+      qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
 
       // Load the `micropip` package to allow installation of packages.
       await mainPyodide.loadPackage("micropip");
+      await mainPyodide.runPythonAsync(`import micropip`);
+
+      // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+      // This allows for `pd.read_csv(url)` to work flawlessly.
+      // Details: https://github.com/coatless-quarto/pyodide/issues/9
+      await mainPyodide.loadPackage("pyodide_http");
       await mainPyodide.runPythonAsync(`
-      import micropip
+      import pyodide_http
+      pyodide_http.patch_all()  # Patch all libraries
       `);
 
       // Load the `matplotlib` package with necessary environment hook
@@ -628,11 +649,12 @@
       qpyodideSetInteractiveButtonState(
         `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
         true
-      ); 
+      );
 
-      if (qpyodideShowStartupMessage) {
-        qpyodideStartupMessage.innerText = "🟢 Ready!"
-      }
+      // Set document status to viable
+      qpyodideUpdateStatusHeader(
+        "🟢 Ready!"
+      );
 
       // Assign Pyodide into the global environment
       globalThis.mainPyodide = mainPyodide;
@@ -692,7 +714,7 @@
 <section id="quarto-pyodide-countdown" class="slide level2">
 <h2>quarto-{pyodide + countdown}</h2>
 <p>Pair code cells with a <a href="https://github.com/gadenbuie/countdown/tree/main/quarto">countdown timer</a> to allow for practice</p>
-<div id="timer_6af0cc6e76d11adceb3efbabd8690e4c9d3da8f8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_57f6987f29e3e8e4676b7b54f24eaa179c002813" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

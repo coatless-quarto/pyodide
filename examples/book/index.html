@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="JJB">
-<meta name="dcterms.date" content="2024-03-01">
+<meta name="dcterms.date" content="2024-03-02">
 
 <title>Sample quarto-pyodide Book Project</title>
 <style>
@@ -231,7 +231,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")","options":{"fig-cap":"","label":"","autorun":"","fig-width":7,"warning":"true","comment":"","context":"interactive","classes":"","read-only":"false","message":"true","out-height":"","dpi":72,"results":"markup","out-width":"700px","output":"true","fig-height":5},"id":1}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"print(\"Hello there! Welcome to a {quarto-pyodide} powered book!\")","options":{"results":"markup","fig-cap":"","fig-width":7,"autorun":"","read-only":"false","fig-height":5,"classes":"","out-width":"700px","label":"","message":"true","comment":"","dpi":72,"output":"true","out-height":"","warning":"true","context":"interactive"}}];
 
 
 </script>
@@ -256,10 +256,21 @@ globalThis.qpyodideUpdateStatusMessage = function(message) {
 
 // Function to update the status message
 globalThis.qpyodideUpdateStatusHeader = function(message) {
-  qpyodideStartupMessage.innerHTML = `
-    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
-    <span>${message}</span>`;
+
+  if (!qpyodideShowStartupMessage) return;
+
+  qpyodideStartupMessage.innerHTML = message;
 }
+
+// Status header update with customized spinner message
+globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+  qpyodideUpdateStatusHeader(`
+    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+    <span>${message}</span>
+  `);
+}
+
 
 // Function that attaches the document status message
 function qpyodideDisplayStartupMessage(showStartupMessage) {
@@ -355,11 +366,21 @@ globalThis.qpyodideInstance = await import(
     
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
     await mainPyodide.runPythonAsync(`
-    import micropip
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
     `);
 
     // Load the `matplotlib` package with necessary environment hook
@@ -376,11 +397,12 @@ globalThis.qpyodideInstance = await import(
     qpyodideSetInteractiveButtonState(
       `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
       true
-    ); 
+    );
 
-    if (qpyodideShowStartupMessage) {
-      qpyodideStartupMessage.innerText = "🟢 Ready!"
-    }
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
 
     // Assign Pyodide into the global environment
     globalThis.mainPyodide = mainPyodide;
@@ -526,7 +548,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 1, 2024</p>
+      <p class="date">March 2, 2024</p>
     </div>
   </div>
   

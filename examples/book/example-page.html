@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","id":1,"options":{"message":"true","comment":"","dpi":72,"fig-height":5,"classes":"","read-only":"false","label":"","fig-cap":"","out-width":"700px","out-height":"","context":"interactive","results":"markup","output":"true","autorun":"","warning":"true","fig-width":7}},{"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","id":2,"options":{"message":"true","comment":"","dpi":72,"fig-height":5,"classes":"","read-only":"false","label":"","fig-cap":"","out-width":"700px","out-height":"","context":"interactive","results":"markup","output":"true","autorun":"","warning":"true","fig-width":7}}];
+globalThis.qpyodideCellDetails = [{"options":{"label":"","message":"true","warning":"true","out-height":"","read-only":"false","autorun":"","output":"true","fig-cap":"","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","fig-width":7,"comment":"","classes":"","dpi":72},"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","id":1},{"options":{"label":"","message":"true","warning":"true","out-height":"","read-only":"false","autorun":"","output":"true","fig-cap":"","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","fig-width":7,"comment":"","classes":"","dpi":72},"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","id":2}];
 
 
 </script>
@@ -255,10 +255,21 @@ globalThis.qpyodideUpdateStatusMessage = function(message) {
 
 // Function to update the status message
 globalThis.qpyodideUpdateStatusHeader = function(message) {
-  qpyodideStartupMessage.innerHTML = `
-    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
-    <span>${message}</span>`;
+
+  if (!qpyodideShowStartupMessage) return;
+
+  qpyodideStartupMessage.innerHTML = message;
 }
+
+// Status header update with customized spinner message
+globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+  qpyodideUpdateStatusHeader(`
+    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+    <span>${message}</span>
+  `);
+}
+
 
 // Function that attaches the document status message
 function qpyodideDisplayStartupMessage(showStartupMessage) {
@@ -354,11 +365,21 @@ globalThis.qpyodideInstance = await import(
     
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
     await mainPyodide.runPythonAsync(`
-    import micropip
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
     `);
 
     // Load the `matplotlib` package with necessary environment hook
@@ -375,11 +396,12 @@ globalThis.qpyodideInstance = await import(
     qpyodideSetInteractiveButtonState(
       `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
       true
-    ); 
+    );
 
-    if (qpyodideShowStartupMessage) {
-      qpyodideStartupMessage.innerText = "🟢 Ready!"
-    }
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
 
     // Assign Pyodide into the global environment
     globalThis.mainPyodide = mainPyodide;

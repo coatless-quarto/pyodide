@@ -195,7 +195,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"output":"true","context":"interactive","warning":"true","out-height":"","read-only":"false","dpi":72,"fig-cap":"","fig-width":7,"out-width":"700px","results":"markup","label":"","classes":"","autorun":"","fig-height":5,"message":"true","comment":""},"code":"print(\"Hello there! Welcome to a quarto-pyodide powered HTML Document!\")","id":1}];
+globalThis.qpyodideCellDetails = [{"options":{"message":"true","output":"true","autorun":"","context":"interactive","comment":"","results":"markup","read-only":"false","fig-cap":"","out-height":"","label":"","warning":"true","dpi":72,"fig-width":7,"classes":"","out-width":"700px","fig-height":5},"code":"print(\"Hello there! Welcome to a quarto-pyodide powered HTML Document!\")","id":1}];
 
 
 </script>
@@ -220,10 +220,21 @@ globalThis.qpyodideUpdateStatusMessage = function(message) {
 
 // Function to update the status message
 globalThis.qpyodideUpdateStatusHeader = function(message) {
-  qpyodideStartupMessage.innerHTML = `
-    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
-    <span>${message}</span>`;
+
+  if (!qpyodideShowStartupMessage) return;
+
+  qpyodideStartupMessage.innerHTML = message;
 }
+
+// Status header update with customized spinner message
+globalThis.qpyodideUpdateStatusHeaderSpinner = function(message) {
+
+  qpyodideUpdateStatusHeader(`
+    <i class="fa-solid fa-spinner fa-spin qpyodide-icon-status-spinner"></i>
+    <span>${message}</span>
+  `);
+}
+
 
 // Function that attaches the document status message
 function qpyodideDisplayStartupMessage(showStartupMessage) {
@@ -319,11 +330,21 @@ globalThis.qpyodideInstance = await import(
     
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
     await mainPyodide.runPythonAsync(`
-    import micropip
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
     `);
 
     // Load the `matplotlib` package with necessary environment hook
@@ -340,11 +361,12 @@ globalThis.qpyodideInstance = await import(
     qpyodideSetInteractiveButtonState(
       `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
       true
-    ); 
+    );
 
-    if (qpyodideShowStartupMessage) {
-      qpyodideStartupMessage.innerText = "🟢 Ready!"
-    }
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
 
     // Assign Pyodide into the global environment
     globalThis.mainPyodide = mainPyodide;

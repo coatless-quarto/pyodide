@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Demo Quarto Pyodide Website – Example page</title>
+<title>Test Suite for quarto-pyodide – Test: Accessing Data via URL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,11 +40,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -228,7 +228,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"id":1,"code":"import pandas as pd \nimport numpy as np \n\ndf = pd.DataFrame(\n    {\n        \"A\": 1.0,\n        \"B\": pd.Timestamp(\"20130102\"),\n        \"C\": pd.Series(1, index=list(range(4)), dtype=\"float32\"),\n        \"D\": np.array([3] * 4, dtype=\"int32\"),\n        \"E\": pd.Categorical([\"test\", \"train\", \"test\", \"train\"]),\n        \"F\": \"foo\",\n    }\n)\n\n\ndf","options":{"read-only":"false","message":"true","comment":"","label":"","context":"interactive","results":"markup","fig-height":5,"out-height":"","warning":"true","dpi":72,"out-width":"700px","autorun":"","classes":"","fig-cap":"","fig-width":7,"output":"true"}}];
+globalThis.qpyodideCellDetails = [{"options":{"read-only":"false","fig-width":7,"comment":"","out-height":"","autorun":"","out-width":"700px","context":"interactive","fig-height":5,"output":"true","fig-cap":"","results":"markup","message":"true","dpi":72,"classes":"","warning":"true","label":""},"code":"import pandas as pd\n\ndf = pd.read_csv(\"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv\")\ndf.head()","id":1}];
 
 
 </script>
@@ -422,71 +422,63 @@ globalThis._qpyodideGetInstance = function() {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Demo Quarto Pyodide Website</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./example-page.html"> 
-<span class="menu-text">Example page</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./slide-embed.html"> 
-<span class="menu-text">Embed Slides</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./../../"> 
-<span class="menu-text">Documentation Portal</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-url.html">Test: Accessing Data via URL</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Test Suite for quarto-pyodide</a> 
+        <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Content</a></li><li class="breadcrumb-item"><a href="./example-page.html">Example page</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./../../" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main Website</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Content</span></a>
+ <span class="menu-text">Tests</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -494,26 +486,20 @@ globalThis._qpyodideGetInstance = function() {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Quarto pyodide Demo Website</span></a>
+  <a href="./qpyodide-test-graphic-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test: Graphics Output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./example-page.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Example page</span></a>
+  <a href="./qpyodide-test-internal-cell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test: Cell Context Options</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slide-embed.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Embed Slides</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./../../" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Documentation Portal</span></a>
+  <a href="./qpyodide-test-url.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Test: Accessing Data via URL</span></a>
   </div>
 </li>
       </ul>
@@ -537,9 +523,9 @@ globalThis._qpyodideGetInstance = function() {
   });
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Content</a></li><li class="breadcrumb-item"><a href="./example-page.html">Example page</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qpyodide-test-graphic-output.html">Tests</a></li><li class="breadcrumb-item"><a href="./qpyodide-test-url.html">Test: Accessing Data via URL</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Example page</h1>
+<h1 class="title">Test: Accessing Data via URL</h1>
 </div>
 
 
@@ -556,7 +542,7 @@ globalThis._qpyodideGetInstance = function() {
 </header>
 
 
-<p>On this page, we set two options directly in the Quarto document. The rest of the options are coming from the <code>_quarto.yml</code> project file. These options are considered “global”.</p>
+<p>This test is designed to check if HTTP requests are shimmed so that the operation can be performed.</p>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
@@ -976,7 +962,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>An example website with quarto-pyodide.</p>
+<p>Test suite for quarto-pyodide.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

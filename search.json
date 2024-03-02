@@ -165,7 +165,7 @@
     "href": "qpyodide-release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "New code cell option that set the interactive cell to be read-only. (#4)",
+    "text": "New code cell option that set the interactive cell to be read-only. (#4)\n\n\n\n\n\nWe now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
     "crumbs": [
       "Extra Information",
       "Release Notes"
@@ -177,6 +177,17 @@
     "title": "Release Notes",
     "section": "",
     "text": "New code cell option that set the interactive cell to be read-only. (#4)",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#changes",
+    "href": "qpyodide-release-notes.html#changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "We now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
     "crumbs": [
       "Extra Information",
       "Release Notes"
@@ -315,7 +326,7 @@
     "href": "qpyodide-code-cell-demo.html#load-a-package",
     "title": "Python Interactive Code Cells",
     "section": "Load a package",
-    "text": "Load a package\nWe’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a non-core Python package is used, installing, and, then, importing it.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nLoading non-core Pyodide Python Packages\nIn the above example, everything just worked as pandas in available as part of Pyodide’s built-in packages. However, if we need a package that is not part of the built-in list, then there either needs to be a pure Python wheel (no compiled code present) or a specially compiled version of the Package for Python.\nIn this case, we can install the palmerpenguins package from PyPI with:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThen, we have:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "text": "Load a package\nThere are two types of Python packages that will work within an interactive cell.\n\npure Python packages\n\ndenoted by *py3-none-any.whl on PyPI\n\nPython packages compiled for Pyodide\n\ndenoted by *-cp310-cp310-emscripten_3_1_27_wasm32.whl that require a specific Python and Emscripten versions\n\n\nThe latter option makes up part of the Pyodide “core” or “base” set of Python packages.\n\n\n\n\n\n\nImportant\n\n\n\nNot all functionality of a Python package may be available in the browser due to limitations or different versions being present.\n\n\n\nLoading a Pyodide core package\nFor packages that are part of Pyodide core, we’ve enabled dynamic package detection to handle importing packages into the environment. The dynamic part comes from detecting whether a Python package is being used through an import statement and automatically taking care of the installation process behind the scenes.\n\n\n\n\n\n\nNote\n\n\n\nImporting a package for the first time will require more time. Subsequent import statements will be resolve quicker.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nLoading non-core Pyodide Python Packages\nIn the above example, everything just worked as pandas in available as part of Pyodide’s built-in packages. However, if we need a package that is not part of the built-in list, then there either needs to be a pure Python wheel (no compiled code present) or a specially compiled version of the Package for Python.\nIn this case, we can install the palmerpenguins package from PyPI with:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThen, we have:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Demos",
       "Pyodide Interactive Cell Demo"
@@ -327,6 +338,17 @@
     "title": "Python Interactive Code Cells",
     "section": "Graphing",
     "text": "Graphing\nWe provide support for generating graphs through the interactive HTML5 backend, e.g. module://matplotlib_pyodide.html5_canvas_backend. At the end of each graph call, you must include a plt.show() call for the graph to render.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Demos",
+      "Pyodide Interactive Cell Demo"
+    ]
+  },
+  {
+    "objectID": "qpyodide-code-cell-demo.html#external-data",
+    "href": "qpyodide-code-cell-demo.html#external-data",
+    "title": "Python Interactive Code Cells",
+    "section": "External Data",
+    "text": "External Data\nInteractive cells also allow for a limited subset of operations when working with external data. For example, we can use Pandas’ read_csv() function to ingest data from a URL.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Demos",
       "Pyodide Interactive Cell Demo"
