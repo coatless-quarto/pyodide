@@ -19,6 +19,13 @@ format:
 
 - New code cell option that set the interactive cell to be read-only. ([#4](https://github.com/coatless-quarto/pyodide/issues/4))
 
+## Changes
+
+- We now load the `micropip` and `pyodide_http` packages during document initialization.
+  - `micropip` package allows for installation of pure Python or Pyodide-compiled Python packages.
+     ([#3](https://github.com/coatless-quarto/pyodide/issues/3))
+  - `pyodide_http` provides the necessary shims to ensure uses of `requests` and `urllib3` are 
+     able to be processed instead of returning a URL error. ([#9](https://github.com/coatless-quarto/pyodide/issues/9))
 
 # 0.0.1: What does the Python Say? (02-19-2024)
 

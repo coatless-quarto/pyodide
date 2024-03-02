@@ -32,11 +32,21 @@ globalThis.qpyodideInstance = await import(
     
     // Setup a namespace for global scoping
     // await loadedPyodide.runPythonAsync("globalScope = {}"); 
+    
+    // Update status to reflect the next stage of the procedure
+    qpyodideUpdateStatusHeaderSpinner("Initializing Python Packages");
 
     // Load the `micropip` package to allow installation of packages.
     await mainPyodide.loadPackage("micropip");
+    await mainPyodide.runPythonAsync(`import micropip`);
+
+    // Load the `pyodide_http` package to shim uses of `requests` and `urllib3`.
+    // This allows for `pd.read_csv(url)` to work flawlessly.
+    // Details: https://github.com/coatless-quarto/pyodide/issues/9
+    await mainPyodide.loadPackage("pyodide_http");
     await mainPyodide.runPythonAsync(`
-    import micropip
+    import pyodide_http
+    pyodide_http.patch_all()  # Patch all libraries
     `);
 
     // Load the `matplotlib` package with necessary environment hook
@@ -53,11 +63,12 @@ globalThis.qpyodideInstance = await import(
     qpyodideSetInteractiveButtonState(
       `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
       true
-    ); 
+    );
 
-    if (qpyodideShowStartupMessage) {
-      qpyodideStartupMessage.innerText = "🟢 Ready!"
-    }
+    // Set document status to viable
+    qpyodideUpdateStatusHeader(
+      "🟢 Ready!"
+    );
 
     // Assign Pyodide into the global environment
     globalThis.mainPyodide = mainPyodide;
