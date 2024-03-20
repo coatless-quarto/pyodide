@@ -237,7 +237,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","id":1,"options":{"fig-height":5,"output":"true","read-only":"false","warning":"true","results":"markup","fig-cap":"","label":"","context":"interactive","fig-width":7,"message":"true","autorun":"","comment":"","dpi":72,"classes":"","out-height":"","out-width":"700px"}}];
+globalThis.qpyodideCellDetails = [{"options":{"autorun":"","message":"true","fig-height":5,"context":"interactive","dpi":72,"out-width":"700px","results":"markup","out-height":"","fig-width":7,"warning":"true","classes":"","output":"true","fig-cap":"","comment":"","label":"","read-only":"false"},"id":1,"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!"}];
 
 
 </script>
@@ -628,6 +628,19 @@ globalThis._qpyodideGetInstance = function() {
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>At its core, the <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code> extension</a> is designed to empower you to run <em>Python</em> code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. Just write Python code like you usually would! Though, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using <a href="https://pyodide.org/en/stable/">Pyodide’s JavaScript API</a>, granting you unparalleled freedom to harness the power of Python in innovative ways.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This Quarto extension is open source software and is <strong>not affiliated with</strong> Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents.</p>
+</div>
+</div>
 
 
 
