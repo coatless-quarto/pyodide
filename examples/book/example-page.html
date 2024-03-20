@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.22">
+<meta name="generator" content="quarto-1.5.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -230,7 +230,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"options":{"label":"","message":"true","warning":"true","out-height":"","read-only":"false","autorun":"","output":"true","fig-cap":"","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","fig-width":7,"comment":"","classes":"","dpi":72},"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","id":1},{"options":{"label":"","message":"true","warning":"true","out-height":"","read-only":"false","autorun":"","output":"true","fig-cap":"","context":"interactive","out-width":"700px","fig-height":5,"results":"markup","fig-width":7,"comment":"","classes":"","dpi":72},"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","id":2}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"import numpy as np\n\n# Data for plotting\nt = np.arange(0.0, 2.0, 0.01)\ns = 1 + np.sin(2 * np.pi * t)\n\n# Print t\nprint(f\"Displaying 10 observations of `t`:\\n{t[:10]}\\n\")\n\nprint(\"Showing the first 10 values of `s`:\")\n# The last object in the cell does not need print.\ns[:10]","options":{"read-only":"false","out-height":"","context":"interactive","message":"true","out-width":"700px","output":"true","fig-height":5,"comment":"","autorun":"","warning":"true","fig-width":7,"dpi":72,"fig-cap":"","label":"","classes":"","results":"markup"}},{"id":2,"code":"import matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.plot(t, s)\n\nax.set(xlabel='time (s)', ylabel='voltage (mV)',\n       title='About as simple as it gets, folks')\nax.grid()\n\nplt.show()","options":{"read-only":"false","out-height":"","context":"interactive","message":"true","out-width":"700px","output":"true","fig-height":5,"comment":"","autorun":"","warning":"true","fig-width":7,"dpi":72,"fig-cap":"","label":"","classes":"","results":"markup"}}];
 
 
 </script>
@@ -601,18 +601,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -644,7 +633,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -652,7 +663,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

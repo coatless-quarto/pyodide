@@ -10,7 +10,7 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="index_files/libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.22">
+  <meta name="generator" content="quarto-1.5.25">
 
   <title>{quarto-pyodide} Demo RevealJS Document</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -483,7 +483,7 @@
   }
 
   // Store cell data
-  globalThis.qpyodideCellDetails = [{"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","id":1,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}},{"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","id":2,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}},{"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","id":3,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}},{"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","id":4,"options":{"read-only":"false","message":"true","classes":"","fig-width":7,"dpi":72,"comment":"","fig-cap":"","results":"markup","out-height":"","context":"interactive","fig-height":5,"warning":"true","output":"true","label":"","out-width":"700px","autorun":""}}];
+  globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","output":"true","context":"interactive","fig-height":5,"results":"markup","autorun":"","out-width":"700px","read-only":"false","message":"true","fig-cap":"","warning":"true","classes":"","dpi":72,"label":"","fig-width":7,"out-height":""},"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')"},{"id":2,"options":{"comment":"","output":"true","context":"interactive","fig-height":5,"results":"markup","autorun":"","out-width":"700px","read-only":"false","message":"true","fig-cap":"","warning":"true","classes":"","dpi":72,"label":"","fig-width":7,"out-height":""},"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()"},{"id":3,"options":{"comment":"","output":"true","context":"interactive","fig-height":5,"results":"markup","autorun":"","out-width":"700px","read-only":"false","message":"true","fig-cap":"","warning":"true","classes":"","dpi":72,"label":"","fig-width":7,"out-height":""},"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")"},{"id":4,"options":{"comment":"","output":"true","context":"interactive","fig-height":5,"results":"markup","autorun":"","out-width":"700px","read-only":"false","message":"true","fig-cap":"","warning":"true","classes":"","dpi":72,"label":"","fig-width":7,"out-height":""},"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5"}];
 
 
   </script>
@@ -714,7 +714,7 @@
 <section id="quarto-pyodide-countdown" class="slide level2">
 <h2>quarto-{pyodide + countdown}</h2>
 <p>Pair code cells with a <a href="https://github.com/gadenbuie/countdown/tree/main/quarto">countdown timer</a> to allow for practice</p>
-<div id="timer_57f6987f29e3e8e4676b7b54f24eaa179c002813" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_2b044df6adf43deb1658d9662fdd50aaae79e605" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -989,18 +989,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1032,7 +1021,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1040,7 +1051,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

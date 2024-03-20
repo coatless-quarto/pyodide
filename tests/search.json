@@ -1,24 +1,13 @@
 [
   {
-    "objectID": "qpyodide-test-graphic-output.html",
-    "href": "qpyodide-test-graphic-output.html",
-    "title": "Test: Graphics Output",
+    "objectID": "qpyodide-test-url.html",
+    "href": "qpyodide-test-url.html",
+    "title": "Test: Accessing Data via URL",
     "section": "",
-    "text": "This webpage tests the interactive and output contexts for showing a graph.",
+    "text": "This test is designed to check if HTTP requests are shimmed so that the operation can be performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Tests",
-      "Test: Graphics Output"
-    ]
-  },
-  {
-    "objectID": "qpyodide-test-graphic-output.html#interactive",
-    "href": "qpyodide-test-graphic-output.html#interactive",
-    "title": "Test: Graphics Output",
-    "section": "Interactive",
-    "text": "Interactive\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Tests",
-      "Test: Graphics Output"
+      "Test: Accessing Data via URL"
     ]
   },
   {
@@ -66,6 +55,28 @@
     ]
   },
   {
+    "objectID": "qpyodide-test-graphic-output.html",
+    "href": "qpyodide-test-graphic-output.html",
+    "title": "Test: Graphics Output",
+    "section": "",
+    "text": "This webpage tests the interactive and output contexts for showing a graph.",
+    "crumbs": [
+      "Tests",
+      "Test: Graphics Output"
+    ]
+  },
+  {
+    "objectID": "qpyodide-test-graphic-output.html#interactive",
+    "href": "qpyodide-test-graphic-output.html#interactive",
+    "title": "Test: Graphics Output",
+    "section": "Interactive",
+    "text": "Interactive\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Tests",
+      "Test: Graphics Output"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "quarto-pyodide Test Website",
@@ -73,17 +84,6 @@
     "text": "Welcome\nWelcome to the test suite website for the quarto-pyodide. This website is meant to examine how different features of the extension are working or not working across different browsers.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
       "Home"
-    ]
-  },
-  {
-    "objectID": "qpyodide-test-url.html",
-    "href": "qpyodide-test-url.html",
-    "title": "Test: Accessing Data via URL",
-    "section": "",
-    "text": "This test is designed to check if HTTP requests are shimmed so that the operation can be performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Tests",
-      "Test: Accessing Data via URL"
     ]
   }
 ]

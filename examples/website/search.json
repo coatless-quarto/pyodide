@@ -1,17 +1,5 @@
 [
   {
-    "objectID": "example-page.html",
-    "href": "example-page.html",
-    "title": "Example page",
-    "section": "",
-    "text": "On this page, we set two options directly in the Quarto document. The rest of the options are coming from the _quarto.yml project file. These options are considered “global”.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Home",
-      "Content",
-      "Example page"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Quarto pyodide Demo Website",
@@ -21,6 +9,18 @@
       "Home",
       "Content",
       "Quarto pyodide Demo Website"
+    ]
+  },
+  {
+    "objectID": "example-page.html",
+    "href": "example-page.html",
+    "title": "Example page",
+    "section": "",
+    "text": "On this page, we set two options directly in the Quarto document. The rest of the options are coming from the _quarto.yml project file. These options are considered “global”.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Home",
+      "Content",
+      "Example page"
     ]
   },
   {
