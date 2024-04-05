@@ -8,6 +8,8 @@ This community developed Quarto extension enables the [Pyodide](https://pyodide.
 
 Check out the above example of the extension in action [here](https://quarto.thecoatlessprofessor.com/pyodide/examples/readme)!
 
+Interested in an R version? Take a look at [`quarto-webr`](https://github.com/coatless/quarto-webr)!
+
 > [!NOTE]
 > Please note that the `{quarto-pyodide}` Quarto extension is a community-driven initiative and is **not** affiliated with Posit, Quarto, or the main [Pyodide](https://pyodide.org/en/stable/) project. Its evolution and maintenance stem solely from the collective efforts of community members.
 
