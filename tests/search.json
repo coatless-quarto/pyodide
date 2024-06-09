@@ -1,16 +1,5 @@
 [
   {
-    "objectID": "qpyodide-test-url.html",
-    "href": "qpyodide-test-url.html",
-    "title": "Test: Accessing Data via URL",
-    "section": "",
-    "text": "This test is designed to check if HTTP requests are shimmed so that the operation can be performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Tests",
-      "Test: Accessing Data via URL"
-    ]
-  },
-  {
     "objectID": "qpyodide-test-internal-cell.html",
     "href": "qpyodide-test-internal-cell.html",
     "title": "Test: Cell Context Options",
@@ -74,6 +63,17 @@
     "crumbs": [
       "Tests",
       "Test: Graphics Output"
+    ]
+  },
+  {
+    "objectID": "qpyodide-test-url.html",
+    "href": "qpyodide-test-url.html",
+    "title": "Test: Accessing Data via URL",
+    "section": "",
+    "text": "This test is designed to check if HTTP requests are shimmed so that the operation can be performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Tests",
+      "Test: Accessing Data via URL"
     ]
   },
   {

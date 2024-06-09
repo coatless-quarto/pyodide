@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.28">
+<meta name="generator" content="quarto-1.5.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -264,7 +264,7 @@ globalThis.qpyodideShowStartupMessage = true;
 
 // Describe the webR settings that should be used
 globalThis.qpyodideCustomizedPyodideOptions = {
-  "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/",
+  "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.26.1/full/",
   "env": {
     "HOME": "/home/pyodide",
   }, 
@@ -273,7 +273,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"1 + 1","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":1},{"code":"1 + 1","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":2},{"code":"greet = 'Hello'\ngreet","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":3},{"code":"len(greet)","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":4},{"code":"# Try running selected code at the start of the line\nprint(\"Hello quarto-pyodide World!\")\n\n# Try highlight only -3 or 5 and pressing the keys required\n# for the \"selected code\" approach\n-3 + 5\n\n# Finally, try running the entire code cell by using Shift + ↩","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":5},{"code":"1 + 1","options":{"read-only":"true","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":6},{"code":"def square(x):\n    return x**2\n\nsquare(8)","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":7},{"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":8},{"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":9},{"code":"import pandas as pd \n\ndf.Age","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":10},{"code":"await micropip.install([\n  \"palmerpenguins\",\n  \"setuptools\" # dependency\n])","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":11},{"code":"# Core pyodide Python package\nimport pandas as pd\n\n# External Python package\nfrom palmerpenguins import load_penguins\n\n# Load data in the package\npenguins = load_penguins()\n\n# Display the first 5 rows of the data using Pandas\npenguins.head()","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":12},{"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":13},{"code":"import pandas as pd\n\ndf = pd.read_csv(\"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv\")\ndf.head()","options":{"read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","out-width":"700px","results":"markup","autorun":"","message":"true","output":"true","label":"","comment":"","out-height":"","fig-cap":"","dpi":72,"classes":"","warning":"true"},"id":14}];
+globalThis.qpyodideCellDetails = [{"id":1,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"1 + 1"},{"id":2,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"1 + 1"},{"id":3,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"greet = 'Hello'\ngreet"},{"id":4,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"len(greet)"},{"id":5,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"# Try running selected code at the start of the line\nprint(\"Hello quarto-pyodide World!\")\n\n# Try highlight only -3 or 5 and pressing the keys required\n# for the \"selected code\" approach\n-3 + 5\n\n# Finally, try running the entire code cell by using Shift + ↩"},{"id":6,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"true","fig-width":7},"code":"1 + 1"},{"id":7,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"def square(x):\n    return x**2\n\nsquare(8)"},{"id":8,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"num_list = [1, 2, 3]\n[square(num)for num in num_list]"},{"id":9,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"import pandas as pd\n\ndf = pd.DataFrame({\n  'Name': ['JJB', 'H', 'Alex', 'Steve'],\n  'Age': [18, 25, 33, 42]\n})\n\ndf"},{"id":10,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"import pandas as pd \n\ndf.Age"},{"id":11,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"await micropip.install([\n  \"palmerpenguins\",\n  \"setuptools\" # dependency\n])"},{"id":12,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"# Core pyodide Python package\nimport pandas as pd\n\n# External Python package\nfrom palmerpenguins import load_penguins\n\n# Load data in the package\npenguins = load_penguins()\n\n# Display the first 5 rows of the data using Pandas\npenguins.head()"},{"id":13,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"import matplotlib.pyplot as plt\n\nx = [1, 5, 3, -2]\ny = [-5, 8, 9, 4]\n\nplt.plot(x, y)\nplt.show()"},{"id":14,"options":{"comment":"","out-width":"700px","fig-height":5,"classes":"","label":"","message":"true","output":"true","results":"markup","dpi":72,"warning":"true","fig-cap":"","autorun":"","out-height":"","context":"interactive","read-only":"false","fig-width":7},"code":"import pandas as pd\n\ndf = pd.read_csv(\"https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv\")\ndf.head()"}];
 
 
 </script>
@@ -473,13 +473,13 @@ globalThis._qpyodideGetInstance = function() {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="https://quarto.thecoatlessprofessor.com/pyodide/examples/readme/">Demos</a></li><li class="breadcrumb-item"><a href="./qpyodide-code-cell-demo.html">Pyodide Interactive Cell Demo</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -511,9 +511,9 @@ globalThis._qpyodideGetInstance = function() {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting Started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -528,9 +528,9 @@ globalThis._qpyodideGetInstance = function() {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Support</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -551,9 +551,9 @@ globalThis._qpyodideGetInstance = function() {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Demos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -574,9 +574,9 @@ globalThis._qpyodideGetInstance = function() {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Deployment</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -591,9 +591,9 @@ globalThis._qpyodideGetInstance = function() {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Extra Information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>

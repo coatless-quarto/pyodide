@@ -10,7 +10,7 @@
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="index_files/libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.28">
+  <meta name="generator" content="quarto-1.5.43">
 
   <title>{quarto-pyodide} Demo RevealJS Document</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -474,7 +474,7 @@
 
   // Describe the webR settings that should be used
   globalThis.qpyodideCustomizedPyodideOptions = {
-    "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/",
+    "indexURL": "https://cdn.jsdelivr.net/pyodide/v0.26.1/full/",
     "env": {
       "HOME": "/home/pyodide",
     }, 
@@ -483,7 +483,7 @@
   }
 
   // Store cell data
-  globalThis.qpyodideCellDetails = [{"options":{"comment":"","out-height":"","output":"true","results":"markup","autorun":"","fig-height":5,"context":"interactive","warning":"true","dpi":72,"fig-cap":"","classes":"","message":"true","read-only":"false","fig-width":7,"out-width":"700px","label":""},"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","id":1},{"options":{"comment":"","out-height":"","output":"true","results":"markup","autorun":"","fig-height":5,"context":"interactive","warning":"true","dpi":72,"fig-cap":"","classes":"","message":"true","read-only":"false","fig-width":7,"out-width":"700px","label":""},"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","id":2},{"options":{"comment":"","out-height":"","output":"true","results":"markup","autorun":"","fig-height":5,"context":"interactive","warning":"true","dpi":72,"fig-cap":"","classes":"","message":"true","read-only":"false","fig-width":7,"out-width":"700px","label":""},"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","id":3},{"options":{"comment":"","out-height":"","output":"true","results":"markup","autorun":"","fig-height":5,"context":"interactive","warning":"true","dpi":72,"fig-cap":"","classes":"","message":"true","read-only":"false","fig-width":7,"out-width":"700px","label":""},"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","id":4}];
+  globalThis.qpyodideCellDetails = [{"id":1,"code":"n = 5\nwhile n > 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')","options":{"comment":"","dpi":72,"fig-width":7,"label":"","autorun":"","read-only":"false","results":"markup","message":"true","fig-height":5,"output":"true","fig-cap":"","context":"interactive","out-height":"","out-width":"700px","classes":"","warning":"true"}},{"id":2,"code":"import matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2*np.pi, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title('Sine wave')\nplt.show()","options":{"comment":"","dpi":72,"fig-width":7,"label":"","autorun":"","read-only":"false","results":"markup","message":"true","fig-height":5,"output":"true","fig-cap":"","context":"interactive","out-height":"","out-width":"700px","classes":"","warning":"true"}},{"id":3,"code":"def say_hello(name):\n  _________(f\"Hello there {name}!\")\n\nsay_hello(\"quarto-pyodide\")","options":{"comment":"","dpi":72,"fig-width":7,"label":"","autorun":"","read-only":"false","results":"markup","message":"true","fig-height":5,"output":"true","fig-cap":"","context":"interactive","out-height":"","out-width":"700px","classes":"","warning":"true"}},{"id":4,"code":"print(\"Hello quarto-pyodide RevealJS world!\")\n\n[x**2 for x in range(0, 5)]\n\n3 + 5","options":{"comment":"","dpi":72,"fig-width":7,"label":"","autorun":"","read-only":"false","results":"markup","message":"true","fig-height":5,"output":"true","fig-cap":"","context":"interactive","out-height":"","out-width":"700px","classes":"","warning":"true"}}];
 
 
   </script>
@@ -714,7 +714,7 @@
 <section id="quarto-pyodide-countdown" class="slide level2">
 <h2>quarto-{pyodide + countdown}</h2>
 <p>Pair code cells with a <a href="https://github.com/gadenbuie/countdown/tree/main/quarto">countdown timer</a> to allow for practice</p>
-<div id="timer_6687bb9ddd1d057809c41b43aca33cd6e2b30919" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_47571ca32a6ce58187dc2fb147eb0465a063ec88" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
