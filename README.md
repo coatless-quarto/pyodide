@@ -1,4 +1,4 @@
-# Pyodide Extension for Quarto HTML Documents
+# Pyodide Extension for Quarto HTML Documents <img src="logo-quarto-pyodide.png" align ="right" alt="" width ="150"/>
 
 **We have an initial version of the extension now available.**
 
