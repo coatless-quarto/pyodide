@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.6.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -237,7 +237,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","id":1,"options":{"output":"true","comment":"","results":"markup","context":"interactive","fig-height":5,"fig-width":7,"dpi":72,"label":"","message":"true","classes":"","out-width":"700px","read-only":"false","autorun":"","out-height":"","fig-cap":"","warning":"true"}}];
+globalThis.qpyodideCellDetails = [{"id":1,"code":"# Welcome to Python!\n\nprint(\"Hello, Quarto-Pyodide!\")\nprint(\"You've just entered the world of Python programming.\")\n\n# Let's make a graph\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3, 4], [1, 4, 9, 16])\nplt.ylabel('Magic Numbers')\nplt.show()\n\n# Feel free to add your own code below and have fun with Python!","options":{"comment":"","message":"true","fig-width":7,"out-height":"","fig-height":5,"classes":"","warning":"true","read-only":"false","results":"markup","dpi":72,"output":"true","context":"interactive","label":"","fig-cap":"","out-width":"700px","autorun":""}}];
 
 
 </script>
@@ -623,11 +623,26 @@ globalThis._qpyodideGetInstance = function() {
 </header>
 
 
-<p>Welcome to the documentation site for the <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code></a> extension – your key to unlocking the endless possibilities of <a href="https://pyodide.org/en/stable/">Pyodide</a> within various <a href="https://quarto.org/">Quarto</a> formats, including <a href="https://quarto.org/docs/output-formats/html-basics.html">HTML</a>, <a href="https://quarto.org/docs/presentations/revealjs/">RevealJS</a>, <a href="https://quarto.org/docs/websites/">Websites</a>, <a href="https://quarto.org/docs/websites/website-blog.html">Blogs</a>, and <a href="https://quarto.org/docs/books">Books</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Looking for the official Quarto WebAssembly backend? Check out <a href="https://github.com/r-wasm/quarto-live"><code>quarto-live</code></a>!</p>
+</div>
+</div><p>Welcome to the documentation site for the <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code></a> extension – your key to unlocking the endless possibilities of <a href="https://pyodide.org/en/stable/">Pyodide</a> within various <a href="https://quarto.org/">Quarto</a> formats, including <a href="https://quarto.org/docs/output-formats/html-basics.html">HTML</a>, <a href="https://quarto.org/docs/presentations/revealjs/">RevealJS</a>, <a href="https://quarto.org/docs/websites/">Websites</a>, <a href="https://quarto.org/docs/websites/website-blog.html">Blogs</a>, and <a href="https://quarto.org/docs/books">Books</a>.</p>
 <p>Ready for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:</p>
 <div id="qpyodide-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>At its core, the <a href="https://github.com/coatless-quarto/pyodide"><code>quarto-pyodide</code> extension</a> is designed to empower you to run <em>Python</em> code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. Just write Python code like you usually would! Though, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using <a href="https://pyodide.org/en/stable/">Pyodide’s JavaScript API</a>, granting you unparalleled freedom to harness the power of Python in innovative ways.</p>
+
+
+
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -640,11 +655,7 @@ Important
 <div class="callout-body-container callout-body">
 <p>This Quarto extension is open source software and is <strong>not affiliated with</strong> Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents.</p>
 </div>
-</div>
-
-
-
-</main> <!-- /main -->
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

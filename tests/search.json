@@ -1,5 +1,15 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-pyodide Test Website",
+    "section": "",
+    "text": "Welcome\nWelcome to the test suite website for the quarto-pyodide. This website is meant to examine how different features of the extension are working or not working across different browsers.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
     "objectID": "qpyodide-test-internal-cell.html",
     "href": "qpyodide-test-internal-cell.html",
     "title": "Test: Cell Context Options",
@@ -44,6 +54,17 @@
     ]
   },
   {
+    "objectID": "qpyodide-test-url.html",
+    "href": "qpyodide-test-url.html",
+    "title": "Test: Accessing Data via URL",
+    "section": "",
+    "text": "This test is designed to check if HTTP requests are shimmed so that the operation can be performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Tests",
+      "Test: Accessing Data via URL"
+    ]
+  },
+  {
     "objectID": "qpyodide-test-graphic-output.html",
     "href": "qpyodide-test-graphic-output.html",
     "title": "Test: Graphics Output",
@@ -63,27 +84,6 @@
     "crumbs": [
       "Tests",
       "Test: Graphics Output"
-    ]
-  },
-  {
-    "objectID": "qpyodide-test-url.html",
-    "href": "qpyodide-test-url.html",
-    "title": "Test: Accessing Data via URL",
-    "section": "",
-    "text": "This test is designed to check if HTTP requests are shimmed so that the operation can be performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Tests",
-      "Test: Accessing Data via URL"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quarto-pyodide Test Website",
-    "section": "",
-    "text": "Welcome\nWelcome to the test suite website for the quarto-pyodide. This website is meant to examine how different features of the extension are working or not working across different browsers.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Home"
     ]
   }
 ]
