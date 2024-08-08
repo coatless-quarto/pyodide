@@ -1,6 +1,8 @@
 # Pyodide Extension for Quarto HTML Documents <img src="logo-quarto-pyodide.png" align ="right" alt="" width ="150"/>
 
-**We have an initial version of the extension now available.**
+> [!IMPORTANT]
+>
+> Looking for the official Quarto WebAssembly backend? Check out [`quarto-live`](https://github.com/r-wasm/quarto-live)!
 
 This community developed Quarto extension enables the [Pyodide](https://pyodide.org/en/stable/) code cell within various [Quarto](https://quarto.org/) formats, including [HTML](https://quarto.org/docs/output-formats/html-basics.html), [RevealJS](https://quarto.org/docs/presentations/revealjs/), [Websites](https://quarto.org/docs/websites/), [Blogs](https://quarto.org/docs/websites/website-blog.html), and [Books](https://quarto.org/docs/books). 
 
