@@ -12,7 +12,7 @@ local hasDonePyodideSetup = false
 -- https://pyodide.org/en/stable/usage/api/js-api.html#globalThis.loadPyodide
 
 -- Define a base compatibile version
-local baseVersionPyodide = "0.26.1"
+local baseVersionPyodide = "0.26.2"
 
 -- Define where Pyodide can be found. Default:
 -- https://cdn.jsdelivr.net/pyodide/v0.z.y/full/
