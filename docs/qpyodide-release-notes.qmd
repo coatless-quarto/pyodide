@@ -13,15 +13,16 @@ format:
 [quarto]: https://quarto.org/
 
 
-# 0.0.1.dev-2: ??? (??-??-????)
+# 0.0.1.dev-3: ??? (??-??-????)
 
 ## Features
 
-- Updated the version of Pyodide from 0.25.0 to 0.26.1  ([#20](https://github.com/coatless-quarto/pyodide/pull/20))
+- Updated the version of Pyodide from 0.26.2 to 0.27.2  ([#26](https://github.com/coatless-quarto/pyodide/pull/26))
 - New code cell option that set the interactive cell to be read-only. ([#4](https://github.com/coatless-quarto/pyodide/issues/4))
 
 ## Changes
 
+- Updated the version of Pyodide from 0.25.0 to 0.26.1  ([#20](https://github.com/coatless-quarto/pyodide/pull/20))
 - We now load the `micropip` and `pyodide_http` packages during document initialization.
   - `micropip` package allows for installation of pure Python or Pyodide-compiled Python packages.
      ([#3](https://github.com/coatless-quarto/pyodide/issues/3))
