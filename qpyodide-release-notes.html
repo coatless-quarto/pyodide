@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.9">
+<meta name="generator" content="quarto-1.7.13">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -65,15 +65,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-79bb3942e891885f9f7af119cd221462.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3b2a626f8b33b42768cb052d5b94f828.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e5b8070214c8195f5f60c8866162d912.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -278,7 +279,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dev-2---" id="toc-dev-2---" class="nav-link active" data-scroll-target="#dev-2---">0.0.1.dev-2: ??? (??-??-????)</a>
+  <li><a href="#dev-3---" id="toc-dev-3---" class="nav-link active" data-scroll-target="#dev-3---">0.0.1.dev-3: ??? (??-??-????)</a>
   <ul class="collapse">
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">Features</a></li>
   <li><a href="#changes" id="toc-changes" class="nav-link" data-scroll-target="#changes">Changes</a></li>
@@ -318,7 +319,7 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 6, 2024</p>
+      <p class="date-modified">January 31, 2025</p>
     </div>
   </div>
     
@@ -329,18 +330,19 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 </header>
 
 
-<section id="dev-2---" class="level1">
-<h1>0.0.1.dev-2: ??? (??-??-????)</h1>
+<section id="dev-3---" class="level1">
+<h1>0.0.1.dev-3: ??? (??-??-????)</h1>
 <section id="features" class="level2">
 <h2 class="anchored" data-anchor-id="features">Features</h2>
 <ul>
-<li>Updated the version of Pyodide from 0.25.0 to 0.26.1 (<a href="https://github.com/coatless-quarto/pyodide/pull/20">#20</a>)</li>
+<li>Updated the version of Pyodide from 0.26.2 to 0.27.2 (<a href="https://github.com/coatless-quarto/pyodide/pull/26">#26</a>)</li>
 <li>New code cell option that set the interactive cell to be read-only. (<a href="https://github.com/coatless-quarto/pyodide/issues/4">#4</a>)</li>
 </ul>
 </section>
 <section id="changes" class="level2">
 <h2 class="anchored" data-anchor-id="changes">Changes</h2>
 <ul>
+<li>Updated the version of Pyodide from 0.25.0 to 0.26.1 (<a href="https://github.com/coatless-quarto/pyodide/pull/20">#20</a>)</li>
 <li>We now load the <code>micropip</code> and <code>pyodide_http</code> packages during document initialization.
 <ul>
 <li><code>micropip</code> package allows for installation of pure Python or Pyodide-compiled Python packages. (<a href="https://github.com/coatless-quarto/pyodide/issues/3">#3</a>)</li>
@@ -359,8 +361,8 @@ gtag('config', 'G-ZV56KS59C3', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>This is a pyodide code cell in a Quarto document. </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{pyodide-python}</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">def say_hello(name):</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">  print(f"Hello there {name}"!)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello(name):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"Hello there </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span><span class="op">!</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Execute code in the code cell using keyboard shortcuts:
@@ -485,8 +487,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -597,7 +597,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

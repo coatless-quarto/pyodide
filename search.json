@@ -1,5 +1,23 @@
 [
   {
+    "objectID": "qpyodide-deployment-templates.html",
+    "href": "qpyodide-deployment-templates.html",
+    "title": "Deployment Templates",
+    "section": "",
+    "text": "Discover a range of sample deployment templates for the quarto-pyodide extension at our GitHub repository here. These templates serve as convenient starting points for various web-based projects that harness the power of the quarto-pyodide extension, enabling interactive Python code cells inside of a web browser. Whether you’re embarking on an individual report, creating an interactive website, or compiling a digital book, these templates simplify the process, making it effortless to kickstart your own projects.\n\nHTML Document Template\nThis template is designed for creating standalone HTML documents with interactive Pyodide functionality. It’s suitable for individual reports or interactive documents.\n\nExample: You can find an example of an HTML document template here.\nSource Code: Access the source code for this template here.\n\n\n\nRevealJS Presentation Template\nThis template is designed for creating standalone RevealJS presentations with interactive Pyodide functionality. It’s suitable for creating lecture slides.\n\nExample: You can find an example of a RevealJS presentation template here.\nSource Code: Access the source code for this template here.\n\n\n\nWebsite Template\nThis template is meant for building interactive websites with multiple Pyodide-powered pages. It’s ideal for websites that have multiple piece of web content that requires interactive data analysis at the “top-level”.\n\nExample: Explore an example of a website template here.\nSource Code: Access the source code for this template here.\n\n\n\nBlog Template\nFor users who want to periodically use Pyodide on their Quarto blog, please use the following template.\n\nExample: Explore an example of a blog website template here.\nSource Code: Access the source code for this template here.\n\n\n\nBook Template\nThe book template is designed for creating interactive web-based books or documentation. It allows you to compile a collection of chapters, sections, and interactive content into a cohesive digital book.\n\nExample: You can view an example of a book template here.\nSource Code: Access the source code for this template here.\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis Quarto extension is open source software and is not affiliated with Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents.",
+    "crumbs": [
+      "Deployment",
+      "Templates"
+    ]
+  },
+  {
+    "objectID": "qpyodide-dev-notes.html",
+    "href": "qpyodide-dev-notes.html",
+    "title": "quarto-pyodide",
+    "section": "",
+    "text": "Pyodide\n\nUsing Pyodide\n\nQuarto Extensions\n\nquarto-ext/shinylive\nmcanouil/quarto-elevator\nshafayetShafee/downloadthis\n\nQuarto Documentation\n\nFilters Documentation\nLua Development Tips\nLua API\n\nPandoc Documentation\n\nExample Filters\nCodeBlock\n\nmatplotlib patches\n\ngzuidhof/starboard-notebook graphics patch\njupyterlite/pyodide-kernel graphics patch\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis Quarto extension is open source software and is not affiliated with Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents."
+  },
+  {
     "objectID": "qpyodide-faq.html",
     "href": "qpyodide-faq.html",
     "title": "Frequently Asked Questions",
@@ -99,87 +117,36 @@
     ]
   },
   {
-    "objectID": "qpyodide-release-notes.html",
-    "href": "qpyodide-release-notes.html",
-    "title": "Release Notes",
+    "objectID": "qpyodide-first-steps.html",
+    "href": "qpyodide-first-steps.html",
+    "title": "Making your first Pyodide-powered Quarto document",
     "section": "",
-    "text": "Updated the version of Pyodide from 0.25.0 to 0.26.1 (#20)\nNew code cell option that set the interactive cell to be read-only. (#4)\n\n\n\n\n\nWe now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
+    "text": "To use this extension in a Quarto project, install it from within the project’s working directory by typing into Terminal:\nquarto add coatless-quarto/pyodide\n\n\n\n\n\n\nNote\n\n\n\nQuarto extensions are project-specific installations and are not stored in a global library. This means that for every new Quarto project or directory where you create a Quarto Document, you’ll need to install the extension again.",
     "crumbs": [
-      "Extra Information",
-      "Release Notes"
+      "Getting Started",
+      "Your first Pyodide-powered Quarto document"
     ]
   },
   {
-    "objectID": "qpyodide-release-notes.html#features",
-    "href": "qpyodide-release-notes.html#features",
-    "title": "Release Notes",
+    "objectID": "qpyodide-first-steps.html#installation",
+    "href": "qpyodide-first-steps.html#installation",
+    "title": "Making your first Pyodide-powered Quarto document",
     "section": "",
-    "text": "Updated the version of Pyodide from 0.25.0 to 0.26.1 (#20)\nNew code cell option that set the interactive cell to be read-only. (#4)",
+    "text": "To use this extension in a Quarto project, install it from within the project’s working directory by typing into Terminal:\nquarto add coatless-quarto/pyodide\n\n\n\n\n\n\nNote\n\n\n\nQuarto extensions are project-specific installations and are not stored in a global library. This means that for every new Quarto project or directory where you create a Quarto Document, you’ll need to install the extension again.",
     "crumbs": [
-      "Extra Information",
-      "Release Notes"
+      "Getting Started",
+      "Your first Pyodide-powered Quarto document"
     ]
   },
   {
-    "objectID": "qpyodide-release-notes.html#changes",
-    "href": "qpyodide-release-notes.html#changes",
-    "title": "Release Notes",
-    "section": "",
-    "text": "We now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
+    "objectID": "qpyodide-first-steps.html#usage",
+    "href": "qpyodide-first-steps.html#usage",
+    "title": "Making your first Pyodide-powered Quarto document",
+    "section": "Usage",
+    "text": "Usage\nOnce the extension is successfully installed, you can begin utilizing it in your Quarto documents located within the same working directory as the _extensions folder. To activate the Pyodide functionality in those documents, follow these steps:\n\nAdd pyodide Filter: In the header of your Quarto document, add the pyodide filter to the list of filters:\n\nfilters:\n  - pyodide\n\nUse {pyodide-python} Code Blocks: Write your Python code within code blocks marked with {pyodide-python}. Here’s an example:\n\n---\ntitle: Pyodide in Quarto HTML Documents\nformat: html\nfilters:\n  - pyodide\n---\n\nThis is a Pyodide-enabled code cell in a Quarto HTML document.\n\n```{pyodide-python}\nn = 5\nwhile n &gt; 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')\n```\n\nRender Your Document: You can now render your Quarto document by clicking on the Preview button in the upper right side of the markdown editor window (or use the keyboard shortcut ⇧⌘K on macOS or Ctrl+Shift+K on Windows/Linux). The document will execute under engine: jupyter by default, but you can specify a different engine like knitr if needed.\n\n\n\n\n\n\n\nNote\n\n\n\nIf an engine is not specified, Quarto will attempt to use the jupyter compute engine by default. This may cause an error if jupyter is not installed on your computer.\n\n\n\nExplore interactivity: Try out the rendered code cell by pressing the “Run Code” button or using a keyboard shortcut of Shift + ↩︎.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
     "crumbs": [
-      "Extra Information",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qpyodide-release-notes.html#features-1",
-    "href": "qpyodide-release-notes.html#features-1",
-    "title": "Release Notes",
-    "section": "Features",
-    "text": "Features\n\nEnable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]",
-    "crumbs": [
-      "Extra Information",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qpyodide-release-notes.html#documentation",
-    "href": "qpyodide-release-notes.html#documentation",
-    "title": "Release Notes",
-    "section": "Documentation",
-    "text": "Documentation\n\nProvided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
-    "crumbs": [
-      "Extra Information",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qpyodide-release-notes.html#features-2",
-    "href": "qpyodide-release-notes.html#features-2",
-    "title": "Release Notes",
-    "section": "Features",
-    "text": "Features\n\nAn initial proof of concept of the code cell.",
-    "crumbs": [
-      "Extra Information",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hello from quarto-pyodide!",
-    "section": "",
-    "text": "Welcome to the documentation site for the quarto-pyodide extension – your key to unlocking the endless possibilities of Pyodide within various Quarto formats, including HTML, RevealJS, Websites, Blogs, and Books.\nReady for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAt its core, the quarto-pyodide extension is designed to empower you to run Python code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. Just write Python code like you usually would! Though, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using Pyodide’s JavaScript API, granting you unparalleled freedom to harness the power of Python in innovative ways.\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis Quarto extension is open source software and is not affiliated with Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents."
-  },
-  {
-    "objectID": "qpyodide-deployment-templates.html",
-    "href": "qpyodide-deployment-templates.html",
-    "title": "Deployment Templates",
-    "section": "",
-    "text": "Discover a range of sample deployment templates for the quarto-pyodide extension at our GitHub repository here. These templates serve as convenient starting points for various web-based projects that harness the power of the quarto-pyodide extension, enabling interactive Python code cells inside of a web browser. Whether you’re embarking on an individual report, creating an interactive website, or compiling a digital book, these templates simplify the process, making it effortless to kickstart your own projects.\n\nHTML Document Template\nThis template is designed for creating standalone HTML documents with interactive Pyodide functionality. It’s suitable for individual reports or interactive documents.\n\nExample: You can find an example of an HTML document template here.\nSource Code: Access the source code for this template here.\n\n\n\nRevealJS Presentation Template\nThis template is designed for creating standalone RevealJS presentations with interactive Pyodide functionality. It’s suitable for creating lecture slides.\n\nExample: You can find an example of a RevealJS presentation template here.\nSource Code: Access the source code for this template here.\n\n\n\nWebsite Template\nThis template is meant for building interactive websites with multiple Pyodide-powered pages. It’s ideal for websites that have multiple piece of web content that requires interactive data analysis at the “top-level”.\n\nExample: Explore an example of a website template here.\nSource Code: Access the source code for this template here.\n\n\n\nBlog Template\nFor users who want to periodically use Pyodide on their Quarto blog, please use the following template.\n\nExample: Explore an example of a blog website template here.\nSource Code: Access the source code for this template here.\n\n\n\nBook Template\nThe book template is designed for creating interactive web-based books or documentation. It allows you to compile a collection of chapters, sections, and interactive content into a cohesive digital book.\n\nExample: You can view an example of a book template here.\nSource Code: Access the source code for this template here.\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis Quarto extension is open source software and is not affiliated with Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents.",
-    "crumbs": [
-      "Deployment",
-      "Templates"
+      "Getting Started",
+      "Your first Pyodide-powered Quarto document"
     ]
   },
   {
@@ -293,44 +260,77 @@
     ]
   },
   {
-    "objectID": "qpyodide-dev-notes.html",
-    "href": "qpyodide-dev-notes.html",
-    "title": "quarto-pyodide",
+    "objectID": "qpyodide-release-notes.html",
+    "href": "qpyodide-release-notes.html",
+    "title": "Release Notes",
     "section": "",
-    "text": "Pyodide\n\nUsing Pyodide\n\nQuarto Extensions\n\nquarto-ext/shinylive\nmcanouil/quarto-elevator\nshafayetShafee/downloadthis\n\nQuarto Documentation\n\nFilters Documentation\nLua Development Tips\nLua API\n\nPandoc Documentation\n\nExample Filters\nCodeBlock\n\nmatplotlib patches\n\ngzuidhof/starboard-notebook graphics patch\njupyterlite/pyodide-kernel graphics patch\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis Quarto extension is open source software and is not affiliated with Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents."
-  },
-  {
-    "objectID": "qpyodide-first-steps.html",
-    "href": "qpyodide-first-steps.html",
-    "title": "Making your first Pyodide-powered Quarto document",
-    "section": "",
-    "text": "To use this extension in a Quarto project, install it from within the project’s working directory by typing into Terminal:\nquarto add coatless-quarto/pyodide\n\n\n\n\n\n\nNote\n\n\n\nQuarto extensions are project-specific installations and are not stored in a global library. This means that for every new Quarto project or directory where you create a Quarto Document, you’ll need to install the extension again.",
+    "text": "Updated the version of Pyodide from 0.26.2 to 0.27.2 (#26)\nNew code cell option that set the interactive cell to be read-only. (#4)\n\n\n\n\n\nUpdated the version of Pyodide from 0.25.0 to 0.26.1 (#20)\nWe now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
     "crumbs": [
-      "Getting Started",
-      "Your first Pyodide-powered Quarto document"
+      "Extra Information",
+      "Release Notes"
     ]
   },
   {
-    "objectID": "qpyodide-first-steps.html#installation",
-    "href": "qpyodide-first-steps.html#installation",
-    "title": "Making your first Pyodide-powered Quarto document",
+    "objectID": "qpyodide-release-notes.html#features",
+    "href": "qpyodide-release-notes.html#features",
+    "title": "Release Notes",
     "section": "",
-    "text": "To use this extension in a Quarto project, install it from within the project’s working directory by typing into Terminal:\nquarto add coatless-quarto/pyodide\n\n\n\n\n\n\nNote\n\n\n\nQuarto extensions are project-specific installations and are not stored in a global library. This means that for every new Quarto project or directory where you create a Quarto Document, you’ll need to install the extension again.",
+    "text": "Updated the version of Pyodide from 0.26.2 to 0.27.2 (#26)\nNew code cell option that set the interactive cell to be read-only. (#4)",
     "crumbs": [
-      "Getting Started",
-      "Your first Pyodide-powered Quarto document"
+      "Extra Information",
+      "Release Notes"
     ]
   },
   {
-    "objectID": "qpyodide-first-steps.html#usage",
-    "href": "qpyodide-first-steps.html#usage",
-    "title": "Making your first Pyodide-powered Quarto document",
-    "section": "Usage",
-    "text": "Usage\nOnce the extension is successfully installed, you can begin utilizing it in your Quarto documents located within the same working directory as the _extensions folder. To activate the Pyodide functionality in those documents, follow these steps:\n\nAdd pyodide Filter: In the header of your Quarto document, add the pyodide filter to the list of filters:\n\nfilters:\n  - pyodide\n\nUse {pyodide-python} Code Blocks: Write your Python code within code blocks marked with {pyodide-python}. Here’s an example:\n\n---\ntitle: Pyodide in Quarto HTML Documents\nformat: html\nfilters:\n  - pyodide\n---\n\nThis is a Pyodide-enabled code cell in a Quarto HTML document.\n\n```{pyodide-python}\nn = 5\nwhile n &gt; 0:\n  print(n)\n  n = n - 1\n\nprint('Blastoff!')\n```\n\nRender Your Document: You can now render your Quarto document by clicking on the Preview button in the upper right side of the markdown editor window (or use the keyboard shortcut ⇧⌘K on macOS or Ctrl+Shift+K on Windows/Linux). The document will execute under engine: jupyter by default, but you can specify a different engine like knitr if needed.\n\n\n\n\n\n\n\nNote\n\n\n\nIf an engine is not specified, Quarto will attempt to use the jupyter compute engine by default. This may cause an error if jupyter is not installed on your computer.\n\n\n\nExplore interactivity: Try out the rendered code cell by pressing the “Run Code” button or using a keyboard shortcut of Shift + ↩︎.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "objectID": "qpyodide-release-notes.html#changes",
+    "href": "qpyodide-release-notes.html#changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Updated the version of Pyodide from 0.25.0 to 0.26.1 (#20)\nWe now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
     "crumbs": [
-      "Getting Started",
-      "Your first Pyodide-powered Quarto document"
+      "Extra Information",
+      "Release Notes"
     ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#features-1",
+    "href": "qpyodide-release-notes.html#features-1",
+    "title": "Release Notes",
+    "section": "Features",
+    "text": "Features\n\nEnable an interactive Python code cells using Pyodide inside of a Quarto document.\n\nThis is a pyodide code cell in a Quarto document. \n\n```{pyodide-python}\ndef say_hello(name):\n  print(f\"Hello there {name}\"!)\n```\n\nExecute code in the code cell using keyboard shortcuts:\n\nRun selected code using: [Cmd + Enter] on macOS or [Ctrl+Enter] on Windows\nRun the entire code area using: [Shift+Enter]",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#documentation",
+    "href": "qpyodide-release-notes.html#documentation",
+    "title": "Release Notes",
+    "section": "Documentation",
+    "text": "Documentation\n\nProvided an extension documentation website at: https://quarto.thecoatlessprofessor.com/pyodide\nIncluded several deployment templates.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#features-2",
+    "href": "qpyodide-release-notes.html#features-2",
+    "title": "Release Notes",
+    "section": "Features",
+    "text": "Features\n\nAn initial proof of concept of the code cell.",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hello from quarto-pyodide!",
+    "section": "",
+    "text": "Welcome to the documentation site for the quarto-pyodide extension – your key to unlocking the endless possibilities of Pyodide within various Quarto formats, including HTML, RevealJS, Websites, Blogs, and Books.\nReady for an exciting journey into the world of Pyodide’s interactive code cells? Click the “Run Code” button below to experience it firsthand:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAt its core, the quarto-pyodide extension is designed to empower you to run Python code directly in your web browser using familiar reporting tools, all without the need for an external Python server. Moreover, the extension abstracts away the need to know HTML or JavaScript to use Pyodide. Just write Python code like you usually would! Though, it’s worth noting that you can also choose to unlock the full potential of Pyodide and create more complex applications independently by directly using Pyodide’s JavaScript API, granting you unparalleled freedom to harness the power of Python in innovative ways.\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nThis Quarto extension is open source software and is not affiliated with Posit, Quarto, or Pyodide. The extension is at best a community effort to simplify the integration of Pyodide inside of Quarto generated documents."
   },
   {
     "objectID": "qpyodide-acknowledgements.html",
