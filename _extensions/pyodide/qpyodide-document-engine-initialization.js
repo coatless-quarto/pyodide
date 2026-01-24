@@ -59,6 +59,17 @@ globalThis.qpyodideInstance = await import(
     from matplotlib import pyplot as plt
     `);
 
+    // Install packages specified in the YAML header
+    if (qpyodideSetupPythonPackages && qpyodideInstallPythonPackagesList.length > 0) {
+      qpyodideUpdateStatusHeaderSpinner("Installing Python Packages");
+      for (const pkg of qpyodideInstallPythonPackagesList) {
+        if (pkg && pkg !== '') {
+          console.log(`Installing package: ${pkg}`);
+          await mainPyodide.runPythonAsync(`await micropip.install("${pkg}")`);
+        }
+      }
+    }
+
     // Unlock interactive buttons
     qpyodideSetInteractiveButtonState(
       `<i class="fa-solid fa-play qpyodide-icon-run-code"></i> <span>Run Code</span>`, 
