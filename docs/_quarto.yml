@@ -39,6 +39,8 @@ website:
         contents:
           - href: qpyodide-release-notes.qmd
             text: Release Notes
+          - href: https://blog.thecoatlessprofessor.com/projects/pyodide/
+            text: Blog posts
           - href: qpyodide-acknowledgements.md
             text: Acknowledgements
           - href: https://quarto.thecoatlessprofessor.com/pyodide/tests/
