@@ -319,7 +319,18 @@
     "href": "qpyodide-release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "Updated the version of Pyodide from 0.26.2 to 0.27.2 (#26)\nNew code cell option that set the interactive cell to be read-only. (#4)\n\n\n\n\n\nUpdated the version of Pyodide from 0.25.0 to 0.26.1 (#20)\nWe now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
+    "text": "pyodide now requires Quarto 1.11 or later.\n\n\n\n\n\nUpdated the version of Pyodide from 0.26.2 to 0.27.2 (#26)\nNew code cell option that set the interactive cell to be read-only. (#4)\n\n\n\n\n\nUpdated the version of Pyodide from 0.25.0 to 0.26.1 (#20)\nWe now load the micropip and pyodide_http packages during document initialization.\n\nmicropip package allows for installation of pure Python or Pyodide-compiled Python packages. (#3)\npyodide_http provides the necessary shims to ensure uses of requests and urllib3 are able to be processed instead of returning a URL error. (#9)",
+    "crumbs": [
+      "Extra Information",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qpyodide-release-notes.html#breaking-changes",
+    "href": "qpyodide-release-notes.html#breaking-changes",
+    "title": "Release Notes",
+    "section": "",
+    "text": "pyodide now requires Quarto 1.11 or later.",
     "crumbs": [
       "Extra Information",
       "Release Notes"
