@@ -69,3 +69,7 @@ Want to contribute a feature? Please open an issue ticket to discuss the feature
 ## Acknowledgements
 
 Please see our [acknowledgements page](https://quarto.thecoatlessprofessor.com/pyodide/qpyodide-acknowledgements.html).
+
+## License
+
+pyodide is licensed under AGPL-3.0-or-later with an exception: what you write and render with pyodide stays yours, along with the output, under any terms you like. See [LICENSE](LICENSE) and [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
